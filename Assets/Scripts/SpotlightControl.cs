@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class SpotlightControl : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SpotlightControl : MonoBehaviour
     private GameObject currentTarget;
     public LayerMask layerMask;
     public Outline outline;
+
+    ItemFoundEvent itemFoundEvent = new ItemFoundEvent();
 
     void Start()
     {
@@ -29,6 +32,15 @@ public class SpotlightControl : MonoBehaviour
 
             Raycast();
         }
+    }
+
+    /// <summary>
+    /// Adds listener to the Item Found Event
+    /// </summary>
+    /// <param name="listener">listener</param>
+    public void AddItemFoundEventListener(UnityAction<int> listener)
+    {
+        itemFoundEvent.AddListener(listener);
     }
 
     private void Raycast()
