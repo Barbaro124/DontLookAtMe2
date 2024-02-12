@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UIElements;
 
@@ -19,6 +20,8 @@ public class PlayerAdditions : MonoBehaviour
 
     public bool canInteract = false;
 
+    NextRoomEvent nextRoomEvent = new NextRoomEvent();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,11 @@ public class PlayerAdditions : MonoBehaviour
     void Update()
     {
         Raycast();
+    }
+
+    public void AddNextRoomEventListener(UnityAction listener)
+    {
+        nextRoomEvent.AddListener(listener);
     }
 
     public void Raycast()
@@ -58,13 +66,13 @@ public class PlayerAdditions : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Interactables"))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                Debug.Log("Did Hit");
+                //Debug.Log("Did Hit");
 
             }
             else
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-                Debug.Log("Did not Hit");
+                //Debug.Log("Did not Hit");
             }
         }
 
@@ -105,16 +113,8 @@ public class PlayerAdditions : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Button Pressed");
-                itemsFound = spotlight.GetComponent<SpotlightControl>().itemsFound;
-                Debug.Log("Items Found: " + itemsFound);
-                if (itemsFound >= 3)
-                {
-                    Debug.Log("Proceed to next level");
-                    SceneChanger sceneChanger = new SceneChanger();
-                    sceneChanger.LevelProceed();
-                    PressButton();
-                }
+                PressButton();
+                nextRoomEvent.Invoke();
             }
         }
 
@@ -125,7 +125,7 @@ public class PlayerAdditions : MonoBehaviour
 
     void ControlLight ()
     {
-        Debug.Log("Control Light");
+        //Debug.Log("Control Light");
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (spotlight.GetComponent<Light>().enabled)
@@ -145,11 +145,7 @@ public class PlayerAdditions : MonoBehaviour
     }
 
     void PressButton()
-    {
-        if (itemsFound >= 3)
-        {
-            Debug.Log("Proceed to next level");
-
-        }
+    { 
+        Debug.Log("Button Pressed");
     }
 }

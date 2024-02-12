@@ -6,7 +6,7 @@ public class SpotlightControl : MonoBehaviour
 {
     public float rotationSpeed = 20f;
     private PlayerMovement playerMovement;
-    public int itemsFound = 0;
+    //public int itemsFound = 0;
     private GameObject currentTarget;
     public LayerMask layerMask;
     public Outline outline;
@@ -38,7 +38,7 @@ public class SpotlightControl : MonoBehaviour
     /// Adds listener to the Item Found Event
     /// </summary>
     /// <param name="listener">listener</param>
-    public void AddItemFoundEventListener(UnityAction<int> listener)
+    public void AddItemFoundEventListener(UnityAction listener)
     {
         itemFoundEvent.AddListener(listener);
     }
@@ -69,13 +69,13 @@ public class SpotlightControl : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Interactables"))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                Debug.Log("Did Hit");
+                //Debug.Log("Did Hit");
 
             }
             else
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-                Debug.Log("Did not Hit");
+                //Debug.Log("Did not Hit");
             }
         }
 
@@ -85,28 +85,6 @@ public class SpotlightControl : MonoBehaviour
             currentTarget = null;
         }
 
-        //if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-        //{
-
-
-        /*
-        if (hit.collider.CompareTag("HiddenObject"))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-
-            itemsFound++;
-            Debug.Log("Items Found: " + itemsFound);
-
-            //hit.collider.gameObject.GetComponent<Outline>().enabled = true;
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-            Debug.Log("Did not Hit");
-            //hit.collider.gameObject.GetComponent<Outline>().enabled = false;
-        }*/
-        //}
-
     }
 
     void OnRaycastEnter(GameObject target)
@@ -115,8 +93,7 @@ public class SpotlightControl : MonoBehaviour
         outline.EnableOutline();
         if (target.CompareTag("HiddenObject"))
         {
-            itemsFound++;
-            Debug.Log("Items Found: " + itemsFound);
+            itemFoundEvent.Invoke();
         }
         // Do something with the object that was hit by the raycast.
 
@@ -135,4 +112,6 @@ public class SpotlightControl : MonoBehaviour
         outline.EnableOutline();
 
     }
+
+
 }
