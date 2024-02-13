@@ -20,6 +20,11 @@ public class PlayerAdditions : MonoBehaviour
 
     public bool canInteract = false;
 
+    GameObject aimSpotLock;
+    GameObject player;
+    CharacterController characterController;
+    bool lockedIn = false;
+
 
     NextRoomEvent nextRoomEvent = new NextRoomEvent();
 
@@ -30,6 +35,10 @@ public class PlayerAdditions : MonoBehaviour
         spotlight = GameObject.Find("Spotlight");
         button = GameObject.Find("Button");
         playerMovement = FindObjectOfType<PlayerMovement>();
+
+        aimSpotLock = GameObject.FindGameObjectWithTag("AimSpotLock");
+        player = GameObject.FindGameObjectWithTag("Player");
+        characterController = player.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -140,13 +149,22 @@ public class PlayerAdditions : MonoBehaviour
             spotlight.GetComponent<Light>().enabled = false;
             playerMovement.ToggleSpotlightControl(false);
             isRunning = false;
+
+            //unlock player
+            lockedIn = false;
+            PlaceLock();
         }
         else if (!spotlight.GetComponent<Light>().enabled && isRunning == true)
         {
             spotlight.GetComponent<Light>().enabled = true;
             playerMovement.ToggleSpotlightControl(true);
             isRunning = false;
+
+            //lock in player
+            lockedIn = true;
+            PlaceLock();
         }
+        
         
 
     }
@@ -154,5 +172,24 @@ public class PlayerAdditions : MonoBehaviour
     void PressButton()
     { 
         Debug.Log("Button Pressed");
+    }
+
+    void PlaceLock()
+    {
+        if (lockedIn)
+        {
+            Debug.Log(aimSpotLock.transform.position.ToString());
+            //move to locked position, disable player movement
+            player.transform.position = aimSpotLock.transform.position;
+            transform.rotation = aimSpotLock.transform.rotation;
+
+            Camera.current.
+            //characterController.enabled = false;
+        }
+        else
+        {
+            //re-enable character movement
+            //characterController.enabled = true;
+        }
     }
 }
