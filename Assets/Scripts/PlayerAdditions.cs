@@ -20,6 +20,7 @@ public class PlayerAdditions : MonoBehaviour
 
     public bool canInteract = false;
 
+
     NextRoomEvent nextRoomEvent = new NextRoomEvent();
 
     // Start is called before the first frame update
@@ -39,6 +40,7 @@ public class PlayerAdditions : MonoBehaviour
 
     public void AddNextRoomEventListener(UnityAction listener)
     {
+        Debug.Log("Added Next Room Event Listener");
         nextRoomEvent.AddListener(listener);
     }
 
@@ -106,7 +108,12 @@ public class PlayerAdditions : MonoBehaviour
 
         if (target.CompareTag("Spotlight"))
         {
-            ControlLight();
+            //Debug.Log("Looking At Light");
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ControlLight(true);
+            }
+
         }
 
         if (target.CompareTag("Button"))
@@ -123,24 +130,24 @@ public class PlayerAdditions : MonoBehaviour
 
     }
 
-    void ControlLight ()
+    void ControlLight (bool isRunning)
     {
         //Debug.Log("Control Light");
-        if (Input.GetKeyDown(KeyCode.E))
+
+        Debug.Log("Control Light Method");
+        if (spotlight.GetComponent<Light>().enabled && isRunning == true)
         {
-            if (spotlight.GetComponent<Light>().enabled)
-            {
-                spotlight.GetComponent<Light>().enabled = false;
-
-                playerMovement.ToggleSpotlightControl(false);
-            }
-            else
-            {
-                spotlight.GetComponent<Light>().enabled = true;
-
-                playerMovement.ToggleSpotlightControl(true);
-            }
+            spotlight.GetComponent<Light>().enabled = false;
+            playerMovement.ToggleSpotlightControl(false);
+            isRunning = false;
         }
+        else if (!spotlight.GetComponent<Light>().enabled && isRunning == true)
+        {
+            spotlight.GetComponent<Light>().enabled = true;
+            playerMovement.ToggleSpotlightControl(true);
+            isRunning = false;
+        }
+        
 
     }
 

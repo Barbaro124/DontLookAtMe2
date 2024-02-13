@@ -4,6 +4,5 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class NextRoomEvent : UnityEvent
-{
-
+{ 
 }
