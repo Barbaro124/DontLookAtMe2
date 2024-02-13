@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerAdditions : MonoBehaviour
@@ -181,11 +182,17 @@ public class PlayerAdditions : MonoBehaviour
         if (lockedIn)
         {
             Debug.Log(aimSpotLock.transform.position.ToString());
-            //move to locked position, disable player movement
-            player.transform.position = aimSpotLock.transform.position;
-            transform.rotation = aimSpotLock.transform.rotation;
+            Vector3 distance = aimSpotLock.transform.position - player.transform.position;
 
-  
+            while(player.transform.position != aimSpotLock.transform.position)
+            {
+                player.transform.position = Vector3.MoveTowards(player.transform.position, aimSpotLock.transform.position, 0.1f);
+            }
+
+            //snap to locked position
+            //player.transform.position = aimSpotLock.transform.position;
+
+            //player movement is already disabled via the playermovement script, so this is uneccesary.
             //characterController.enabled = false;
         }
         else
