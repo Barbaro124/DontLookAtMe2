@@ -12,7 +12,7 @@ public class MyManager : MonoBehaviour
     void Start()
     {
         itemsFound = 0;
-        //sceneChanger = new SceneChanger();
+        sceneChanger = GetComponent<SceneChanger>();
 
         //add self as item found event listener
         SpotlightControl spotlightScript = GameObject.FindWithTag("SpotlightRotator").GetComponent<SpotlightControl>();
@@ -31,7 +31,8 @@ public class MyManager : MonoBehaviour
     }
 
     void NextRoom()
-    { 
+    {
+        Debug.Log("NextRoom Invoked");
         if (itemsFound >= 3)
         {
             Debug.Log("Next Scene!");

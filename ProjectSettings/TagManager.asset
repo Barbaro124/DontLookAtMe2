@@ -9,6 +9,7 @@ TagManager:
   - Spotlight
   - Button
   - HiddenObject
+  - SpotlightRotator
   layers:
   - Default
   - TransparentFX
