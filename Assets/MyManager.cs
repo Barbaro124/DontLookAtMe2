@@ -15,7 +15,7 @@ public class MyManager : MonoBehaviour
         //sceneChanger = new SceneChanger();
 
         //add self as item found event listener
-        SpotlightControl spotlightScript = GameObject.FindWithTag("Spotlight").GetComponent<SpotlightControl>();
+        SpotlightControl spotlightScript = GameObject.FindWithTag("SpotlightRotator").GetComponent<SpotlightControl>();
         spotlightScript.AddItemFoundEventListener(AddItem);
 
         //add self as next room event listener
