@@ -25,6 +25,8 @@ public class PlayerAdditions : MonoBehaviour
     CharacterController characterController;
     bool lockedIn = false;
 
+    GameObject cineMachineTarget;
+
 
     NextRoomEvent nextRoomEvent = new NextRoomEvent();
 
@@ -183,7 +185,7 @@ public class PlayerAdditions : MonoBehaviour
             player.transform.position = aimSpotLock.transform.position;
             transform.rotation = aimSpotLock.transform.rotation;
 
-            Camera.current.
+  
             //characterController.enabled = false;
         }
         else

@@ -130,7 +130,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            _mainCamera.transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            //_mainCamera.transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            _mainCamera.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
         }
         GroundedCheck();
 
