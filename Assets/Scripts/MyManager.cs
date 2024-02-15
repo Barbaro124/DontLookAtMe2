@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
-//using static UnityEditor.Timeline.Actions.MenuPriority;
+
 
 public class MyManager : MonoBehaviour
 {
     private static MyManager instance;
     public int itemsFound;
-    //SceneChanger sceneChanger;
     CursorControl cursorControlScript;
     public enum Scene
     {
         MainMenu,
         Chamber_1,
+        Chamber_2,
         Instructions,
         GameOver
     }

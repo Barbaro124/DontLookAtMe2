@@ -139,7 +139,7 @@ public class PlayerAdditions : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Button Pressed");
-                nextRoomEvent.Invoke();
+                //nextRoomEvent.Invoke();
             }
         }
 
