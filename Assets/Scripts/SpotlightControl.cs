@@ -100,8 +100,12 @@ public class SpotlightControl : MonoBehaviour
         if (target.CompareTag("HiddenObject"))
         {
             itemFoundEvent.Invoke();
-            meshRenderer = target.GetComponentInChildren<Renderer>();
-            meshRenderer.materials[0] = lighton;
+            //if (target.GetComponentsInChildren.GameObject.CompareTag("LightSensorLight"))
+            //{
+
+            //}
+            //meshRenderer = target.GetComponentInChildren<Renderer>();
+            //meshRenderer.materials[0] = lighton;
             //target.GetComponentInChildren<MeshRenderer>().material.EnableKeyword("_EMISSION");
             //if (target.CompareTag("LightSensorLight"))
             //{

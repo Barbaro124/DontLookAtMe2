@@ -2573,6 +2573,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &462307750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5348008827488614893, guid: 8a2a60d9118c23645a2b4410cbe9478d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7550377145898548429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &462307754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462307750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223f803c36f855749bbe99b187c70e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &579359264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4228292131850356525, guid: 156ea8d7801e10143a361335f8615ae7,
@@ -3752,6 +3770,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &938853413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1326879377773865332, guid: 8a2a60d9118c23645a2b4410cbe9478d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7550377145898548429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &938853418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938853413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387c8c6990041524bb3b90dc9b6d2c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &939172009
 GameObject:
   m_ObjectHideFlags: 0
@@ -14157,7 +14193,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5348008827488614893, guid: 8a2a60d9118c23645a2b4410cbe9478d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 462307754}
+    - targetCorrespondingSourceObject: {fileID: 1326879377773865332, guid: 8a2a60d9118c23645a2b4410cbe9478d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 938853418}
   m_SourcePrefab: {fileID: 100100000, guid: 8a2a60d9118c23645a2b4410cbe9478d, type: 3}
 --- !u!20 &9018249871656131595 stripped
 Camera:
