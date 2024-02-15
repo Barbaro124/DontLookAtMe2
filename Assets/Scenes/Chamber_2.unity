@@ -10053,11 +10053,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 20
-  itemsFound: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64
   outline: {fileID: 0}
+  lightoff: {fileID: 0}
+  lighton: {fileID: 0}
 --- !u!1001 &1561488732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14839,7 +14840,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1437999569991494263, guid: f729244b6e42fa14dae227cbca9c701c, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8267281615051073647, guid: f729244b6e42fa14dae227cbca9c701c,
         type: 3}

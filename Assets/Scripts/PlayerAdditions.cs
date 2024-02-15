@@ -30,6 +30,7 @@ public class PlayerAdditions : MonoBehaviour
 
 
     NextRoomEvent nextRoomEvent = new NextRoomEvent();
+    TrolleyExitEvent trolleyExitEvent = new TrolleyExitEvent();
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,12 @@ public class PlayerAdditions : MonoBehaviour
     {
         Debug.Log("Added Next Room Event Listener");
         nextRoomEvent.AddListener(listener);
+    }
+
+    public void AddTrolleyExitEventListener(UnityAction listener)
+    {
+        Debug.Log("Added PlayerAdditions as Trolley Exit Event Listener");
+        trolleyExitEvent.AddListener(listener);
     }
 
     public void Raycast()
@@ -143,9 +150,7 @@ public class PlayerAdditions : MonoBehaviour
 
     void ControlLight (bool isRunning)
     {
-        //Debug.Log("Control Light");
-
-        Debug.Log("Control Light Method");
+        //Debug.Log("Control Light Method");
         if (spotlight.GetComponent<Light>().enabled && isRunning == true)
         {
             spotlight.GetComponent<Light>().enabled = false;
@@ -174,13 +179,14 @@ public class PlayerAdditions : MonoBehaviour
     void PressButton()
     { 
         Debug.Log("Button Pressed");
+        trolleyExitEvent.Invoke();
     }
 
     void PlaceLock()
     {
         if (lockedIn)
         {
-            Debug.Log(aimSpotLock.transform.position.ToString());
+
             Vector3 distance = aimSpotLock.transform.position - player.transform.position;
 
             while(player.transform.position != aimSpotLock.transform.position)

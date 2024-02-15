@@ -41,7 +41,7 @@ public class MyManager : MonoBehaviour
     void Start()
     {
         itemsFound = 0;
-        //sceneChanger = GetComponent<SceneChanger>();
+
         cursorControlScript = GetComponent<CursorControl>();
 
     }
@@ -59,15 +59,16 @@ public class MyManager : MonoBehaviour
         itemsFound++;
         Debug.Log("Items Found: " + itemsFound);
     }
+
     void NextRoom()
     {
         Debug.Log("NextRoom Invoked");
         if (itemsFound >= 3)
         {
             Debug.Log("Next Scene!");
-            //sceneChanger.LevelProceed();
+
             LevelProceed();
-            //OnSceneChange();
+
         }
         else
         {
@@ -102,16 +103,12 @@ public class MyManager : MonoBehaviour
         Application.Quit();
     }
 
-    #region Events
-
-    #endregion
 
     /// <summary>
     /// Proceeds through levels in the intended order
     /// </summary>
     public void LevelProceed()
     {
-        
 
         if (SceneManager.GetActiveScene().name == "Chamber_1")
         {
@@ -123,33 +120,16 @@ public class MyManager : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
         }
     }
+    #endregion
 
     /// <summary>
-    /// executes certain actions upon a gameplay scene load, such as controlling the cursor, adding event listeners, and resetting the items found.
-    /// NOTE: make sure scene is loaded BEFORE executing this method
+    /// executes actions such as Event listeners, itemsFound reset, and restricting cursor depending on what level was loaded. Chambers must match level number in build settings.
     /// </summary>
-    //void OnSceneChange()
-    //{
-    //    cursorControlScript.setCursor();
-    //    itemsFound = 0;
-
-    //    ChangeMaterial changeMaterial1 = GameObject.FindWithTag("LightSensorLight").GetComponent<ChangeMaterial>();
-    //    changeMaterial1.AddItemFoundEventListener(AddItem);
-
-    //    ChangeMaterial changeMaterial2 = GameObject.FindWithTag("LightSensorLight2").GetComponent<ChangeMaterial>();
-    //    changeMaterial2.AddItemFoundEventListener(AddItem);
-
-    //    ChangeMaterial changeMaterial3 = GameObject.FindWithTag("LightSensorLight3").GetComponent<ChangeMaterial>();
-    //    changeMaterial3.AddItemFoundEventListener(AddItem);
-
-    //    //add self as next room event listener
-    //    PlayerAdditions playerScript = GameObject.FindWithTag("MainCamera").GetComponent<PlayerAdditions>();
-    //    playerScript.AddNextRoomEventListener(NextRoom);
-    //}
-
-    private void OnLevelWasLoaded(int level)
+    /// <param name="level"></param>
+    private void OnLevelWasLoaded(int chamber)
     {
-        if (level == 1 || level == 2)
+        //gameplay chambers
+        if (chamber == 1 || chamber == 2)
         {
             cursorControlScript.setCursor();
             itemsFound = 0;
@@ -168,6 +148,6 @@ public class MyManager : MonoBehaviour
             playerScript.AddNextRoomEventListener(NextRoom);
         }
     }
-    #endregion
+
 
 }
