@@ -3,12 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class CursorControl : MonoBehaviour
 {
-    // Add a public array to specify the scene names where cursor visibility should be controlled
-    public string[] scenesToControlCursor;
+    //array to specify the scene names where cursor visibility should be controlled
+
+    string[] scenesToControlCursor = { "Chamber_1", "Chamber_2" };
 
     void Start()
     {
-
+ 
     }
 
     bool IsSceneInArray(string sceneName)
@@ -26,6 +27,7 @@ public class CursorControl : MonoBehaviour
 
     public void setCursor()
     {
+        Debug.Log("setCursor method called");
         // Check if the current scene is in the scenesToControlCursor array
         if (IsSceneInArray(SceneManager.GetActiveScene().name))
         {
