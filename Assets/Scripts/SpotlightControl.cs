@@ -16,7 +16,7 @@ public class SpotlightControl : MonoBehaviour
     public Material lighton;
     Renderer meshRenderer;
 
-    ItemFoundEvent itemFoundEvent = new ItemFoundEvent();
+    //ItemFoundEvent itemFoundEvent = new ItemFoundEvent();
 
     void Start()
     {
@@ -44,10 +44,10 @@ public class SpotlightControl : MonoBehaviour
     /// Adds listener to the Item Found Event
     /// </summary>
     /// <param name="listener">listener</param>
-    public void AddItemFoundEventListener(UnityAction listener)
-    {
-        itemFoundEvent.AddListener(listener);
-    }
+    //public void AddItemFoundEventListener(UnityAction listener)
+    //{
+    //    itemFoundEvent.AddListener(listener);
+    //}
 
     private void Raycast()
     {
@@ -99,7 +99,8 @@ public class SpotlightControl : MonoBehaviour
         outline.EnableOutline();
         if (target.CompareTag("HiddenObject"))
         {
-            itemFoundEvent.Invoke();
+            //itemFoundEvent.Invoke();
+            target.GetComponentInChildren<ChangeMaterial>().LightOn();
             //if (target.GetComponentsInChildren.GameObject.CompareTag("LightSensorLight"))
             //{
 

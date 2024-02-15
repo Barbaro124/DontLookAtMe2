@@ -16,8 +16,17 @@ public class MyManager : MonoBehaviour
         sceneChanger = GetComponent<SceneChanger>();
 
         //add self as item found event listener
-        SpotlightControl spotlightScript = GameObject.FindWithTag("SpotlightRotator").GetComponent<SpotlightControl>();
-        spotlightScript.AddItemFoundEventListener(AddItem);
+        //SpotlightControl spotlightScript = GameObject.FindWithTag("SpotlightRotator").GetComponent<SpotlightControl>();
+        //spotlightScript.AddItemFoundEventListener(AddItem);
+
+        ChangeMaterial changeMaterial1 = GameObject.FindWithTag("LightSensorLight").GetComponent<ChangeMaterial>();
+        changeMaterial1.AddItemFoundEventListener(AddItem);
+
+        ChangeMaterial changeMaterial2 = GameObject.FindWithTag("LightSensorLight2").GetComponent<ChangeMaterial>();
+        changeMaterial2.AddItemFoundEventListener(AddItem);
+
+        ChangeMaterial changeMaterial3 = GameObject.FindWithTag("LightSensorLight3").GetComponent<ChangeMaterial>();
+        changeMaterial3.AddItemFoundEventListener(AddItem);
 
         //add self as next room event listener
         PlayerAdditions playerScript = GameObject.FindWithTag("MainCamera").GetComponent<PlayerAdditions>();
