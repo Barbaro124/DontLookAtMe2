@@ -8,6 +8,7 @@ public class MyManager : MonoBehaviour
 
     int itemsFound;
     SceneChanger sceneChanger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,12 @@ public class MyManager : MonoBehaviour
     {
         itemsFound++;
         Debug.Log("Items Found: " + itemsFound);
+
+        //GameObject sensorLight = GameObject.FindGameObjectWithTag("LightSensorLight");
+
+        //sensorLight.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+        
+    
     }
 
     void NextRoom()

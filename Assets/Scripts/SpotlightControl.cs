@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using JetBrains.Annotations;
 
 public class SpotlightControl : MonoBehaviour
 {
@@ -11,11 +12,16 @@ public class SpotlightControl : MonoBehaviour
     public LayerMask layerMask;
     public Outline outline;
 
+    public Material lightoff;
+    public Material lighton;
+    Renderer meshRenderer;
+
     ItemFoundEvent itemFoundEvent = new ItemFoundEvent();
 
     void Start()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
+
     }
 
     void Update()
@@ -94,6 +100,24 @@ public class SpotlightControl : MonoBehaviour
         if (target.CompareTag("HiddenObject"))
         {
             itemFoundEvent.Invoke();
+            meshRenderer = target.GetComponentInChildren<Renderer>();
+            meshRenderer.materials[0] = lighton;
+            //target.GetComponentInChildren<MeshRenderer>().material.EnableKeyword("_EMISSION");
+            //if (target.CompareTag("LightSensorLight"))
+            //{
+            //    Debug.Log("turn on light");
+            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+            //}
+            //else if (target.CompareTag("LightSensorLight2"))
+            //{
+            //    Debug.Log("turn on light 2");
+            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+            //}
+            //else if (target.CompareTag("LightSensorLight3"))
+            //{
+            //    Debug.Log("turn on light 3");
+            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+            //}
         }
         // Do something with the object that was hit by the raycast.
 
@@ -113,5 +137,8 @@ public class SpotlightControl : MonoBehaviour
 
     }
 
+    void MaterialChange()
+    {
 
+    }
 }

@@ -11,6 +11,9 @@ TagManager:
   - HiddenObject
   - SpotlightRotator
   - AimSpotLock
+  - LightSensorLight
+  - LightSensorLight2
+  - LightSensorLight3
   layers:
   - Default
   - TransparentFX
