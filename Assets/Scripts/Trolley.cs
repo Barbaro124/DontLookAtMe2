@@ -5,7 +5,7 @@ using UnityEngine;
 public class Trolley : MonoBehaviour
 {
 
-    Rigidbody rb;
+    MeshCollider rb;
     Vector3 trolleyExitPos;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class Trolley : MonoBehaviour
         playerScript.AddTrolleyExitEventListener(trolleyExit);
         Debug.Log("Trolley added trolleyExit method as event");
 
-        rb = gameObject.GetComponent<Rigidbody>();
+        rb = gameObject.GetComponent<MeshCollider>();
         trolleyExitPos = GameObject.FindWithTag("TrolleyExit").transform.position;
     }
 
@@ -24,10 +24,10 @@ public class Trolley : MonoBehaviour
     void trolleyExit()
     {
         Debug.Log("trolleyExit Invoked");
-        if (rb.position != trolleyExitPos)
+        if (gameObject.transform.position != trolleyExitPos)
         {
             Debug.Log("Trolley is moving");
-            rb.MovePosition(rb.position + trolleyExitPos * Time.deltaTime);
+            //gameObject.transform.position. = (rb.position + trolleyExitPos * Time.deltaTime);
         }
             
         
