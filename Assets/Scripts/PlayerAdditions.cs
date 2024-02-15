@@ -69,25 +69,25 @@ public class PlayerAdditions : MonoBehaviour
             }
             else if (currentTarget != hit.transform.gameObject)
             {
-                OnRaycastExit(currentTarget);
                 currentTarget = hit.transform.gameObject;
-                //OnRaycastEnter(currentTarget);
+                OnRaycastExit(currentTarget);
             }
+
             OnRaycast(hit.transform.gameObject);
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
             
-            if (hit.collider.gameObject.CompareTag("Interactables"))
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                //Debug.Log("Did Hit");
+            //if (hit.collider.gameObject.CompareTag("Interactables"))
+            //{
+            //    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            //    //Debug.Log("Did Hit");
 
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-                //Debug.Log("Did not Hit");
-            }
+            //}
+            //else
+            //{
+            //    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+            //    //Debug.Log("Did not Hit");
+            //}
         }
 
         else if (currentTarget != null)
@@ -100,17 +100,16 @@ public class PlayerAdditions : MonoBehaviour
 
     protected virtual void OnRaycastEnter(GameObject target)
     {
+        // Do something with the object that was hit by the raycast.
         outline = target.GetComponent<Outline>();
         outline.EnableOutline();
-        // Do something with the object that was hit by the raycast.
-
     }
 
     protected virtual void OnRaycastExit(GameObject target)
     {
+        // Do something with the object that was exited by the raycast.
         outline = target.GetComponent<Outline>();
         outline.DisableOutline();
-        // Do something with the object that was exited by the raycast.
     }
 
     protected virtual void OnRaycast(GameObject target)
@@ -121,7 +120,7 @@ public class PlayerAdditions : MonoBehaviour
         if (target.CompareTag("Spotlight"))
         {
             //Debug.Log("Looking At Light");
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
             {
                 ControlLight(true);
             }
@@ -130,7 +129,7 @@ public class PlayerAdditions : MonoBehaviour
 
         if (target.CompareTag("Button"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Button Pressed");
                 nextRoomEvent.Invoke();
