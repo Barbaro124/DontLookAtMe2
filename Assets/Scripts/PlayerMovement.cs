@@ -130,7 +130,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            _mainCamera.transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            //_mainCamera.transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+
+            //this locks the camera to the desired rotation upon use of the spotlight. It's a hard-coded rotation now, but it'd probably be best if it just switched to a different camera instead.
+            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
         }
         GroundedCheck();
 

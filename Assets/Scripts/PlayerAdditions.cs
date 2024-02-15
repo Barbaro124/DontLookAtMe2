@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class PlayerAdditions : MonoBehaviour
@@ -20,6 +21,13 @@ public class PlayerAdditions : MonoBehaviour
 
     public bool canInteract = false;
 
+    GameObject aimSpotLock;
+    GameObject player;
+    CharacterController characterController;
+    bool lockedIn = false;
+
+    GameObject cineMachineTarget;
+
 
     NextRoomEvent nextRoomEvent = new NextRoomEvent();
 
@@ -30,6 +38,10 @@ public class PlayerAdditions : MonoBehaviour
         spotlight = GameObject.Find("Spotlight");
         button = GameObject.Find("Button");
         playerMovement = FindObjectOfType<PlayerMovement>();
+
+        aimSpotLock = GameObject.FindGameObjectWithTag("AimSpotLock");
+        player = GameObject.FindGameObjectWithTag("Player");
+        characterController = player.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -140,13 +152,22 @@ public class PlayerAdditions : MonoBehaviour
             spotlight.GetComponent<Light>().enabled = false;
             playerMovement.ToggleSpotlightControl(false);
             isRunning = false;
+
+            //unlock player
+            lockedIn = false;
+            PlaceLock();
         }
         else if (!spotlight.GetComponent<Light>().enabled && isRunning == true)
         {
             spotlight.GetComponent<Light>().enabled = true;
             playerMovement.ToggleSpotlightControl(true);
             isRunning = false;
+
+            //lock in player
+            lockedIn = true;
+            PlaceLock();
         }
+        
         
 
     }
@@ -154,5 +175,30 @@ public class PlayerAdditions : MonoBehaviour
     void PressButton()
     { 
         Debug.Log("Button Pressed");
+    }
+
+    void PlaceLock()
+    {
+        if (lockedIn)
+        {
+            Debug.Log(aimSpotLock.transform.position.ToString());
+            Vector3 distance = aimSpotLock.transform.position - player.transform.position;
+
+            while(player.transform.position != aimSpotLock.transform.position)
+            {
+                player.transform.position = Vector3.MoveTowards(player.transform.position, aimSpotLock.transform.position, 0.1f);
+            }
+
+            //snap to locked position
+            //player.transform.position = aimSpotLock.transform.position;
+
+            //player movement is already disabled via the playermovement script, so this is uneccesary.
+            //characterController.enabled = false;
+        }
+        else
+        {
+            //re-enable character movement
+            //characterController.enabled = true;
+        }
     }
 }
