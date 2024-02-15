@@ -8,19 +8,7 @@ public class CursorControl : MonoBehaviour
 
     void Start()
     {
-        // Check if the current scene is in the scenesToControlCursor array
-        if (IsSceneInArray(SceneManager.GetActiveScene().name))
-        {
-            // Hide and lock the cursor by default
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            // Show and unlock the cursor
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+
     }
 
     bool IsSceneInArray(string sceneName)
@@ -34,5 +22,22 @@ public class CursorControl : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void setCursor()
+    {
+        // Check if the current scene is in the scenesToControlCursor array
+        if (IsSceneInArray(SceneManager.GetActiveScene().name))
+        {
+            // Hide and lock the cursor by default
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            // Show and unlock the cursor
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
