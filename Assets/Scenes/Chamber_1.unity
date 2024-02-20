@@ -8052,6 +8052,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1386373809}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1399558170
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 97.94888
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000020866393
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -73.8971
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -3.7493994e-33
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -6.123234e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 6.123234e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597752433472306491, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118816029362726785, guid: 0e10d670eae920d4f9292af348abb3e1,
+        type: 3}
+      propertyPath: m_Name
+      value: Carnival Tent
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e10d670eae920d4f9292af348abb3e1, type: 3}
 --- !u!1001 &1488749911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14711,3 +14779,4 @@ SceneRoots:
   - {fileID: 733768010}
   - {fileID: 2923910043622587738}
   - {fileID: 8847298958454171673}
+  - {fileID: 1399558170}
