@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 
 public class MyManager : MonoBehaviour
@@ -146,6 +147,9 @@ public class MyManager : MonoBehaviour
             //add self as next room event listener
             PlayerAdditions playerScript = GameObject.FindWithTag("MainCamera").GetComponent<PlayerAdditions>();
             playerScript.AddNextRoomEventListener(NextRoom);
+
+            FindObjectOfType<AudioManager>().Play("Ambient");
+            
         }
     }
 
