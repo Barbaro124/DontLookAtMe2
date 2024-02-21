@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1877c32c27cf67a479cd64f53db81c86
+guid: 54ac12ca7a6bde248aa8a31fc0dfa224
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -67,7 +67,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
@@ -90,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 10
+    globalScale: 0.099999994
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
