@@ -2724,25 +2724,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &462307750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5348008827488614893, guid: 8a2a60d9118c23645a2b4410cbe9478d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7550377145898548429}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &462307754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 462307750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 223f803c36f855749bbe99b187c70e4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightSensorLight: {fileID: 0}
 --- !u!4 &579359264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4228292131850356525, guid: 156ea8d7801e10143a361335f8615ae7,
@@ -13395,7 +13376,7 @@ PrefabInstance:
     - target: {fileID: 1081476030598039023, guid: 9b2a28814cc41184786507916ae36aef,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1387113685875803515, guid: 9b2a28814cc41184786507916ae36aef,
         type: 3}
@@ -14591,8 +14572,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 162987674678144937, guid: 72301b03c2ceb994ab37dac0d9443ca5, type: 3}
+    - target: {fileID: 8261809173791419904, guid: 72301b03c2ceb994ab37dac0d9443ca5,
+        type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14669,10 +14654,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5348008827488614893, guid: 8a2a60d9118c23645a2b4410cbe9478d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 462307754}
     - targetCorrespondingSourceObject: {fileID: 1326879377773865332, guid: 8a2a60d9118c23645a2b4410cbe9478d,
         type: 3}
       insertIndex: -1

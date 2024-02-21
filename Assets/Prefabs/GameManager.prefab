@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2903791654809297960}
   - component: {fileID: 1207102838237083413}
-  - component: {fileID: 162987674678144937}
   - component: {fileID: 1765234454155364215}
+  - component: {fileID: 8261809173791419904}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,18 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf34a955f1a4f8145a2585b1fe5ec16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &162987674678144937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6375356783245960339}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19f43eebb7a32914db06fe23dc39250b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  itemsFound: 0
 --- !u!114 &1765234454155364215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +59,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2bb6d59e345c046b0cf9f2b52a93ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenesToControlCursor:
-  - '"Chamber_1"'
-  - '"Chamber_2"'
+--- !u!114 &8261809173791419904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375356783245960339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6134d99f51e2d4b91c4d2005c54d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Ambient
+    clip: {fileID: 8300000, guid: cec8d78adc806d3418706634a35f7172, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
