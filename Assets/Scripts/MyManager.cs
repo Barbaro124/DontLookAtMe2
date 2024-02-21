@@ -106,15 +106,14 @@ public class MyManager : MonoBehaviour
 
 
     /// <summary>
-    /// Proceeds through levels in the intended order
+    /// Proceeds through levels in the intended order. Update once more levels are added.
     /// </summary>
     public void LevelProceed()
     {
 
         if (SceneManager.GetActiveScene().name == "Chamber_1")
         {
-            SceneManager.LoadScene("Chamber_2");
-            //OnSceneChange();
+            SceneManager.LoadScene("MainMenu"); //Change this once there's more than one level
         }
         else if (SceneManager.GetActiveScene().name == "Chamber_2")
         {
