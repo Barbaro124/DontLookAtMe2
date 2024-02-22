@@ -14,8 +14,19 @@ public class MonsterBehavior : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        if (gameObject.tag == "Monster")
+        {
+            hidePos = GameObject.FindWithTag("MonsterHide1").transform.position;
+        }
+        if (gameObject.tag == "Monster2")
+        {
+            hidePos = GameObject.FindWithTag("MonsterHide2").transform.position;
+        }
+        if (gameObject.tag == "Monster3")
+        {
+            hidePos = GameObject.FindWithTag("MonsterHide3").transform.position;
+        }
 
-        hidePos = GameObject.FindWithTag("MonsterHide1").transform.position;
 
     }
 
@@ -29,7 +40,7 @@ public class MonsterBehavior : MonoBehaviour
     {
         if (hiding)
         {
-            Vector3 direction = (transform.position - hidePos).normalized;
+            Vector3 direction = (hidePos - transform.position).normalized;
             Vector3 targetVelocity = direction * moveSpeed;
 
             // Calculate the velocity change needed

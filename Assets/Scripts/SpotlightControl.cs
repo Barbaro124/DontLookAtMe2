@@ -96,7 +96,7 @@ public class SpotlightControl : MonoBehaviour
         {
             target.GetComponentInChildren<ChangeMaterial>().LightOn();
         }
-        if (target.CompareTag("Monster"))
+        if (target.CompareTag("Monster") || target.CompareTag("Monster2") || target.CompareTag("Monster3"))
         {
             Debug.Log("Looking at Monster");
             target.GetComponent<MonsterBehavior>().Hide();
