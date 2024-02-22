@@ -7,6 +7,8 @@ using UnityEngine.Rendering.HighDefinition;
 public class Trolley : MonoBehaviour
 {
     Vector3 trolleyExitPos;
+    Vector3 trolleyEnterPos;
+    Vector3 trolleyStopPos;
     float moveSpeed = 8f;
 
     private Rigidbody rb;
@@ -15,6 +17,9 @@ public class Trolley : MonoBehaviour
     public CharacterController playerController;
 
     MyManager manager;
+
+    bool exiting = false;
+    bool entering = true;
 
     void Start()
     {
@@ -25,17 +30,21 @@ public class Trolley : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
         trolleyExitPos = GameObject.FindWithTag("TrolleyExit").transform.position;
+        trolleyEnterPos = GameObject.FindWithTag("TrolleyEntrance").transform.position;
+        trolleyStopPos = GameObject.FindWithTag("TrolleyStop").transform.position;
 
         rb.isKinematic = true;
 
         manager = GameObject.FindWithTag("GameManager").GetComponent<MyManager>();
+
+        trolleyEnter();
     }
 
     void FixedUpdate()
     {
 
         // Move the trolley using Rigidbody and Physics
-        if (isMoving)
+        if (isMoving && exiting)
         {
             Vector3 direction = (trolleyExitPos - transform.position).normalized;
             Vector3 targetVelocity = direction * moveSpeed;
@@ -55,6 +64,35 @@ public class Trolley : MonoBehaviour
             {
                 rb.velocity = Vector3.zero; // Stop the trolley
                 isMoving = false; // Reset the flag
+            }
+
+            // Synchronize player's movement with trolley's movement
+            Vector3 trolleyMovement = CalculateTrolleyMovement(); // Calculate trolley's movement
+            playerController.Move(trolleyMovement * Time.fixedDeltaTime); // Apply movement to player
+        }
+
+        // Entering
+        if (isMoving && entering)
+        {
+            Vector3 direction = (trolleyStopPos - transform.position).normalized;
+            Vector3 targetVelocity = direction * moveSpeed;
+
+            // Calculate the velocity change needed
+            Vector3 velocityChange = targetVelocity - rb.velocity;
+
+            Vector3 movementVector = transform.position + velocityChange * Time.deltaTime;
+            // Move the rigidbody using MovePosition
+            rb.MovePosition(movementVector);
+
+
+            //Debug.Log("Trolley Movement: " + movementVector);
+
+            // Check if the trolley has reached or passed the target position
+            if (Vector3.Distance(transform.position, trolleyStopPos) <= 0.1f)
+            {
+                rb.velocity = Vector3.zero; // Stop the trolley
+                isMoving = false; // Reset the flag
+                entering = false;
             }
 
             // Synchronize player's movement with trolley's movement
@@ -90,6 +128,14 @@ public class Trolley : MonoBehaviour
             }
         }
 
+    }
+
+    void trolleyEnter()
+    {
+        if (!isMoving) 
+        {
+            isMoving = true;
+        }
     }
     #endregion
 }
