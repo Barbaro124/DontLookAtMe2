@@ -945,6 +945,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 230219485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &247418483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8517438325392468415, guid: 9b2a28814cc41184786507916ae36aef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1930293311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &292991547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3654,6 +3660,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 405452, guid: 8bca44552c6bbd3419a536afac67d5d7,
     type: 3}
   m_PrefabInstance: {fileID: 823288725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &825008347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3273648294165383474, guid: 9b2a28814cc41184786507916ae36aef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1930293311}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &839118566
 Mesh:
@@ -13413,6 +13425,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.804
       objectReference: {fileID: 0}
+    - target: {fileID: 4355458219084145299, guid: 9b2a28814cc41184786507916ae36aef,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5520259856536244280, guid: 9b2a28814cc41184786507916ae36aef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14250,12 +14267,12 @@ PrefabInstance:
         type: 3}
       propertyPath: button
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 825008347}
     - target: {fileID: 8373180214823138920, guid: f729244b6e42fa14dae227cbca9c701c,
         type: 3}
       propertyPath: spotlight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 247418483}
     - target: {fileID: 8786690544925209301, guid: f729244b6e42fa14dae227cbca9c701c,
         type: 3}
       propertyPath: m_Name

@@ -99,30 +99,7 @@ public class SpotlightControl : MonoBehaviour
         outline.EnableOutline();
         if (target.CompareTag("HiddenObject"))
         {
-            //itemFoundEvent.Invoke();
             target.GetComponentInChildren<ChangeMaterial>().LightOn();
-            //if (target.GetComponentsInChildren.GameObject.CompareTag("LightSensorLight"))
-            //{
-
-            //}
-            //meshRenderer = target.GetComponentInChildren<Renderer>();
-            //meshRenderer.materials[0] = lighton;
-            //target.GetComponentInChildren<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            //if (target.CompareTag("LightSensorLight"))
-            //{
-            //    Debug.Log("turn on light");
-            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            //}
-            //else if (target.CompareTag("LightSensorLight2"))
-            //{
-            //    Debug.Log("turn on light 2");
-            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            //}
-            //else if (target.CompareTag("LightSensorLight3"))
-            //{
-            //    Debug.Log("turn on light 3");
-            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            //}
         }
         // Do something with the object that was hit by the raycast.
 
