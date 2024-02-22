@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class Trolley : MonoBehaviour
 {
-
-    
     Vector3 trolleyExitPos;
-    float moveSpeed = 5f;
+    float moveSpeed = 8f;
 
     private Rigidbody rb;
     private bool isMoving = false;
@@ -40,8 +39,12 @@ public class Trolley : MonoBehaviour
             // Calculate the velocity change needed
             Vector3 velocityChange = targetVelocity - rb.velocity;
 
+            Vector3 movementVector = transform.position + velocityChange * Time.deltaTime;
             // Move the rigidbody using MovePosition
-            rb.MovePosition(transform.position + velocityChange * Time.fixedDeltaTime);
+            rb.MovePosition(movementVector);
+
+
+            //Debug.Log("Trolley Movement: " + movementVector);
 
             // Check if the trolley has reached or passed the target position
             if (Vector3.Distance(transform.position, trolleyExitPos) <= 0.1f)
@@ -49,19 +52,22 @@ public class Trolley : MonoBehaviour
                 rb.velocity = Vector3.zero; // Stop the trolley
                 isMoving = false; // Reset the flag
             }
+
+            // Synchronize player's movement with trolley's movement
+            Vector3 trolleyMovement = CalculateTrolleyMovement(); // Calculate trolley's movement
+            playerController.Move(trolleyMovement * Time.fixedDeltaTime); // Apply movement to player
         }
 
-        // Synchronize player's movement with trolley's movement
-        Vector3 trolleyMovement = CalculateTrolleyMovement(); // Calculate trolley's movement
-        playerController.Move(trolleyMovement * Time.fixedDeltaTime); // Apply movement to player
+
     }
 
     private Vector3 CalculateTrolleyMovement()
     {
-        // Calculate trolley's movement based on your logic (e.g., user input, AI, etc.)
-        // For example:
-        Vector3 trolleyMovement = Vector3.forward * moveSpeed; // Moving forward at a constant speed
+        Vector3 direction = (trolleyExitPos - transform.position).normalized;
+        Vector3 trolleyMovement = direction * (moveSpeed / 2);
 
+        // Debug.Log to inspect the calculated trolleyMovement vector
+        Debug.Log("Player Movement: " + trolleyMovement);
         return trolleyMovement;
     }
 
