@@ -64,20 +64,17 @@ public class MyManager : MonoBehaviour
     void NextRoom()
     {
         Debug.Log("NextRoom Invoked");
-        if (itemsFound >= 3)
-        {
-            Debug.Log("Next Scene!");
 
-            LevelProceed();
+        LevelProceed();
 
-        }
-        else
-        {
-            Debug.Log("Not enough Items Found!");
-        }
     }
     #endregion
 
+
+    public int getFoundCount()
+    {
+        return itemsFound;
+    }
     #region Scene Management
     public void Instructions()
     {

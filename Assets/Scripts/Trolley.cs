@@ -14,6 +14,8 @@ public class Trolley : MonoBehaviour
 
     public CharacterController playerController;
 
+    MyManager manager;
+
     void Start()
     {
         //add self as trolley exit event listener
@@ -25,6 +27,8 @@ public class Trolley : MonoBehaviour
         trolleyExitPos = GameObject.FindWithTag("TrolleyExit").transform.position;
 
         rb.isKinematic = true;
+
+        manager = GameObject.FindWithTag("GameManager").GetComponent<MyManager>();
     }
 
     void FixedUpdate()
@@ -74,11 +78,16 @@ public class Trolley : MonoBehaviour
     #region Events
     void trolleyExit()
     {
-        Debug.Log("trolleyExit Invoked");
 
-        if (!isMoving)
+        Debug.Log("Items found on trolleyExit: " + manager.getFoundCount());
+        if (manager.getFoundCount() >= 3)
         {
-            isMoving = true; // Set the flag to indicate that movement is initiated
+            Debug.Log("trolleyExit Invoked");
+
+            if (!isMoving)
+            {
+                isMoving = true; // Set the flag to indicate that movement is initiated
+            }
         }
 
     }

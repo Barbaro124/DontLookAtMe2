@@ -15,6 +15,7 @@ TagManager:
   - LightSensorLight2
   - LightSensorLight3
   - TrolleyExit
+  - GameManager
   layers:
   - Default
   - TransparentFX
