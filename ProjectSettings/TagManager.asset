@@ -18,6 +18,7 @@ TagManager:
   - GameManager
   - TrolleyEntrance
   - TrolleyStop
+  - Monster
   layers:
   - Default
   - TransparentFX

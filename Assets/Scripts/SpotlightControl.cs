@@ -40,14 +40,6 @@ public class SpotlightControl : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Adds listener to the Item Found Event
-    /// </summary>
-    /// <param name="listener">listener</param>
-    //public void AddItemFoundEventListener(UnityAction listener)
-    //{
-    //    itemFoundEvent.AddListener(listener);
-    //}
 
     private void Raycast()
     {
@@ -95,11 +87,19 @@ public class SpotlightControl : MonoBehaviour
 
     void OnRaycastEnter(GameObject target)
     {
-        outline = target.GetComponent<Outline>();
-        outline.EnableOutline();
+        if (target.GetComponent<Outline>() != null)
+        {
+            outline = target.GetComponent<Outline>();
+            outline.EnableOutline();
+        }
         if (target.CompareTag("HiddenObject"))
         {
             target.GetComponentInChildren<ChangeMaterial>().LightOn();
+        }
+        if (target.CompareTag("Monster"))
+        {
+            Debug.Log("Looking at Monster");
+            target.GetComponent<MonsterBehavior>().Hide();
         }
         // Do something with the object that was hit by the raycast.
 
@@ -107,15 +107,26 @@ public class SpotlightControl : MonoBehaviour
 
     void OnRaycastExit(GameObject target)
     {
-        outline = target.GetComponent<Outline>();
-        outline.DisableOutline();
+        if (target.GetComponent<Outline>() != null)
+        {
+            outline = target.GetComponent<Outline>();
+            outline.DisableOutline();
+        }
+        if (target.CompareTag("Monster"))
+        {
+            Debug.Log("Looked away from Monster");
+            target.GetComponent<MonsterBehavior>().Appear();
+        }
         // Do something with the object that was exited by the raycast.
     }
 
     void OnRaycast(GameObject target)
     {
-        outline = target.GetComponent<Outline>();
-        outline.EnableOutline();
+        if (target.GetComponent<Outline>() != null)
+        {
+            outline = target.GetComponent<Outline>();
+            outline.EnableOutline();
+        }
 
     }
 
