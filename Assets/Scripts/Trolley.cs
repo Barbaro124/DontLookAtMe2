@@ -46,6 +46,7 @@ public class Trolley : MonoBehaviour
         // Exiting
         if (isMoving && exiting)
         {
+            FindObjectOfType<TimerScript>().StopTimer();
             Vector3 direction = (trolleyExitPos - transform.position).normalized;
             Vector3 targetVelocity = direction * moveSpeed;
 
@@ -101,6 +102,8 @@ public class Trolley : MonoBehaviour
                 isMoving = false; // Reset the flag
                 entering = false;
                 FindObjectOfType<AudioManager>().Stop("train");
+
+                FindObjectOfType<TimerScript>().StartTimer();
             }
 
             // Synchronize player's movement with trolley's movement
