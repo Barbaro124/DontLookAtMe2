@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 1207102838237083413}
   - component: {fileID: 1765234454155364215}
   - component: {fileID: 8261809173791419904}
+  - component: {fileID: 5485369820398739141}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2903791654809297960
 Transform:
   m_ObjectHideFlags: 0
@@ -74,7 +75,50 @@ MonoBehaviour:
   sounds:
   - name: Ambient
     clip: {fileID: 8300000, guid: cec8d78adc806d3418706634a35f7172, type: 3}
-    volume: 1
+    volume: 0.732
     pitch: 1
+    priority: 173
     loop: 1
     source: {fileID: 0}
+  - name: brake
+    clip: {fileID: 8300000, guid: 348d86186e60d414aa68f9df8aec7e61, type: 3}
+    volume: 0.776
+    pitch: 1
+    priority: 70
+    loop: 0
+    source: {fileID: 0}
+  - name: itemFound
+    clip: {fileID: 8300000, guid: ff9ed81a57434ca49ac9d03f0862d75a, type: 3}
+    volume: 0.704
+    pitch: 1
+    priority: 70
+    loop: 0
+    source: {fileID: 0}
+  - name: train
+    clip: {fileID: 8300000, guid: 4a670f75391aaaa46ad199508f71120b, type: 3}
+    volume: 0.76
+    pitch: 1
+    priority: 128
+    loop: 1
+    source: {fileID: 0}
+  - name: wrong
+    clip: {fileID: 8300000, guid: 1ec0c86d269a2044ba8bff857e347fa7, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 78
+    loop: 0
+    source: {fileID: 0}
+--- !u!114 &5485369820398739141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375356783245960339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655f2c859b37e6849ba56d406199b964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 8635564405116781515, guid: dd68e67c50297c745bb36a9f02474fca,
+    type: 3}

@@ -32,8 +32,17 @@ public class CursorControl : MonoBehaviour
         if (IsSceneInArray(SceneManager.GetActiveScene().name))
         {
             // Hide and lock the cursor by default
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            if (PauseMenu.isPaused == false)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                // Show and unlock the cursor
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
         else
         {
