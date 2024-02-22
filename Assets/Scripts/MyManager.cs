@@ -48,7 +48,10 @@ public class MyManager : MonoBehaviour
     }
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Quit();
+        }
     }
 
     #region Events

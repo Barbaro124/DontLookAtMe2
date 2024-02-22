@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu instance;
-    public static GameObject pauseMenu;
+    public GameObject pauseMenu;
     public static bool isPaused;
 
     //public KeyCode pauseKey;
@@ -36,11 +36,11 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
             {
-                ResumeGame();
+                //ResumeGame();
             }
             else
             {
-                PauseGame();
+                //PauseGame();
             }
         }
     }

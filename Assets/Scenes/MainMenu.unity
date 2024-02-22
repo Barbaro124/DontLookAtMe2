@@ -507,6 +507,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 405048313}
     m_Modifications:
+    - target: {fileID: 73218686312795882, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206199510703596641, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926730810815686357, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654974109759806346, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678927086317369222, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712993623186078894, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6439666126935884131, guid: dd68e67c50297c745bb36a9f02474fca,
         type: 3}
       propertyPath: m_Pivot.x
@@ -607,10 +637,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7463804547866582155, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8635564405116781515, guid: dd68e67c50297c745bb36a9f02474fca,
         type: 3}
       propertyPath: m_Name
       value: PauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635564405116781515, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635564405116781515, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
