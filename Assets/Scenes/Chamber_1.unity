@@ -8958,6 +8958,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1930293311}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1382565284
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382565269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3864722, y: 3.7857773, z: 7.637339}
+  m_Center: {x: 0, y: 1.8928889, z: -0.46183556}
 --- !u!1 &1383139657
 GameObject:
   m_ObjectHideFlags: 0
@@ -9514,8 +9535,8 @@ Transform:
   m_GameObject: {fileID: 1567630643}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.9, y: 70, z: 8.06}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 77.62, y: 70, z: 8.06}
+  m_LocalScale: {x: 0.76837, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -9535,12 +9556,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.291786, y: 7.947876, z: 9.2810335}
-  m_Center: {x: -2.145893, y: -0.3574295, z: -0.43271494}
+  m_Size: {x: 19.617058, y: 7.947876, z: 9.2810335}
+  m_Center: {x: -9.308567, y: -0.3574295, z: -0.43271494}
 --- !u!1001 &1618044053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11189,7 +11210,7 @@ PrefabInstance:
     - target: {fileID: 8239934177907377871, guid: 9b2a28814cc41184786507916ae36aef,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8517438325392897437, guid: 9b2a28814cc41184786507916ae36aef,
         type: 3}
@@ -11308,6 +11329,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1382565279}
+    - targetCorrespondingSourceObject: {fileID: 8239934177907377871, guid: 9b2a28814cc41184786507916ae36aef,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1382565284}
     - targetCorrespondingSourceObject: {fileID: 8517438325392468415, guid: 9b2a28814cc41184786507916ae36aef,
         type: 3}
       insertIndex: -1

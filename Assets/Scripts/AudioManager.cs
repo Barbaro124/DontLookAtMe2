@@ -36,7 +36,12 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Stop();
     }
-
+    
+    public void SetVolume(string name, float volume)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.volume = volume;
+    }
     public void FadeOut(string name, float seconds)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -57,7 +62,7 @@ public class AudioManager : MonoBehaviour
             yield return null; // Wait for the next frame
         }
 
-        sound.source.volume = targetVolume; // Ensure volume is exactly 0
+        //sound.source.volume = targetVolume; // Ensure volume is exactly 0
 
         // Reset volume to startVolume after fade-out is complete
         sound.source.volume = startVolume;

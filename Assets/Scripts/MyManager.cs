@@ -81,21 +81,25 @@ public class MyManager : MonoBehaviour
     {
         //OnSceneChange();
         SceneManager.LoadScene("Instructions");
+        cursorControlScript.setCursor();
     }
     public void Chamber_1()
     {
         SceneManager.LoadScene("Chamber_1");
+        cursorControlScript.setCursor();
         //OnSceneChange();
     }
     public void MainMenu()
     {
         //OnSceneChange();
         SceneManager.LoadScene("MainMenu");
+        cursorControlScript.setCursor();
     }
     public void GameOver()
     {
         //OnSceneChange();
         SceneManager.LoadScene("GameOver()");
+        cursorControlScript.setCursor();
     }
     public void Quit()
     {

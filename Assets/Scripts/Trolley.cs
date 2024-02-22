@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.SceneManagement;
 
 public class Trolley : MonoBehaviour
 {
@@ -136,9 +137,14 @@ public class Trolley : MonoBehaviour
             if (!isMoving)
             {
                 FindObjectOfType<AudioManager>().Play("train");
+                FindObjectOfType<AudioManager>().SetVolume("train", 0.76f);
                 isMoving = true;
                 exiting = true;// Set the flag to indicate that movement is initiated
             }
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("wrong");
         }
 
     }
@@ -152,4 +158,16 @@ public class Trolley : MonoBehaviour
         }
     }
     #endregion
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("TrolleyExit"))
+        {
+            // Perform actions or call methods specific to the collision with the other object
+            Debug.Log("Trolley collided with " + other.gameObject.name);
+            FindObjectOfType<AudioManager>().Stop("train");
+            FindObjectOfType<AudioManager>().Stop("Ambient");
+            manager.MainMenu();
+        }
+    }
 }
