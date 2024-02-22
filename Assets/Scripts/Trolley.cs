@@ -43,7 +43,7 @@ public class Trolley : MonoBehaviour
     void FixedUpdate()
     {
 
-        // Move the trolley using Rigidbody and Physics
+        // Exiting
         if (isMoving && exiting)
         {
             Vector3 direction = (trolleyExitPos - transform.position).normalized;
@@ -57,13 +57,13 @@ public class Trolley : MonoBehaviour
             rb.MovePosition(movementVector);
 
 
-            //Debug.Log("Trolley Movement: " + movementVector);
 
             // Check if the trolley has reached or passed the target position
             if (Vector3.Distance(transform.position, trolleyExitPos) <= 0.1f)
             {
                 rb.velocity = Vector3.zero; // Stop the trolley
                 isMoving = false; // Reset the flag
+                FindObjectOfType<AudioManager>().Stop("train");
             }
 
             // Synchronize player's movement with trolley's movement
@@ -85,7 +85,14 @@ public class Trolley : MonoBehaviour
             rb.MovePosition(movementVector);
 
 
-            //Debug.Log("Trolley Movement: " + movementVector);
+            //start playing brake noise within this distance
+            if (Vector3.Distance(transform.position, trolleyStopPos) <= 10f)
+            {
+                FindObjectOfType<AudioManager>().Play("brake");
+                FindObjectOfType<AudioManager>().FadeOut("train",3f);
+                //FindObjectOfType<AudioManager>().Play("brake");
+                
+            }
 
             // Check if the trolley has reached or passed the target position
             if (Vector3.Distance(transform.position, trolleyStopPos) <= 0.1f)
@@ -93,6 +100,7 @@ public class Trolley : MonoBehaviour
                 rb.velocity = Vector3.zero; // Stop the trolley
                 isMoving = false; // Reset the flag
                 entering = false;
+                FindObjectOfType<AudioManager>().Stop("train");
             }
 
             // Synchronize player's movement with trolley's movement
@@ -124,6 +132,7 @@ public class Trolley : MonoBehaviour
 
             if (!isMoving)
             {
+                FindObjectOfType<AudioManager>().Play("train");
                 isMoving = true;
                 exiting = true;// Set the flag to indicate that movement is initiated
             }
@@ -135,6 +144,7 @@ public class Trolley : MonoBehaviour
     {
         if (!isMoving) 
         {
+            FindObjectOfType<AudioManager>().Play("train");
             isMoving = true;
         }
     }

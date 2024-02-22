@@ -59,6 +59,7 @@ public class MyManager : MonoBehaviour
     {
         itemsFound++;
         Debug.Log("Items Found: " + itemsFound);
+        FindObjectOfType<AudioManager>().Play("itemFound");
     }
 
     void NextRoom()
