@@ -13,7 +13,8 @@ public class Trolley : MonoBehaviour
     private Rigidbody rb;
     private bool isMoving = false;
 
-    // Start is called before the first frame update
+    public CharacterController playerController;
+
     void Start()
     {
         //add self as trolley exit event listener
@@ -29,6 +30,8 @@ public class Trolley : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        // Move the trolley using Rigidbody and Physics
         if (isMoving)
         {
             Vector3 direction = (trolleyExitPos - transform.position).normalized;
@@ -47,7 +50,21 @@ public class Trolley : MonoBehaviour
                 isMoving = false; // Reset the flag
             }
         }
+
+        // Synchronize player's movement with trolley's movement
+        Vector3 trolleyMovement = CalculateTrolleyMovement(); // Calculate trolley's movement
+        playerController.Move(trolleyMovement * Time.fixedDeltaTime); // Apply movement to player
     }
+
+    private Vector3 CalculateTrolleyMovement()
+    {
+        // Calculate trolley's movement based on your logic (e.g., user input, AI, etc.)
+        // For example:
+        Vector3 trolleyMovement = Vector3.forward * moveSpeed; // Moving forward at a constant speed
+
+        return trolleyMovement;
+    }
+
     #region Events
     void trolleyExit()
     {

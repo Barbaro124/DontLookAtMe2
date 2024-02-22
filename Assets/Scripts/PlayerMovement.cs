@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     private float _fallTimeoutDelta;
 
 
-    //public float moveSpeed = 5f;
+    
     public bool isControllingSpotlight = false;
 
 #if ENABLE_INPUT_SYSTEM
