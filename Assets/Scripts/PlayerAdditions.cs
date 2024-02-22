@@ -150,6 +150,7 @@ public class PlayerAdditions : MonoBehaviour
 
     void ControlLight (bool isRunning)
     {
+        FindObjectOfType<AudioManager>().Play("flashlight");
         //Debug.Log("Control Light Method");
         if (spotlight.GetComponent<Light>().enabled && isRunning == true)
         {
