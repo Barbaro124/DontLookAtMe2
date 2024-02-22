@@ -124,7 +124,8 @@ public class Trolley : MonoBehaviour
 
             if (!isMoving)
             {
-                isMoving = true; // Set the flag to indicate that movement is initiated
+                isMoving = true;
+                exiting = true;// Set the flag to indicate that movement is initiated
             }
         }
 
