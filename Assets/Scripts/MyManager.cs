@@ -31,11 +31,8 @@ public class MyManager : MonoBehaviour
             // Make sure this object persists between scenes
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            // If an instance already exists, destroy this duplicate
-            //Destroy(gameObject);
-        }
+
+        cursorControlScript = GetComponent<CursorControl>();
     }
 
     // Start is called before the first frame update
@@ -43,7 +40,7 @@ public class MyManager : MonoBehaviour
     {
         itemsFound = 0;
 
-        cursorControlScript = GetComponent<CursorControl>();
+
 
     }
     void Update()
@@ -81,25 +78,24 @@ public class MyManager : MonoBehaviour
     {
         //OnSceneChange();
         SceneManager.LoadScene("Instructions");
-        cursorControlScript.setCursor();
+
     }
     public void Chamber_1()
     {
         SceneManager.LoadScene("Chamber_1");
-        cursorControlScript.setCursor();
         //OnSceneChange();
     }
     public void MainMenu()
     {
         //OnSceneChange();
         SceneManager.LoadScene("MainMenu");
-        cursorControlScript.setCursor();
+
     }
     public void GameOver()
     {
         //OnSceneChange();
         SceneManager.LoadScene("GameOver()");
-        cursorControlScript.setCursor();
+
     }
     public void Quit()
     {
@@ -130,10 +126,12 @@ public class MyManager : MonoBehaviour
     /// <param name="level"></param>
     private void OnLevelWasLoaded(int chamber)
     {
+
+        cursorControlScript.setCursor();
         //gameplay chambers
         if (chamber == 1 || chamber == 2)
         {
-            cursorControlScript.setCursor();
+            
             itemsFound = 0;
 
             ChangeMaterial changeMaterial1 = GameObject.FindWithTag("LightSensorLight").GetComponent<ChangeMaterial>();

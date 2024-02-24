@@ -121,7 +121,7 @@ public class Trolley : MonoBehaviour
         Vector3 trolleyMovement = direction * (moveSpeed / 2);
 
         // Debug.Log to inspect the calculated trolleyMovement vector
-        Debug.Log("Player Movement: " + trolleyMovement);
+        //Debug.Log("Player Movement: " + trolleyMovement);
         return trolleyMovement;
     }
 
