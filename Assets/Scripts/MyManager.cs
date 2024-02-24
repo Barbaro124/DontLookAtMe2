@@ -48,9 +48,9 @@ public class MyManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            Quit();
         }
     }
 
@@ -59,45 +59,47 @@ public class MyManager : MonoBehaviour
     {
         itemsFound++;
         Debug.Log("Items Found: " + itemsFound);
+        FindObjectOfType<AudioManager>().Play("itemFound");
     }
 
     void NextRoom()
     {
         Debug.Log("NextRoom Invoked");
-        if (itemsFound >= 3)
-        {
-            Debug.Log("Next Scene!");
 
-            LevelProceed();
+        LevelProceed();
 
-        }
-        else
-        {
-            Debug.Log("Not enough Items Found!");
-        }
     }
     #endregion
 
+
+    public int getFoundCount()
+    {
+        return itemsFound;
+    }
     #region Scene Management
     public void Instructions()
     {
         //OnSceneChange();
         SceneManager.LoadScene("Instructions");
+        cursorControlScript.setCursor();
     }
     public void Chamber_1()
     {
         SceneManager.LoadScene("Chamber_1");
+        cursorControlScript.setCursor();
         //OnSceneChange();
     }
     public void MainMenu()
     {
         //OnSceneChange();
         SceneManager.LoadScene("MainMenu");
+        cursorControlScript.setCursor();
     }
     public void GameOver()
     {
         //OnSceneChange();
         SceneManager.LoadScene("GameOver()");
+        cursorControlScript.setCursor();
     }
     public void Quit()
     {

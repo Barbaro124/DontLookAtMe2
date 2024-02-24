@@ -59,7 +59,7 @@ public class PlayerAdditions : MonoBehaviour
 
     public void AddTrolleyExitEventListener(UnityAction listener)
     {
-        Debug.Log("Added PlayerAdditions as Trolley Exit Event Listener");
+        Debug.Log("Added Trolley as TrolleyExit Event Listener");
         trolleyExitEvent.AddListener(listener);
     }
 
@@ -138,8 +138,8 @@ public class PlayerAdditions : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Button Pressed");
-                nextRoomEvent.Invoke();
+                //nextRoomEvent.Invoke();
+                PressButton();
             }
         }
 
@@ -150,6 +150,7 @@ public class PlayerAdditions : MonoBehaviour
 
     void ControlLight (bool isRunning)
     {
+        FindObjectOfType<AudioManager>().Play("flashlight");
         //Debug.Log("Control Light Method");
         if (spotlight.GetComponent<Light>().enabled && isRunning == true)
         {

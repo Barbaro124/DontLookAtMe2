@@ -40,14 +40,6 @@ public class SpotlightControl : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Adds listener to the Item Found Event
-    /// </summary>
-    /// <param name="listener">listener</param>
-    //public void AddItemFoundEventListener(UnityAction listener)
-    //{
-    //    itemFoundEvent.AddListener(listener);
-    //}
 
     private void Raycast()
     {
@@ -95,34 +87,19 @@ public class SpotlightControl : MonoBehaviour
 
     void OnRaycastEnter(GameObject target)
     {
-        outline = target.GetComponent<Outline>();
-        outline.EnableOutline();
+        if (target.GetComponent<Outline>() != null)
+        {
+            outline = target.GetComponent<Outline>();
+            outline.EnableOutline();
+        }
         if (target.CompareTag("HiddenObject"))
         {
-            //itemFoundEvent.Invoke();
             target.GetComponentInChildren<ChangeMaterial>().LightOn();
-            //if (target.GetComponentsInChildren.GameObject.CompareTag("LightSensorLight"))
-            //{
-
-            //}
-            //meshRenderer = target.GetComponentInChildren<Renderer>();
-            //meshRenderer.materials[0] = lighton;
-            //target.GetComponentInChildren<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            //if (target.CompareTag("LightSensorLight"))
-            //{
-            //    Debug.Log("turn on light");
-            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            //}
-            //else if (target.CompareTag("LightSensorLight2"))
-            //{
-            //    Debug.Log("turn on light 2");
-            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            //}
-            //else if (target.CompareTag("LightSensorLight3"))
-            //{
-            //    Debug.Log("turn on light 3");
-            //    target.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
-            //}
+        }
+        if (target.CompareTag("Monster") || target.CompareTag("Monster2") || target.CompareTag("Monster3"))
+        {
+            Debug.Log("Looking at Monster");
+            target.GetComponent<MonsterBehavior>().Hide();
         }
         // Do something with the object that was hit by the raycast.
 
@@ -130,15 +107,26 @@ public class SpotlightControl : MonoBehaviour
 
     void OnRaycastExit(GameObject target)
     {
-        outline = target.GetComponent<Outline>();
-        outline.DisableOutline();
+        if (target.GetComponent<Outline>() != null)
+        {
+            outline = target.GetComponent<Outline>();
+            outline.DisableOutline();
+        }
+        if (target.CompareTag("Monster"))
+        {
+            Debug.Log("Looked away from Monster");
+            target.GetComponent<MonsterBehavior>().Appear();
+        }
         // Do something with the object that was exited by the raycast.
     }
 
     void OnRaycast(GameObject target)
     {
-        outline = target.GetComponent<Outline>();
-        outline.EnableOutline();
+        if (target.GetComponent<Outline>() != null)
+        {
+            outline = target.GetComponent<Outline>();
+            outline.EnableOutline();
+        }
 
     }
 

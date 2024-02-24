@@ -15,6 +15,15 @@ TagManager:
   - LightSensorLight2
   - LightSensorLight3
   - TrolleyExit
+  - GameManager
+  - TrolleyEntrance
+  - TrolleyStop
+  - Monster
+  - MonsterHide1
+  - Monster2
+  - MonsterHide2
+  - Monster3
+  - MonsterHide3
   layers:
   - Default
   - TransparentFX
@@ -23,7 +32,7 @@ TagManager:
   - Water
   - UI
   - Raycast Select
-  - 
+  - Trolley
   - 
   - 
   - 
