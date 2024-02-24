@@ -11,6 +11,8 @@ public class MyManager : MonoBehaviour
     private static MyManager instance;
     public int itemsFound;
     CursorControl cursorControlScript;
+    PauseMenu pauseMenu;
+
     public enum Scene
     {
         MainMenu,
@@ -33,6 +35,8 @@ public class MyManager : MonoBehaviour
         }
 
         cursorControlScript = GetComponent<CursorControl>();
+
+        pauseMenu = GetComponent<PauseMenu>();
     }
 
     // Start is called before the first frame update
@@ -41,13 +45,19 @@ public class MyManager : MonoBehaviour
         itemsFound = 0;
 
 
-
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Quit();
+            if (PauseMenu.isPaused)
+            {
+                pauseMenu.ResumeGame();
+            }
+            else
+            {
+                pauseMenu.PauseGame();
+            }
         }
     }
 
