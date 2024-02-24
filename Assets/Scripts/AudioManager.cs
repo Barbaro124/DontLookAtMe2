@@ -9,11 +9,22 @@ using UnityEngine.Audio;
 [System.Serializable]
 public class AudioManager : MonoBehaviour
 {
-    
+
+    private static AudioManager instance;
     public Sound[] sounds;
     // Start is called before the first frame update
     void Awake()
     {
+        // Check if an instance of the game manager already exists
+        if (instance == null)
+        {
+            // If not, set this instance as the singleton instance
+            instance = this;
+
+            // Make sure this object persists between scenes
+            DontDestroyOnLoad(gameObject);
+        }
+
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
