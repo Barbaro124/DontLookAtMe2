@@ -33,20 +33,7 @@ public class MonsterBehavior : MonoBehaviour
 
         trolleyTransform = GameObject.FindGameObjectWithTag("Trolley").transform;
 
-        // Find all GameObjects in the scene with the specified tag
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("HideSpot");
-
-        // Calculate the distance between each object and the player and store them in a list
-        foreach (GameObject obj in objects)
-        {
-            float distanceToTrolley = Vector3.Distance(obj.transform.position, trolleyTransform.position);
-            spotsSortedByDistance.Add(obj);
-        }
-
-        // Sort the objects by their distance to the trolley (furthest to closest)
-        spotsSortedByDistance.Sort((a, b) =>
-            Vector3.Distance(b.transform.position, trolleyTransform.position)
-                .CompareTo(Vector3.Distance(a.transform.position, trolleyTransform.position)));
+        spotsSortedByDistance = GetSpotsSortedByDistance();
 
     }
 
@@ -100,6 +87,48 @@ public class MonsterBehavior : MonoBehaviour
 
     void FindNextSpot()
     {
-        
+        foreach (GameObject spot in spotsSortedByDistance)
+        {
+            HideSpot hideSpot = spot.GetComponent<HideSpot>();
+            // Check if the position is unoccupied
+            if (!IsPositionOccupied(hideSpot))
+            {
+                // Move the "monster" GameObject to the unoccupied position
+                transform.position = spot.transform.position;
+                break; // Exit the loop after finding an unoccupied position
+            }
+        }
+    }
+
+    private bool IsPositionOccupied(HideSpot spot)
+    {
+        // Check if the position is occupied by another object
+        if (spot.occupied == true)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private List<GameObject> GetSpotsSortedByDistance()
+    {
+        // Find all GameObjects in the scene with the specified tag
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("HideSpot");
+
+        // Calculate the distance between each object and the player and store them in a list
+        foreach (GameObject obj in objects)
+        {
+            float distanceToTrolley = Vector3.Distance(obj.transform.position, trolleyTransform.position);
+            spotsSortedByDistance.Add(obj);
+        }
+
+        // Sort the objects by their distance to the trolley (furthest to closest)
+        spotsSortedByDistance.Sort((a, b) =>
+            Vector3.Distance(b.transform.position, trolleyTransform.position)
+                .CompareTo(Vector3.Distance(a.transform.position, trolleyTransform.position)));
+        return spotsSortedByDistance;
     }
 }
