@@ -24,6 +24,7 @@ TagManager:
   - MonsterHide2
   - Monster3
   - MonsterHide3
+  - HideSpot
   layers:
   - Default
   - TransparentFX
