@@ -10,6 +10,9 @@ public class MonsterBehavior : MonoBehaviour
     float moveSpeed = 30f;
 
     bool hiding = false;
+
+    private List<GameObject> spotsSortedByDistance = new List<GameObject>();
+    public Transform trolleyTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,23 @@ public class MonsterBehavior : MonoBehaviour
             hidePos = GameObject.FindWithTag("MonsterHide3").transform.position;
         }
 
+
+        trolleyTransform = GameObject.FindGameObjectWithTag("Trolley").transform;
+
+        // Find all GameObjects in the scene with the specified tag
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("HideSpot");
+
+        // Calculate the distance between each object and the player and store them in a list
+        foreach (GameObject obj in objects)
+        {
+            float distanceToTrolley = Vector3.Distance(obj.transform.position, trolleyTransform.position);
+            spotsSortedByDistance.Add(obj);
+        }
+
+        // Sort the objects by their distance to the trolley (furthest to closest)
+        spotsSortedByDistance.Sort((a, b) =>
+            Vector3.Distance(b.transform.position, trolleyTransform.position)
+                .CompareTo(Vector3.Distance(a.transform.position, trolleyTransform.position)));
 
     }
 
@@ -76,5 +96,10 @@ public class MonsterBehavior : MonoBehaviour
         Debug.Log("Appear Method Called");
         //gameObject.SetActive(true);
         hiding = false;
+    }
+
+    void FindNextSpot()
+    {
+        
     }
 }

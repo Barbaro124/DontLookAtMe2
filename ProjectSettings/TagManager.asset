@@ -25,6 +25,7 @@ TagManager:
   - Monster3
   - MonsterHide3
   - HideSpot
+  - Trolley
   layers:
   - Default
   - TransparentFX
