@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class MonsterBehavior : MonoBehaviour
 {
@@ -73,8 +74,10 @@ public class MonsterBehavior : MonoBehaviour
     public void Hide()
     {
         Debug.Log("Hide Method Called");
+
+        FindNextSpot();
         //gameObject.SetActive(false);
-        hiding = true;
+        //hiding = true;
 
     }
 
@@ -94,7 +97,9 @@ public class MonsterBehavior : MonoBehaviour
             if (!IsPositionOccupied(hideSpot))
             {
                 // Move the "monster" GameObject to the unoccupied position
+                Debug.Log("Move the \"monster\" GameObject to the unoccupied position");
                 transform.position = spot.transform.position;
+                hideSpot.claimSpot();
                 break; // Exit the loop after finding an unoccupied position
             }
         }

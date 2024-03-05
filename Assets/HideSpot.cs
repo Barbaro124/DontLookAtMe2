@@ -20,7 +20,7 @@ public class HideSpot : MonoBehaviour
         
     }
 
-    void claimSpot()
+    public void claimSpot()
     {
         if (!occupied)
         {
@@ -28,7 +28,7 @@ public class HideSpot : MonoBehaviour
         }
     }
 
-    void makeFree()
+    public void makeFree()
     {
         if (occupied)
         {
