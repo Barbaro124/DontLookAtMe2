@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HideSpot : MonoBehaviour
 {
-
+    [SerializeField]
     public bool occupied;
     
     // Start is called before the first frame update

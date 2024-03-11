@@ -99,6 +99,7 @@ public class MonsterBehavior : MonoBehaviour
                 // Move the "monster" GameObject to the unoccupied position
                 Debug.Log("Move the \"monster\" GameObject to the unoccupied position");
                 transform.position = spot.transform.position;
+                transform.localScale = spot.transform.localScale;
                 hideSpot.claimSpot();
                 break; // Exit the loop after finding an unoccupied position
             }
