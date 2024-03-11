@@ -24,19 +24,19 @@ public class RetreatSpotScript : MonoBehaviour
 
         if (hideLeft)
         {
-            transform.position += new Vector3(moveDistance, 0f, 0f);
+            transform.Translate(new Vector3(moveDistance, 0f, 0f), Space.Self);
         }
         if (hideRight)
         {
-            transform.position += new Vector3(-moveDistance, 0f, 0f);
+            transform.Translate(new Vector3(-moveDistance, 0f, 0f), Space.Self);
         }
         if (hideUp)
         {
-            transform.position += new Vector3(0f, moveDistance, 0f);
+            transform.Translate(new Vector3(0f, moveDistance, 0f), Space.Self);
         }
         if (hideDown)
         {
-            transform.position += new Vector3(0f, -moveDistance, 0f);
+            transform.Translate(new Vector3(0f, -moveDistance, 0f), Space.Self);
         }
     }
 

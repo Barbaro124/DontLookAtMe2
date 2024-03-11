@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class HideSpot : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class HideSpot : MonoBehaviour
         transform.localScale = gameObject.transform.localScale;
         transform.rotation = gameObject.transform.rotation;
 
+        //retreatSpot = FindChildWithTag(transform, "RetreatSpot"); //assign child object via tag
+
         //get this hidespot's child retreatSpot's script
         retreatSpotScript = retreatSpot.GetComponent<RetreatSpotScript>();
     }
@@ -34,6 +37,7 @@ public class HideSpot : MonoBehaviour
         if (!occupied)
         {
             occupied = true;
+            Debug.Log("A spot was claimed as occupied");
         }
     }
 
@@ -43,5 +47,31 @@ public class HideSpot : MonoBehaviour
         {
             occupied = false;
         }
+    }
+
+    /// <summary>
+    /// A Custom method to find a child GameObject with a specific tag recursively
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <param name="tag"></param>
+    /// <returns></returns>
+    public static GameObject FindChildWithTag(Transform parent, string tag)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.CompareTag(tag))
+            {
+                return child.gameObject;
+            }
+
+            // Recursively search child's children
+            //GameObject foundChild = FindChildWithTag(child, tag);
+            //if (foundChild != null)
+            //{
+            //    return foundChild;
+            //}
+        }
+
+        return null; // No child with the specified tag found
     }
 }

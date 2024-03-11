@@ -16,7 +16,7 @@ public class MonsterBehavior : MonoBehaviour
     public Transform trolleyTransform;
 
     [SerializeField]
-    private HideSpot currentSpot; // label in inspector this monster's starting spot.
+    public HideSpot currentSpot; // label in inspector this monster's starting spot.
 
 
     // Start is called before the first frame update
@@ -70,7 +70,7 @@ public class MonsterBehavior : MonoBehaviour
             rb.MovePosition(movementVector);
 
             // Check if the monster has reached or passed the target position
-            if (Vector3.Distance(transform.position, hidePos) <= 0.1f)
+            if (Vector3.Distance(transform.position, hidePos) <= 1f)
             {
                 rb.velocity = Vector3.zero; // Stop
                 FindNextSpot();// teleport to next spot
@@ -101,20 +101,24 @@ public class MonsterBehavior : MonoBehaviour
     {
         foreach (GameObject spot in spotsSortedByDistance)
         {
+            Debug.Log("Checking a spot...");
             HideSpot hideSpot = spot.GetComponent<HideSpot>();
 
             // Check if the position is unoccupied
             if (!IsPositionOccupied(hideSpot))
             {
+                Debug.Log("Unoccupied spot found");
                 // teleport the "monster" GameObject to the unoccupied position
-                Debug.Log("Move the \"monster\" GameObject to the unoccupied position");
+                Debug.Log("teleporting the \"monster\" GameObject to the unoccupied position");
                 transform.position = spot.transform.position;
                 transform.localScale = spot.transform.localScale;
                 transform.rotation = spot.transform.rotation;
 
                 hideSpot.claimSpot(); //set spot's occupied to true
                 currentSpot = hideSpot; // set new current spot for monster
+                Debug.Log("currentSpot = " + currentSpot.ToString());
                 hidePos = currentSpot.retreatSpot.transform.position; // set new retreatSpot for monster
+                Debug.Log("Corresponding Retreat Spot = " + currentSpot.retreatSpot.ToString());
                 break; // Exit the loop after finding an unoccupied position
             }
         }
