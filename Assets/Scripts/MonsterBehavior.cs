@@ -14,10 +14,20 @@ public class MonsterBehavior : MonoBehaviour
 
     private List<GameObject> spotsSortedByDistance = new List<GameObject>();
     public Transform trolleyTransform;
+
+    [SerializeField]
+    private HideSpot currentSpot; // label in inspector this monster's starting spot.
+
+
     // Start is called before the first frame update
     void Start()
     {
+
+        //need to set hidePos to be the RetreatSpotScript transform.position for whatever spot the monster is in.
+        hidePos = currentSpot.retreatSpot.transform.position;
+
         rb = gameObject.GetComponent<Rigidbody>();
+        /*
         if (gameObject.tag == "Monster")
         {
             hidePos = GameObject.FindWithTag("MonsterHide1").transform.position;
@@ -30,6 +40,7 @@ public class MonsterBehavior : MonoBehaviour
         {
             hidePos = GameObject.FindWithTag("MonsterHide3").transform.position;
         }
+        */
 
 
         trolleyTransform = GameObject.FindGameObjectWithTag("Trolley").transform;
@@ -62,22 +73,20 @@ public class MonsterBehavior : MonoBehaviour
             if (Vector3.Distance(transform.position, hidePos) <= 0.1f)
             {
                 rb.velocity = Vector3.zero; // Stop
+                FindNextSpot();// teleport to next spot
+                hiding = false;
             }
         }
         
-        if (!hiding)
-        {
-
-        }
     }
 
     public void Hide()
     {
         Debug.Log("Hide Method Called");
 
-        FindNextSpot();
+        //FindNextSpot(); // teleports monster to next spot, commented out because I want the monster to hide first
         //gameObject.SetActive(false);
-        //hiding = true;
+        hiding = true; // causes hiding in FixedUpdate()
 
     }
 
@@ -93,14 +102,19 @@ public class MonsterBehavior : MonoBehaviour
         foreach (GameObject spot in spotsSortedByDistance)
         {
             HideSpot hideSpot = spot.GetComponent<HideSpot>();
+
             // Check if the position is unoccupied
             if (!IsPositionOccupied(hideSpot))
             {
-                // Move the "monster" GameObject to the unoccupied position
+                // teleport the "monster" GameObject to the unoccupied position
                 Debug.Log("Move the \"monster\" GameObject to the unoccupied position");
                 transform.position = spot.transform.position;
                 transform.localScale = spot.transform.localScale;
-                hideSpot.claimSpot();
+                transform.rotation = spot.transform.rotation;
+
+                hideSpot.claimSpot(); //set spot's occupied to true
+                currentSpot = hideSpot; // set new current spot for monster
+                hidePos = currentSpot.retreatSpot.transform.position; // set new retreatSpot for monster
                 break; // Exit the loop after finding an unoccupied position
             }
         }

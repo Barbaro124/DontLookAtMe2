@@ -19,13 +19,11 @@ TagManager:
   - TrolleyEntrance
   - TrolleyStop
   - Monster
-  - MonsterHide1
   - Monster2
-  - MonsterHide2
   - Monster3
-  - MonsterHide3
   - HideSpot
   - Trolley
+  - RetreatSpot
   layers:
   - Default
   - TransparentFX

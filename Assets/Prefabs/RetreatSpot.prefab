@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7860047938740226124}
+  - component: {fileID: 2006977835008637271}
   m_Layer: 0
-  m_Name: HiddenSpot_1
-  m_TagString: MonsterHide1
+  m_Name: RetreatSpot
+  m_TagString: RetreatSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,9 +26,25 @@ Transform:
   m_GameObject: {fileID: 7368380202113984692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -502.2, y: -75.8, z: -464.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2006977835008637271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7368380202113984692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a935a6af2d8654eacaec76e81d8c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideUp: 0
+  hideDown: 0
+  hideLeft: 0
+  hideRight: 0
