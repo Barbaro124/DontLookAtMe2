@@ -155,6 +155,7 @@ public class MonsterBehavior : MonoBehaviour
         //done instead of an event:
         Trolley trolley = GameObject.FindGameObjectWithTag("Trolley").GetComponent<Trolley>();
         trolley.JumpScare();
+        FindObjectOfType<AudioManager>().Stop("Ambient");
         FindObjectOfType<AudioManager>().Play("monsterScream");
     }
 

@@ -102,7 +102,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: monsterScream
-    clip: {fileID: 8300000, guid: 3f3494d03d3be7e43b02684b93da2b73, type: 3}
+    clip: {fileID: 8300000, guid: 4f337f00a3c5d30419eff7eb2226afd7, type: 3}
     volume: 1
     pitch: 1
     priority: 10

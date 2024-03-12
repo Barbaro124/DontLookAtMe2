@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4985977719871113999}
   m_Layer: 6
   m_Name: monster_scavenger_Skin_Red
-  m_TagString: Monster2
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,7 +444,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.02053213, y: 0.0743596, z: -0.16909298, w: 0.98257655}
   m_LocalPosition: {x: -199.3, y: -119.62507, z: -440.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 261, y: 261, z: 47}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7385139196993387462}
@@ -497,7 +497,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2844328973950138531}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 14.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
