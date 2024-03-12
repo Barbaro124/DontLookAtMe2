@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.HighDefinition;
 
 public class MonsterBehavior : MonoBehaviour
@@ -18,6 +20,10 @@ public class MonsterBehavior : MonoBehaviour
 
     [SerializeField]
     public HideSpot currentSpot; // label in inspector this monster's starting spot.
+
+    bool lightChange = false;
+
+    JumpScareEvent jumpScareEvent = new JumpScareEvent();
 
 
     // Start is called before the first frame update
@@ -80,6 +86,11 @@ public class MonsterBehavior : MonoBehaviour
 
                 hiding = false;
                 //scaring = false; enabling this makes the monster not move for some reason
+                if (scaring)
+                {
+                    ChangeLight();
+                }
+
             }
         }
 
@@ -142,9 +153,18 @@ public class MonsterBehavior : MonoBehaviour
         scaring = true; //affects fixedupdate movement
         hiding = true;
 
+    }
+
+    void ChangeLight()
+    {
+
         Light spotlight = GameObject.FindGameObjectWithTag("SpotlightRotator").GetComponent<Light>();
         spotlight.intensity = 2100;
         spotlight.spotAngle = 60;
+
+        //done instead of an event:
+        Trolley trolley = GameObject.FindGameObjectWithTag("Trolley").GetComponent<Trolley>();
+        trolley.JumpScare();
     }
 
     private bool IsPositionOccupied(HideSpot spot)

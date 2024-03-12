@@ -101,6 +101,13 @@ MonoBehaviour:
     priority: 128
     loop: 1
     source: {fileID: 0}
+  - name: monsterScream
+    clip: {fileID: 8300000, guid: 3f3494d03d3be7e43b02684b93da2b73, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 10
+    loop: 0
+    source: {fileID: 0}
   - name: wrong
     clip: {fileID: 8300000, guid: 1ec0c86d269a2044ba8bff857e347fa7, type: 3}
     volume: 1

@@ -22,6 +22,7 @@ public class Trolley : MonoBehaviour
     bool exiting = false;
     bool entering = true;
 
+
     void Start()
     {
         //add self as trolley exit event listener
@@ -156,6 +157,18 @@ public class Trolley : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("train");
             isMoving = true;
         }
+    }
+
+    public void JumpScare()
+    {
+        //Debug.Log("Jumpscare Movement");
+        //float hitForce = 10f;
+        // Move the targetTransform along its local forward direction by hitForce units
+        //transform.Translate(Vector3.forward * hitForce, Space.Self);
+        FindObjectOfType<AudioManager>().Play("monsterScream");
+        TimerScript timerScript = GameObject.FindObjectOfType<TimerScript>();
+        timerScript.timeLeft = 3;
+        timerScript.StartTimer();
     }
     #endregion
 
