@@ -799,9 +799,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8724928992954319927, guid: c42574b84d9bfcf46b25484de0fc988d,
+      - m_Target: {fileID: 1207102838237083413, guid: 72301b03c2ceb994ab37dac0d9443ca5,
           type: 3}
-        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_TargetAssemblyTypeName: MyManager, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
