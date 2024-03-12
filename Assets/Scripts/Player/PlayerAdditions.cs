@@ -59,7 +59,7 @@ public class PlayerAdditions : MonoBehaviour
 
     public void AddTrolleyExitEventListener(UnityAction listener)
     {
-        Debug.Log("Added Trolley as TrolleyExit Event Listener");
+        //Debug.Log("Added Trolley as TrolleyExit Event Listener");
         trolleyExitEvent.AddListener(listener);
     }
 

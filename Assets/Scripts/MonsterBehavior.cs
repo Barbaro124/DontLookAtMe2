@@ -49,16 +49,13 @@ public class MonsterBehavior : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     private void FixedUpdate()
     {
         if (hiding)
         {
+            
             Vector3 direction = (hidePos - transform.position).normalized;
             Vector3 targetVelocity = direction * moveSpeed;
 
@@ -68,6 +65,7 @@ public class MonsterBehavior : MonoBehaviour
             Vector3 movementVector = transform.position + velocityChange * Time.deltaTime;
             // Move the rigidbody using MovePosition
             rb.MovePosition(movementVector);
+            Debug.Log("code to hide the monster called");
 
             // Check if the monster has reached or passed the target position
             if (Vector3.Distance(transform.position, hidePos) <= 1f)

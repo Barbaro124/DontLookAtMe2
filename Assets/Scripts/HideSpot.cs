@@ -16,9 +16,10 @@ public class HideSpot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         transform.position = gameObject.transform.position;
         transform.localScale = gameObject.transform.localScale;
-        transform.rotation = gameObject.transform.rotation;
+        transform.rotation = gameObject.transform.rotation;*/
 
         //retreatSpot = FindChildWithTag(transform, "RetreatSpot"); //assign child object via tag
 
