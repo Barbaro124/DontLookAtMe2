@@ -27,7 +27,7 @@ public class Trolley : MonoBehaviour
         //add self as trolley exit event listener
         PlayerAdditions playerScript = GameObject.FindWithTag("MainCamera").GetComponent<PlayerAdditions>();
         playerScript.AddTrolleyExitEventListener(trolleyExit);
-        Debug.Log("Trolley added trolleyExit method as event");
+        //Debug.Log("Trolley added trolleyExit method as event");
 
         rb = gameObject.GetComponent<Rigidbody>();
         trolleyExitPos = GameObject.FindWithTag("TrolleyExit").transform.position;

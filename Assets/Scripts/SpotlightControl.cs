@@ -98,7 +98,7 @@ public class SpotlightControl : MonoBehaviour
         }
         if (target.CompareTag("Monster") || target.CompareTag("Monster2") || target.CompareTag("Monster3"))
         {
-            Debug.Log("Looking at Monster");
+            //Debug.Log("Looking at Monster");
             target.GetComponent<MonsterBehavior>().Hide();
         }
         // Do something with the object that was hit by the raycast.
@@ -112,10 +112,9 @@ public class SpotlightControl : MonoBehaviour
             outline = target.GetComponent<Outline>();
             outline.DisableOutline();
         }
-        if (target.CompareTag("Monster"))
+        if (target.CompareTag("Monster") || target.CompareTag("Monster2") || target.CompareTag("Monster3"))
         {
-            Debug.Log("Looked away from Monster");
-            target.GetComponent<MonsterBehavior>().Appear();
+            //Debug.Log("Looked away from Monster");
         }
         // Do something with the object that was exited by the raycast.
     }
