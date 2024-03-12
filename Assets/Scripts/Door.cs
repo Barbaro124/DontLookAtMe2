@@ -17,6 +17,7 @@ public class Door : MonoBehaviour
 
     GameObject doorRight;
     GameObject doorLeft;
+    MyManager myManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class Door : MonoBehaviour
 
         globalOpenRight = doorRight.transform.TransformPoint(openPositionRight);
         globalOpenLeft = doorLeft.transform.TransformPoint(openPositionLeft);
+        myManager = GameObject.FindWithTag("GameManager").GetComponent<MyManager>();
     }
 
     // Update is called once per frame
@@ -40,7 +42,10 @@ public class Door : MonoBehaviour
             doorLeft.transform.position = Vector3.MoveTowards(doorLeft.transform.position, globalOpenLeft, speed * Time.deltaTime);
         }
 
-
+        if (myManager.getFoundCount() >= 3)
+        {
+            OpenDoors();
+        }
     }
 
     public void OpenDoors()
