@@ -69,7 +69,7 @@ public class MonsterBehavior : MonoBehaviour
             // Calculate the velocity change needed
             Vector3 velocityChange = targetVelocity - rb.velocity;
 
-            Vector3 movementVector = transform.position + velocityChange * Time.deltaTime * 2;
+            Vector3 movementVector = transform.position + velocityChange * Time.deltaTime * 3;
             // Move the rigidbody using MovePosition
             rb.MovePosition(movementVector);
             Debug.Log("code to move the monster called");
