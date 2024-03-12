@@ -165,10 +165,10 @@ public class Trolley : MonoBehaviour
         //float hitForce = 10f;
         // Move the targetTransform along its local forward direction by hitForce units
         //transform.Translate(Vector3.forward * hitForce, Space.Self);
-        FindObjectOfType<AudioManager>().Play("monsterScream");
-        TimerScript timerScript = GameObject.FindObjectOfType<TimerScript>();
-        timerScript.timeLeft = 3;
-        timerScript.StartTimer();
+        FindObjectOfType<TimerScript>().StopTimer();
+        FindObjectOfType<TimerScript>().timeLeft = 3;
+        FindObjectOfType<TimerScript>().StartTimer();
+
     }
     #endregion
 

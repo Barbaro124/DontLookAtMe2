@@ -23,7 +23,7 @@ public class MonsterBehavior : MonoBehaviour
 
     bool lightChange = false;
 
-    JumpScareEvent jumpScareEvent = new JumpScareEvent();
+    //JumpScareEvent jumpScareEvent = new JumpScareEvent();
 
 
     // Start is called before the first frame update
@@ -152,7 +152,10 @@ public class MonsterBehavior : MonoBehaviour
         // on jumpscare, I need: The monster to come up from below, The light to get wider and less intense, the trolley to shake and make noise, the trolley to fall to the ground and crash
         scaring = true; //affects fixedupdate movement
         hiding = true;
-
+        //done instead of an event:
+        Trolley trolley = GameObject.FindGameObjectWithTag("Trolley").GetComponent<Trolley>();
+        trolley.JumpScare();
+        FindObjectOfType<AudioManager>().Play("monsterScream");
     }
 
     void ChangeLight()
@@ -162,9 +165,6 @@ public class MonsterBehavior : MonoBehaviour
         spotlight.intensity = 2100;
         spotlight.spotAngle = 60;
 
-        //done instead of an event:
-        Trolley trolley = GameObject.FindGameObjectWithTag("Trolley").GetComponent<Trolley>();
-        trolley.JumpScare();
     }
 
     private bool IsPositionOccupied(HideSpot spot)
