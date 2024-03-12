@@ -29,14 +29,10 @@ public class PauseMenu : MonoBehaviour
 
         Debug.Log("Pause Menu set to: " + pauseMenu);
         pauseMenu.SetActive(false);
+        isPaused = false;
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void PauseGame()
     {

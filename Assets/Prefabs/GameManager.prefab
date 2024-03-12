@@ -253,6 +253,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6534746716398020554}
     m_Modifications:
+    - target: {fileID: 5939475548356451302, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5485369820398739141}
     - target: {fileID: 6439666126935884131, guid: dd68e67c50297c745bb36a9f02474fca,
         type: 3}
       propertyPath: m_Pivot.x
@@ -367,6 +372,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752503541282520673, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1207102838237083413}
+    - target: {fileID: 7752503541282520673, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752503541282520673, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MyManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252620900451359294, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1207102838237083413}
+    - target: {fileID: 8252620900451359294, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252620900451359294, guid: dd68e67c50297c745bb36a9f02474fca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MyManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8635564405116781515, guid: dd68e67c50297c745bb36a9f02474fca,
         type: 3}

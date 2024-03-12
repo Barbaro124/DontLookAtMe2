@@ -53,10 +53,12 @@ public class MyManager : MonoBehaviour
             if (PauseMenu.isPaused)
             {
                 pauseMenu.ResumeGame();
+                cursorControlScript.setCursor();
             }
             else
             {
                 pauseMenu.PauseGame();
+                cursorControlScript.setCursor();
             }
         }
     }
