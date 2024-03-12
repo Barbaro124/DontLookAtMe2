@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2903791654809297960
 Transform:
   m_ObjectHideFlags: 0
@@ -115,6 +115,20 @@ MonoBehaviour:
     priority: 78
     loop: 0
     source: {fileID: 0}
+  - name: ticktock
+    clip: {fileID: 8300000, guid: dbce438e60c13a246b87525fdb63527e, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 78
+    loop: 1
+    source: {fileID: 0}
+  - name: flashlight
+    clip: {fileID: 8300000, guid: 768156ecbc8321b4ca0bec780f57a828, type: 3}
+    volume: 1
+    pitch: 1
+    priority: 78
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &5485369820398739141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,5 +141,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655f2c859b37e6849ba56d406199b964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 8635564405116781515, guid: dd68e67c50297c745bb36a9f02474fca,
-    type: 3}
+  pauseMenu: {fileID: 0}

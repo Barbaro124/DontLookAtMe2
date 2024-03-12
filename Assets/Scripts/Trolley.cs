@@ -167,7 +167,7 @@ public class Trolley : MonoBehaviour
         //transform.Translate(Vector3.forward * hitForce, Space.Self);
         FindObjectOfType<TimerScript>().StopTimer();
         FindObjectOfType<TimerScript>().timeLeft = 3;
-        FindObjectOfType<TimerScript>().StartTimer();
+        FindObjectOfType<TimerScript>().ScareTimer();
 
     }
     #endregion

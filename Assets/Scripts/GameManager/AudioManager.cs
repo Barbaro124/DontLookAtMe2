@@ -47,6 +47,12 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Stop();
     }
+
+    public void SetPitch(string name, float pitch)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.pitch = pitch;
+    }
     
     public void SetVolume(string name, float volume)
     {

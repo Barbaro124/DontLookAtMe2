@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu instance;
-    public GameObject pauseMenu;
+    GameObject pauseMenu;
     public static bool isPaused;
 
     //public KeyCode pauseKey;
@@ -26,7 +26,10 @@ public class PauseMenu : MonoBehaviour
         // Start is called before the first frame update
         void Start()
     {
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        Debug.Log("Pause Menu set to: " + pauseMenu);
         pauseMenu.SetActive(false);
+        
     }
 
     // Update is called once per frame
