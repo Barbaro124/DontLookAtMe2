@@ -24,6 +24,10 @@ TagManager:
   - HideSpot
   - Trolley
   - RetreatSpot
+  - MonsterHide3
+  - MonsterHide2
+  - DoorLeft
+  - DoorRight
   layers:
   - Default
   - TransparentFX

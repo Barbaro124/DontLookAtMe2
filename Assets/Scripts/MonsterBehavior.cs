@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.HighDefinition;
 
 public class MonsterBehavior : MonoBehaviour
@@ -11,12 +13,17 @@ public class MonsterBehavior : MonoBehaviour
     float moveSpeed = 30f;
 
     bool hiding = false;
+    bool scaring = false;
 
     private List<GameObject> spotsSortedByDistance = new List<GameObject>();
     public Transform trolleyTransform;
 
     [SerializeField]
     public HideSpot currentSpot; // label in inspector this monster's starting spot.
+
+    bool lightChange = false;
+
+    //JumpScareEvent jumpScareEvent = new JumpScareEvent();
 
 
     // Start is called before the first frame update
@@ -53,7 +60,7 @@ public class MonsterBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (hiding)
+        if (hiding || scaring)
         {
             
             Vector3 direction = (hidePos - transform.position).normalized;
@@ -62,19 +69,31 @@ public class MonsterBehavior : MonoBehaviour
             // Calculate the velocity change needed
             Vector3 velocityChange = targetVelocity - rb.velocity;
 
-            Vector3 movementVector = transform.position + velocityChange * Time.deltaTime;
+            Vector3 movementVector = transform.position + velocityChange * Time.deltaTime * 3;
             // Move the rigidbody using MovePosition
             rb.MovePosition(movementVector);
-            Debug.Log("code to hide the monster called");
+            Debug.Log("code to move the monster called");
 
             // Check if the monster has reached or passed the target position
             if (Vector3.Distance(transform.position, hidePos) <= 1f)
             {
                 rb.velocity = Vector3.zero; // Stop
-                FindNextSpot();// teleport to next spot
+                transform.position = hidePos;
+                if(!scaring)
+                {
+                    FindNextSpot();// teleport to next spot
+                }
+
                 hiding = false;
+                //scaring = false; enabling this makes the monster not move for some reason
+                if (scaring)
+                {
+                    ChangeLight();
+                }
+
             }
         }
+
         
     }
 
@@ -117,9 +136,35 @@ public class MonsterBehavior : MonoBehaviour
                 Debug.Log("currentSpot = " + currentSpot.ToString());
                 hidePos = currentSpot.retreatSpot.transform.position; // set new retreatSpot for monster
                 Debug.Log("Corresponding Retreat Spot = " + currentSpot.retreatSpot.ToString());
+                if (hideSpot.scareSpot == true)
+                {
+                    JumpScare();
+                }
                 break; // Exit the loop after finding an unoccupied position
             }
+
+           
         }
+    }
+
+    public void JumpScare()
+    {
+        // on jumpscare, I need: The monster to come up from below, The light to get wider and less intense, the trolley to shake and make noise, the trolley to fall to the ground and crash
+        scaring = true; //affects fixedupdate movement
+        hiding = true;
+        //done instead of an event:
+        Trolley trolley = GameObject.FindGameObjectWithTag("Trolley").GetComponent<Trolley>();
+        trolley.JumpScare();
+        FindObjectOfType<AudioManager>().Play("monsterScream");
+    }
+
+    void ChangeLight()
+    {
+
+        Light spotlight = GameObject.FindGameObjectWithTag("SpotlightRotator").GetComponent<Light>();
+        spotlight.intensity = 2100;
+        spotlight.spotAngle = 60;
+
     }
 
     private bool IsPositionOccupied(HideSpot spot)

@@ -11,6 +11,9 @@ public class HideSpot : MonoBehaviour
     [SerializeField]
     public GameObject retreatSpot; // assign child in inspector
 
+    [SerializeField]
+    public bool scareSpot; //set one spot in inspector to be the scare spot
+
     RetreatSpotScript retreatSpotScript;
     
     // Start is called before the first frame update
