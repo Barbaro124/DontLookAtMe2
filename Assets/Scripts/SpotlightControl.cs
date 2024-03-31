@@ -5,7 +5,18 @@ using JetBrains.Annotations;
 
 public class SpotlightControl : MonoBehaviour
 {
-    public float rotationSpeed = 20f;
+    // Reference to the spotlight object
+    public Transform spotlightTransform;
+
+    // Reference to the main camera
+    public Transform mainCameraTransform;
+
+    // Sensitivity of camera rotation
+    public float rotationSpeed = 2f;
+
+    // Limit for camera rotation
+    public float maxRotationAngle = 45f;
+
     private PlayerMovement playerMovement;
     //public int itemsFound = 0;
     private GameObject currentTarget;
@@ -22,6 +33,7 @@ public class SpotlightControl : MonoBehaviour
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
 
+        mainCameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
     void Update()
@@ -127,10 +139,29 @@ public class SpotlightControl : MonoBehaviour
             outline.EnableOutline();
         }
 
+
+        if (target.tag == "LeftLimit")
+        {
+            Debug.Log("LeftLimit Hit!");
+            PanLeft();
+        }
     }
 
-    void MaterialChange()
+    void PanLeft()
     {
+        // Calculate rotation amount based on hit position
+        float targetRotationY = 30f;//Mathf.Atan2(hit.point.x - mainCameraTransform.position.x, hit.point.z - mainCameraTransform.position.z) * Mathf.Rad2Deg;
 
+        // Apply rotation speed
+        targetRotationY *= rotationSpeed * Time.deltaTime;
+
+        // Clamp rotation within limits
+        targetRotationY = Mathf.Clamp(targetRotationY, -maxRotationAngle, maxRotationAngle);
+
+        // Smoothly rotate the camera towards the target rotation
+        Quaternion targetRotation = Quaternion.Euler(0f, targetRotationY, 0f);
+        mainCameraTransform.rotation = Quaternion.Slerp(mainCameraTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+
+  
 }
