@@ -134,11 +134,11 @@ public class SpotlightControl : MonoBehaviour
             outline = target.GetComponent<Outline>();
             outline.DisableOutline();
         }
-        if (target.CompareTag("Monster") || target.CompareTag("Monster2") || target.CompareTag("Monster3"))
+
+        if (target.CompareTag("LeftLimit"))
         {
-            //Debug.Log("Looked away from Monster");
+            RotateCameraParent(rotationSpeed);
         }
-        // Do something with the object that was exited by the raycast.
     }
 
     void OnRaycast(GameObject target)
@@ -148,8 +148,6 @@ public class SpotlightControl : MonoBehaviour
             outline = target.GetComponent<Outline>();
             outline.EnableOutline();
         }
-
-
 
     }
     
