@@ -100,6 +100,8 @@ public class SpotlightControl : MonoBehaviour
         }
 
     }
+    
+    private bool rotatedLeft = false; // Flag to track if the camera has rotated left
 
     void OnRaycastEnter(GameObject target)
     {
@@ -120,8 +122,12 @@ public class SpotlightControl : MonoBehaviour
 
         if (target.CompareTag("LeftLimit"))
         {
-            Debug.Log("LeftLimit Hit!");
-            RotateCameraParent(-rotationSpeed);
+            // Rotate the camera's parent to the left only if it's not already rotated left
+            if (!rotatedLeft)
+            {
+                RotateCameraParent(-rotationSpeed);
+                rotatedLeft = true; // Set the flag to indicate that the camera has rotated left
+            }
         }
         // Do something with the object that was hit by the raycast.
 
@@ -137,8 +143,11 @@ public class SpotlightControl : MonoBehaviour
 
         if (target.CompareTag("LeftLimit"))
         {
+            // Rotate the camera's parent to the right when leaving the "LeftLimit" collider
             RotateCameraParent(rotationSpeed);
+            rotatedLeft = false; // Reset the flag when leaving the "LeftLimit" collider
         }
+
     }
 
     void OnRaycast(GameObject target)
@@ -147,6 +156,11 @@ public class SpotlightControl : MonoBehaviour
         {
             outline = target.GetComponent<Outline>();
             outline.EnableOutline();
+        }
+        if (target.CompareTag("HiddenObject"))
+        {
+            // If the raycast hits the "Light Sensor", do nothing
+            return;
         }
 
     }
