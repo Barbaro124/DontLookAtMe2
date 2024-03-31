@@ -8,8 +8,8 @@ public class SpotlightControl : MonoBehaviour
     // Reference to the spotlight object
     public Transform spotlightTransform;
 
-    // Reference to the main camera
-    public Transform mainCameraTransform;
+    // Reference to the main camera's parent (player Capsule)
+    public Transform mainCameraParentTransform;
 
     // Sensitivity of camera rotation
     public float rotationSpeed = 2f;
@@ -33,7 +33,7 @@ public class SpotlightControl : MonoBehaviour
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
 
-        mainCameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        //mainCameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
     void Update()
@@ -140,14 +140,24 @@ public class SpotlightControl : MonoBehaviour
         }
 
 
-        if (target.tag == "LeftLimit")
+        if (target.CompareTag("LeftLimit"))
         {
             Debug.Log("LeftLimit Hit!");
-            PanLeft();
+            RotateCameraParent(-rotationSpeed);
         }
     }
+    
+    // Rotate the camera's parent transform (player capsule)
+    void RotateCameraParent(float rotationAmount)
+    {
+        // Calculate the target rotation based on the rotation amount
+        Quaternion targetRotation = Quaternion.Euler(0f, rotationAmount, 0f);
 
-    void PanLeft()
+        // Apply rotation to the camera's parent transform
+        mainCameraParentTransform.rotation *= targetRotation;
+    }
+
+    /*void PanLeft()
     {
         // Calculate rotation amount based on hit position
         float targetRotationY = 30f;//Mathf.Atan2(hit.point.x - mainCameraTransform.position.x, hit.point.z - mainCameraTransform.position.z) * Mathf.Rad2Deg;
@@ -161,7 +171,7 @@ public class SpotlightControl : MonoBehaviour
         // Smoothly rotate the camera towards the target rotation
         Quaternion targetRotation = Quaternion.Euler(0f, targetRotationY, 0f);
         mainCameraTransform.rotation = Quaternion.Slerp(mainCameraTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    }
+    }*/
 
   
 }
