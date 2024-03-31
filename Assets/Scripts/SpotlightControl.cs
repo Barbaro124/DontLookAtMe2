@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using JetBrains.Annotations;
+using System.Collections;
 
 public class SpotlightControl : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class SpotlightControl : MonoBehaviour
 
     // Limit for camera rotation
     public float maxRotationAngle = 45f;
+
+    // Duration for the camera rotation coroutine
+    public float rotationDuration = 0.5f;
+
+    // Coroutine reference for camera rotation
+    private Coroutine rotateCameraCoroutine;
 
     private PlayerMovement playerMovement;
     //public int itemsFound = 0;
@@ -150,13 +157,45 @@ public class SpotlightControl : MonoBehaviour
     // Rotate the camera's parent transform (player capsule)
     void RotateCameraParent(float rotationAmount)
     {
-        // Calculate the target rotation based on the rotation amount
-        Quaternion targetRotation = Quaternion.Euler(0f, rotationAmount, 0f);
+        // Stop any existing camera rotation coroutine
+        if (rotateCameraCoroutine != null)
+        {
+            StopCoroutine(rotateCameraCoroutine);
+        }
 
-        // Apply rotation to the camera's parent transform
-        mainCameraParentTransform.rotation *= targetRotation;
+        // Start a new coroutine to smoothly rotate the camera's parent
+        rotateCameraCoroutine = StartCoroutine(RotateCameraCoroutine(rotationAmount));
     }
 
+    // Coroutine to smoothly rotate the camera's parent transform
+    IEnumerator RotateCameraCoroutine(float rotationAmount)
+    {
+        // Calculate the target rotation based on the rotation amount
+        Quaternion targetRotation = Quaternion.Euler(0f, rotationAmount, 0f) * mainCameraParentTransform.rotation;
+
+        // Get the initial rotation and time
+        Quaternion initialRotation = mainCameraParentTransform.rotation;
+        float elapsedTime = 0f;
+
+        // Interpolate between the initial rotation and target rotation gradually over time
+        while (elapsedTime < rotationDuration)
+        {
+            // Calculate the interpolation factor based on elapsed time
+            float t = elapsedTime / rotationDuration;
+
+            // Interpolate between initial and target rotation
+            mainCameraParentTransform.rotation = Quaternion.Slerp(initialRotation, targetRotation, t);
+
+            // Increment elapsed time
+            elapsedTime += Time.deltaTime;
+
+            // Wait for the next frame
+            yield return null;
+        }
+
+        // Ensure the final rotation is exactly the target rotation
+        mainCameraParentTransform.rotation = targetRotation;
+    }
     /*void PanLeft()
     {
         // Calculate rotation amount based on hit position
@@ -173,5 +212,5 @@ public class SpotlightControl : MonoBehaviour
         mainCameraTransform.rotation = Quaternion.Slerp(mainCameraTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }*/
 
-  
+
 }
