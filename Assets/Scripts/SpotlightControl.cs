@@ -60,6 +60,8 @@ public class SpotlightControl : MonoBehaviour
     }
 
 
+    private GameObject previousTarget; // Store the previous target object
+
     private void Raycast()
     {
 
@@ -67,39 +69,34 @@ public class SpotlightControl : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
-            if (currentTarget == null)
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            if (previousTarget != hit.transform.gameObject)
             {
-                currentTarget = hit.transform.gameObject;
-                OnRaycastEnter(currentTarget);
+                // If the current target object is different from the previous one, it means the ray is entering a new object
+                OnRaycastEnter(hit.transform.gameObject);
+                previousTarget = hit.transform.gameObject;
             }
+            /*
             else if (currentTarget != hit.transform.gameObject)
             {
                 OnRaycastExit(currentTarget);
                 currentTarget = hit.transform.gameObject;
-                //OnRaycastEnter(currentTarget);
-            }
+            }*/
+
+
             OnRaycast(hit.transform.gameObject);
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
 
-
-            if (hit.collider.gameObject.CompareTag("Interactables"))
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                //Debug.Log("Did Hit");
-
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-                //Debug.Log("Did not Hit");
-            }
         }
 
-        else if (currentTarget != null)
+        else
         {
-            OnRaycastExit(currentTarget);
-            currentTarget = null;
+            // If the ray doesn't hit anything, reset the previous target
+            if (previousTarget != null)
+            {
+                OnRaycastExit(previousTarget);
+                previousTarget = null;
+            }
         }
 
     }
@@ -119,6 +116,12 @@ public class SpotlightControl : MonoBehaviour
         {
             //Debug.Log("Looking at Monster");
             target.GetComponent<MonsterBehavior>().Hide();
+        }
+
+        if (target.CompareTag("LeftLimit"))
+        {
+            Debug.Log("LeftLimit Hit!");
+            RotateCameraParent(-rotationSpeed);
         }
         // Do something with the object that was hit by the raycast.
 
@@ -147,11 +150,7 @@ public class SpotlightControl : MonoBehaviour
         }
 
 
-        if (target.CompareTag("LeftLimit"))
-        {
-            Debug.Log("LeftLimit Hit!");
-            RotateCameraParent(-rotationSpeed);
-        }
+
     }
     
     // Rotate the camera's parent transform (player capsule)
