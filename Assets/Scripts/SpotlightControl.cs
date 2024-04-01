@@ -18,6 +18,12 @@ public class SpotlightControl : MonoBehaviour
     // Limit for camera rotation
     public float maxRotationAngle = 45f;
 
+    // Limit for Light Rotation
+    float maxLightAngle = 50f;
+
+    // Sensitivity of light rotation
+    float spotlightRotationSpeed = 2f;
+
     // Duration for the camera rotation coroutine
     public float rotationDuration = 0.5f;
 
@@ -49,11 +55,46 @@ public class SpotlightControl : MonoBehaviour
         {
             // Rotate the spotlight based on mouse input
             float mouseX = Input.GetAxis("Mouse X");
-            transform.Rotate(Vector3.up, mouseX);
-
             float mouseY = Input.GetAxis("Mouse Y");
+
+            float currentRotationY = transform.localRotation.y;
+            Debug.Log(currentRotationY);
+            // Rotate the spotlight around the y-axis (horizontal rotation)
+            if (currentRotationY > -maxLightAngle && currentRotationY < maxLightAngle)
+            {
+                transform.Rotate(Vector3.up, mouseX);
+            }
+            else
+            {
+                //if (currentRotation.y <= -maxLightAngle)
+                //{
+                //    currentRotation.y = -maxLightAngle + 1f;
+                //}
+                //if (currentRotation.y >= maxLightAngle)
+                //{
+                //    currentRotation.y = maxLightAngle - 1f;
+                //}
+            }
+
+
+
             transform.Rotate(Vector3.right, -mouseY);
 
+            //// Get the current rotation angles
+            //Vector3 currentRotation = transform.localRotation.eulerAngles;
+
+            //// Calculate the new x-axis rotation angle
+            //float newXRotation = currentRotation.x - mouseY;
+
+            //// Check if the new x-axis rotation angle exceeds the maximum allowed angle
+            //if (newXRotation > maxLightAngle || newXRotation < -maxLightAngle)
+            //{
+            //    // Clamp the x-axis rotation angle to the maximum allowed angle
+            //    newXRotation = Mathf.Clamp(newXRotation, -maxLightAngle, maxLightAngle);
+            //}
+
+            // Apply the new rotation
+            //transform.localRotation = Quaternion.Euler(newXRotation, currentRotation.y, currentRotation.z);
 
             Raycast();
         }
