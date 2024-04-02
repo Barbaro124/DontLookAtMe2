@@ -19,7 +19,7 @@ public class SpotlightControl : MonoBehaviour
     public int maxRotationAngle = 45;
 
     // Limit for Light Rotation
-    float maxLightAngle = 50f;
+    float maxLightAngle = -50f;
 
     // Sensitivity of light rotation
     float spotlightRotationSpeed = 2f;
@@ -40,6 +40,7 @@ public class SpotlightControl : MonoBehaviour
     public Material lighton;
     Renderer meshRenderer;
 
+    private bool isCameraRotating = false;
     //ItemFoundEvent itemFoundEvent = new ItemFoundEvent();
 
     void Start()
@@ -64,21 +65,13 @@ public class SpotlightControl : MonoBehaviour
             {
 
             }
-            else
+
+            if (isCameraRotating == false)
             {
-                //if (currentRotation.y <= -maxLightAngle)
-                //{
-                //    currentRotation.y = -maxLightAngle + 1f;
-                //}
-                //if (currentRotation.y >= maxLightAngle)
-                //{
-                //    currentRotation.y = maxLightAngle - 1f;
-                //}
+                transform.Rotate(Vector3.up, mouseX);
+                transform.Rotate(Vector3.right, -mouseY);
             }
 
-
-            transform.Rotate(Vector3.up, mouseX);
-            transform.Rotate(Vector3.right, -mouseY);
 
             if (mainCameraParentTransform.localRotation.y > 1f)
             {
@@ -94,25 +87,51 @@ public class SpotlightControl : MonoBehaviour
                 rotatedLeft = false;
             }
 
-
-            //// Get the current rotation angles
-            //Vector3 currentRotation = transform.localRotation.eulerAngles;
-
-            //// Calculate the new x-axis rotation angle
-            //float newXRotation = currentRotation.x - mouseY;
-
-            //// Check if the new x-axis rotation angle exceeds the maximum allowed angle
-            //if (newXRotation > maxLightAngle || newXRotation < -maxLightAngle)
-            //{
-            //    // Clamp the x-axis rotation angle to the maximum allowed angle
-            //    newXRotation = Mathf.Clamp(newXRotation, -maxLightAngle, maxLightAngle);
-            //}
-
-            // Apply the new rotation
-            //transform.localRotation = Quaternion.Euler(newXRotation, currentRotation.y, currentRotation.z);
-
             Raycast();
         }
+    }
+
+    // Function to clamp the rotation quaternion within specified limits
+    Quaternion ClampRotation(Quaternion rotation, float minAngle, float maxAngle)
+    {
+        // Convert the quaternion rotation to Euler angles
+        Vector3 euler = rotation.eulerAngles;
+
+        // Clamp the rotation angles individually
+        euler.x = Mathf.Clamp(euler.x, minAngle, maxAngle);
+        euler.y = Mathf.Clamp(euler.y, minAngle, maxAngle);
+
+        // Convert the clamped Euler angles back to a quaternion rotation
+        return Quaternion.Euler(euler);
+    }
+
+    // Function to clamp an angle within specified limits
+    float ClampAngle(float angle, float min, float max)
+    {
+        if (angle < -360f)
+            angle += 360f;
+        if (angle > 360f)
+            angle -= 360f;
+        return Mathf.Clamp(angle, min, max);
+    }
+
+    void LimitSpotlightRotation()
+    {
+        // Define the maximum rotation angles for left, right, up, and down
+        float maxLeftRotation = -45f;   // Maximum rotation to the left
+        float maxRightRotation = 45f;   // Maximum rotation to the right
+        float maxUpRotation = 45f;      // Maximum rotation upwards
+        float maxDownRotation = -45f;   // Maximum rotation downwards
+
+        // Get the current rotation angles
+        Vector3 currentRotation = transform.localRotation.eulerAngles;
+
+        // Clamp the rotation angles within the specified ranges
+        float clampedXRotation = Mathf.Clamp(currentRotation.x, maxDownRotation, maxUpRotation);
+        float clampedYRotation = Mathf.Clamp(currentRotation.y, maxLeftRotation, maxRightRotation);
+
+        // Apply the clamped rotation angles
+        transform.localRotation = Quaternion.Euler(clampedXRotation, clampedYRotation, 0f);
     }
 
 
@@ -237,32 +256,27 @@ public class SpotlightControl : MonoBehaviour
 
     }
 
-    private bool isCameraRotating = false;
+
 
     // Rotate the camera's parent transform (player capsule)
     void RotateCameraParent(float rotationAmount)
     {
-        // Stop any existing camera rotation coroutine
-        if (rotateCameraCoroutine != null)
-        {
-            StopCoroutine(rotateCameraCoroutine);
-        }
-
+        // Check if the camera is currently rotating
         if (!isCameraRotating)
         {
+            // Calculate the target rotation based on the rotation amount
+            Quaternion targetRotation = Quaternion.Euler(0, rotationAmount, 0) * mainCameraParentTransform.rotation;
+
             // Start a new coroutine to smoothly rotate the camera's parent
-            rotateCameraCoroutine = StartCoroutine(RotateCameraCoroutine(rotationAmount));
+            rotateCameraCoroutine = StartCoroutine(RotateCameraCoroutine(targetRotation));
         }
     }
 
     // Coroutine to smoothly rotate the camera's parent transform
-    IEnumerator RotateCameraCoroutine(float rotationAmount)
+    IEnumerator RotateCameraCoroutine(Quaternion targetRotation)
     {
         // Set the flag to indicate that the camera is now rotating
         isCameraRotating = true;
-
-        // Calculate the target rotation based on the rotation amount
-        Quaternion targetRotation = Quaternion.Euler(0, rotationAmount, 0) * mainCameraParentTransform.rotation;
 
         // Get the initial rotation and time
         Quaternion initialRotation = mainCameraParentTransform.rotation;
@@ -284,13 +298,13 @@ public class SpotlightControl : MonoBehaviour
             yield return null;
         }
 
-        
         // Ensure the final rotation is exactly the target rotation
         mainCameraParentTransform.rotation = targetRotation;
 
         // Reset the flag to indicate that the camera rotation is complete
         isCameraRotating = false;
     }
+
 
 
     /*void PanLeft()
