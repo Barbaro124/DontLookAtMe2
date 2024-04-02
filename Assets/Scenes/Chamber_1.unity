@@ -360,7 +360,7 @@ PrefabInstance:
     - target: {fileID: 6375356783245960339, guid: 72301b03c2ceb994ab37dac0d9443ca5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -872,7 +872,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0509f4183bec7c94ab23c0dc062693c4, type: 2}
+  - {fileID: 2100000, guid: 131997ae581fde84ca96c1a2f9d2d3bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6142,7 +6142,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0509f4183bec7c94ab23c0dc062693c4, type: 2}
+  - {fileID: 2100000, guid: d844ff0a62f918d45b07f3a9ef5308c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7718,7 +7718,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0509f4183bec7c94ab23c0dc062693c4, type: 2}
+  - {fileID: 2100000, guid: 7b4599c2064d4ff46a9b115d35a34037, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8999,6 +8999,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 180490715522010568, guid: 8b6abb3e7b9c5454295c4beff759ca7e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268838532520128222, guid: 8b6abb3e7b9c5454295c4beff759ca7e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8239934177907377871, guid: 8b6abb3e7b9c5454295c4beff759ca7e,
         type: 3}
       propertyPath: m_Name
@@ -9007,7 +9017,7 @@ PrefabInstance:
     - target: {fileID: 8724018758671490165, guid: 8b6abb3e7b9c5454295c4beff759ca7e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -51.15
+      value: -54.04
       objectReference: {fileID: 0}
     - target: {fileID: 8724018758671490165, guid: 8b6abb3e7b9c5454295c4beff759ca7e,
         type: 3}
@@ -12259,6 +12269,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackWall
       objectReference: {fileID: 0}
+    - target: {fileID: 9147230966881853929, guid: 27d7dd57259739643990310518881edd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f71138fa1b0111140ba7ed4aac6c3c52, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

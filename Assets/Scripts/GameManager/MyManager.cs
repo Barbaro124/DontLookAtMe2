@@ -71,7 +71,7 @@ public class MyManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("itemFound");
     }
 
-    void NextRoom()
+    public void NextRoom()
     {
         Debug.Log("NextRoom Invoked");
 
@@ -91,6 +91,10 @@ public class MyManager : MonoBehaviour
         //OnSceneChange();
         SceneManager.LoadScene("Instructions");
 
+    }
+    public void Chamber_2()
+    {
+        SceneManager.LoadScene("Chamber_2");
     }
     public void Chamber_1()
     {
@@ -123,7 +127,7 @@ public class MyManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Chamber_1")
         {
-            SceneManager.LoadScene("MainMenu"); //Change this once there's more than one level
+            SceneManager.LoadScene("Chamber_2"); 
         }
         else if (SceneManager.GetActiveScene().name == "Chamber_2")
         {

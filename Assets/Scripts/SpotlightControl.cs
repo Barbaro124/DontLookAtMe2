@@ -61,10 +61,6 @@ public class SpotlightControl : MonoBehaviour
             float currentRotationY = transform.localRotation.y;
             //Debug.Log(currentRotationY);
             // Rotate the spotlight around the y-axis (horizontal rotation)
-            if (currentRotationY > -maxLightAngle && currentRotationY < maxLightAngle)
-            {
-
-            }
 
             if (isCameraRotating == false)
             {
@@ -72,20 +68,6 @@ public class SpotlightControl : MonoBehaviour
                 transform.Rotate(Vector3.right, -mouseY);
             }
 
-
-            if (mainCameraParentTransform.localRotation.y > 1f)
-            {
-                rotatedRight = true;
-            }
-            else if (mainCameraParentTransform.localRotation.y < -1f)
-            {
-                rotatedLeft = true;
-            }
-            else
-            {
-                rotatedRight = false;
-                rotatedLeft = false;
-            }
 
             Raycast();
         }
@@ -198,20 +180,20 @@ public class SpotlightControl : MonoBehaviour
         if (target.CompareTag("LeftLimit"))
         {
             // Rotate the camera's parent to the left only if it's not already rotated left
-            //if (!rotatedLeft)
-            //{
+            if (!rotatedLeft)
+            {
                 RotateCameraParent(-rotationSpeed);
-                //rotatedLeft = true; // Set the flag to indicate that the camera has rotated left
-            //}
+                rotatedLeft = true; // Set the flag to indicate that the camera has rotated left
+            }
         }
         
         if (target.CompareTag("RightLimit"))
         {
-            //if (!rotatedRight)
-            //{
+            if (!rotatedRight)
+            {
                 RotateCameraParent(rotationSpeed);
-                //rotatedRight = true;
-            //}
+                rotatedRight = true;
+            }
         }
 
     }
@@ -228,14 +210,14 @@ public class SpotlightControl : MonoBehaviour
         {
             // Rotate the camera's parent to the right when leaving the "LeftLimit" collider
             RotateCameraParent(rotationSpeed);
-            //rotatedLeft = false; // Reset the flag when leaving the "LeftLimit" collider
+            rotatedLeft = false; // Reset the flag when leaving the "LeftLimit" collider
             
         }
 
         if (target.CompareTag("RightLimit"))
         {
             RotateCameraParent(-rotationSpeed);
-            //rotatedRight = false;
+            rotatedRight = false;
             
         }
 

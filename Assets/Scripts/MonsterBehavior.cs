@@ -34,21 +34,6 @@ public class MonsterBehavior : MonoBehaviour
         hidePos = currentSpot.retreatSpot.transform.position;
 
         rb = gameObject.GetComponent<Rigidbody>();
-        /*
-        if (gameObject.tag == "Monster")
-        {
-            hidePos = GameObject.FindWithTag("MonsterHide1").transform.position;
-        }
-        if (gameObject.tag == "Monster2")
-        {
-            hidePos = GameObject.FindWithTag("MonsterHide2").transform.position;
-        }
-        if (gameObject.tag == "Monster3")
-        {
-            hidePos = GameObject.FindWithTag("MonsterHide3").transform.position;
-        }
-        */
-
 
         trolleyTransform = GameObject.FindGameObjectWithTag("Trolley").transform;
 
@@ -100,9 +85,6 @@ public class MonsterBehavior : MonoBehaviour
     public void Hide()
     {
         Debug.Log("Hide Method Called");
-
-        //FindNextSpot(); // teleports monster to next spot, commented out because I want the monster to hide first
-        //gameObject.SetActive(false);
         hiding = true; // causes hiding in FixedUpdate()
 
     }
@@ -110,7 +92,6 @@ public class MonsterBehavior : MonoBehaviour
     public void Appear()
     {
         Debug.Log("Appear Method Called");
-        //gameObject.SetActive(true);
         hiding = false;
     }
 
