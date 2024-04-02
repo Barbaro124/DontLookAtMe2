@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 478890562429388212}
   - component: {fileID: 1461710980749901910}
   m_Layer: 0
-  m_Name: HideSpot (1)
+  m_Name: HideSpot 3
   m_TagString: HideSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

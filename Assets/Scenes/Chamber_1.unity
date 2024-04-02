@@ -11784,7 +11784,7 @@ PrefabInstance:
     - target: {fileID: 6603390733347683824, guid: 7ad5908486665be45b63035c4ca9a956,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -30.6
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 6603390733347683824, guid: 7ad5908486665be45b63035c4ca9a956,
         type: 3}
@@ -11920,12 +11920,12 @@ PrefabInstance:
     - target: {fileID: 4148816867761317089, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 128
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 4148816867761317089, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -30.6
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 4148816867761317089, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
         type: 3}
@@ -11965,6 +11965,21 @@ PrefabInstance:
     - target: {fileID: 4148816867761317089, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296110392495668364, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296110392495668364, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
+        type: 3}
+      propertyPath: m_ImplicitCom
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296110392495668364, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
+        type: 3}
+      propertyPath: m_ImplicitTensor
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929269501072141497, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
