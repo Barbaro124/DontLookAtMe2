@@ -10,7 +10,7 @@ public class Trolley : MonoBehaviour
     Vector3 trolleyExitPos;
     Vector3 trolleyEnterPos;
     Vector3 trolleyStopPos;
-    float moveSpeed = 8f;
+    float moveSpeed = 12f;
 
     private Rigidbody rb;
     private bool isMoving = false;
@@ -180,7 +180,7 @@ public class Trolley : MonoBehaviour
             Debug.Log("Trolley collided with " + other.gameObject.name);
             FindObjectOfType<AudioManager>().Stop("train");
             FindObjectOfType<AudioManager>().Stop("Ambient");
-            manager.MainMenu();
+            manager.NextRoom();
         }
     }
 }

@@ -31,6 +31,7 @@ TagManager:
   - PauseMenu
   - MonsterHide1
   - LeftLimit
+  - RightLimit
   layers:
   - Default
   - TransparentFX

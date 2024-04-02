@@ -58,7 +58,7 @@ public class TimerScript : MonoBehaviour
             if(timeLeft > 0)
             {
                 timeLeft -= Time.deltaTime;
-                updateTimerText(timeLeft);
+                //updateTimerText(timeLeft);
 
                 float pitchRange = maxPitch - startingPitch;
                 float pitchIncrement = pitchRange * ((timerDuration - timeLeft) / timerDuration);
@@ -76,20 +76,20 @@ public class TimerScript : MonoBehaviour
         
     }
 
-    void updateTimerText(float currentTime)
-    {
-        currentTime += 1;
+    //void updateTimerText(float currentTime)
+    //{
+    //    currentTime += 1;
 
-        float min = Mathf.FloorToInt(currentTime / 60);
-        float sec = Mathf.FloorToInt(currentTime % 60);
+    //    float min = Mathf.FloorToInt(currentTime / 60);
+    //    float sec = Mathf.FloorToInt(currentTime % 60);
 
-        if (timerTxt == null)
-        {
-            Debug.LogError("timerTxt is null!");
-            return;
-        }
+    //    if (timerTxt == null)
+    //    {
+    //        Debug.LogError("timerTxt is null!");
+    //        return;
+    //    }
 
-        timerTxt.text = string.Format("{0:00}:{1:00}", min, sec);
+    //    timerTxt.text = string.Format("{0:00}:{1:00}", min, sec);
 
-    }
+    //}
 }
