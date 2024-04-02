@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     private float _jumpTimeoutDelta;
     private float _fallTimeoutDelta;
 
-
+    bool needsLocking = true;
     
     public bool isControllingSpotlight = false;
 
@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
             Move();
             JumpAndGravity();
             CameraRotation();
+            toggleNeedsLockingOn();
             //Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * MoveSpeed * Time.deltaTime;
             //transform.Translate(movement);
         }
@@ -133,7 +134,11 @@ public class PlayerMovement : MonoBehaviour
             //_mainCamera.transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
 
             //this locks the camera to the desired rotation upon use of the spotlight. It's a hard-coded rotation now, but it'd probably be best if it just switched to a different camera instead.
-            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+            if (needsLocking)
+            {
+                CinemachineCameraTarget.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                toggleNeedsLockingOff();
+            }
 
         }
         GroundedCheck();
@@ -141,14 +146,24 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    void toggleNeedsLockingOff()
+    {
+        if (needsLocking)
+        {
+            needsLocking = false;
+        }
+    }
+    void toggleNeedsLockingOn()
+    {
+        if (!needsLocking)
+        {
+            needsLocking = true;
+        }
+    }
+
     public void ToggleSpotlightControl(bool value)
     {
         isControllingSpotlight = value;
-    }
-
-    private void LateUpdate()
-    {
-       // CameraRotation();
     }
 
     private void GroundedCheck()

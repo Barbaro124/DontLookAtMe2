@@ -29,6 +29,8 @@ TagManager:
   - DoorLeft
   - DoorRight
   - PauseMenu
+  - MonsterHide1
+  - LeftLimit
   layers:
   - Default
   - TransparentFX
