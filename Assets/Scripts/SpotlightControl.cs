@@ -16,7 +16,7 @@ public class SpotlightControl : MonoBehaviour
     public float rotationSpeed = 2f;
 
     // Limit for camera rotation
-    public float maxRotationAngle = 45f;
+    public int maxRotationAngle = 45;
 
     // Limit for Light Rotation
     float maxLightAngle = 50f;
@@ -46,7 +46,7 @@ public class SpotlightControl : MonoBehaviour
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
 
-        //mainCameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        mainCameraParentTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -58,11 +58,11 @@ public class SpotlightControl : MonoBehaviour
             float mouseY = Input.GetAxis("Mouse Y");
 
             float currentRotationY = transform.localRotation.y;
-            Debug.Log(currentRotationY);
+            //Debug.Log(currentRotationY);
             // Rotate the spotlight around the y-axis (horizontal rotation)
             if (currentRotationY > -maxLightAngle && currentRotationY < maxLightAngle)
             {
-                transform.Rotate(Vector3.up, mouseX);
+
             }
             else
             {
@@ -77,8 +77,23 @@ public class SpotlightControl : MonoBehaviour
             }
 
 
-
+            transform.Rotate(Vector3.up, mouseX);
             transform.Rotate(Vector3.right, -mouseY);
+
+            if (mainCameraParentTransform.localRotation.y > 1f)
+            {
+                rotatedRight = true;
+            }
+            else if (mainCameraParentTransform.localRotation.y < -1f)
+            {
+                rotatedLeft = true;
+            }
+            else
+            {
+                rotatedRight = false;
+                rotatedLeft = false;
+            }
+
 
             //// Get the current rotation angles
             //Vector3 currentRotation = transform.localRotation.eulerAngles;
@@ -164,20 +179,20 @@ public class SpotlightControl : MonoBehaviour
         if (target.CompareTag("LeftLimit"))
         {
             // Rotate the camera's parent to the left only if it's not already rotated left
-            if (!rotatedLeft)
-            {
+            //if (!rotatedLeft)
+            //{
                 RotateCameraParent(-rotationSpeed);
-                rotatedLeft = true; // Set the flag to indicate that the camera has rotated left
-            }
+                //rotatedLeft = true; // Set the flag to indicate that the camera has rotated left
+            //}
         }
         
         if (target.CompareTag("RightLimit"))
         {
-            if (!rotatedRight)
-            {
+            //if (!rotatedRight)
+            //{
                 RotateCameraParent(rotationSpeed);
-                rotatedRight = true;
-            }
+                //rotatedRight = true;
+            //}
         }
 
     }
@@ -194,13 +209,15 @@ public class SpotlightControl : MonoBehaviour
         {
             // Rotate the camera's parent to the right when leaving the "LeftLimit" collider
             RotateCameraParent(rotationSpeed);
-            rotatedLeft = false; // Reset the flag when leaving the "LeftLimit" collider
+            //rotatedLeft = false; // Reset the flag when leaving the "LeftLimit" collider
+            
         }
 
         if (target.CompareTag("RightLimit"))
         {
             RotateCameraParent(-rotationSpeed);
-            rotatedRight = false;
+            //rotatedRight = false;
+            
         }
 
     }
@@ -219,7 +236,9 @@ public class SpotlightControl : MonoBehaviour
         }
 
     }
-    
+
+    private bool isCameraRotating = false;
+
     // Rotate the camera's parent transform (player capsule)
     void RotateCameraParent(float rotationAmount)
     {
@@ -229,15 +248,21 @@ public class SpotlightControl : MonoBehaviour
             StopCoroutine(rotateCameraCoroutine);
         }
 
-        // Start a new coroutine to smoothly rotate the camera's parent
-        rotateCameraCoroutine = StartCoroutine(RotateCameraCoroutine(rotationAmount));
+        if (!isCameraRotating)
+        {
+            // Start a new coroutine to smoothly rotate the camera's parent
+            rotateCameraCoroutine = StartCoroutine(RotateCameraCoroutine(rotationAmount));
+        }
     }
 
     // Coroutine to smoothly rotate the camera's parent transform
     IEnumerator RotateCameraCoroutine(float rotationAmount)
     {
+        // Set the flag to indicate that the camera is now rotating
+        isCameraRotating = true;
+
         // Calculate the target rotation based on the rotation amount
-        Quaternion targetRotation = Quaternion.Euler(0f, rotationAmount, 0f) * mainCameraParentTransform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0, rotationAmount, 0) * mainCameraParentTransform.rotation;
 
         // Get the initial rotation and time
         Quaternion initialRotation = mainCameraParentTransform.rotation;
@@ -259,9 +284,15 @@ public class SpotlightControl : MonoBehaviour
             yield return null;
         }
 
+        
         // Ensure the final rotation is exactly the target rotation
         mainCameraParentTransform.rotation = targetRotation;
+
+        // Reset the flag to indicate that the camera rotation is complete
+        isCameraRotating = false;
     }
+
+
     /*void PanLeft()
     {
         // Calculate rotation amount based on hit position

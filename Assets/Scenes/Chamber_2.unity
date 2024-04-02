@@ -373,6 +373,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4786318537680676167, guid: 23950be2d9420a946a4a36fffd9651cd,
+        type: 3}
+      propertyPath: currentSpot
+      value: 
+      objectReference: {fileID: 1836640085}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -477,6 +482,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &141024853 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1461710980749901910, guid: 7ad5908486665be45b63035c4ca9a956,
+    type: 3}
+  m_PrefabInstance: {fileID: 141024850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141024851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfacc8ebbd0cbc040843d9a21316754e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &143589534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8346589514280676751, guid: ac6c5b553e3076d45894c5a655cb8318,
@@ -957,6 +974,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 200773030023297882, guid: a4e2195daadb92a4da0e99f2f711fe02,
+        type: 3}
+      propertyPath: currentSpot
+      value: 
+      objectReference: {fileID: 1327743269}
     - target: {fileID: 6147598681051099906, guid: a4e2195daadb92a4da0e99f2f711fe02,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2587,17 +2609,17 @@ PrefabInstance:
     - target: {fileID: 7127382779609440542, guid: e5287765bea57a140a722bf91576e2f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.2412
+      value: 38.4
       objectReference: {fileID: 0}
     - target: {fileID: 7127382779609440542, guid: e5287765bea57a140a722bf91576e2f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 78.41652
+      value: -21.4
       objectReference: {fileID: 0}
     - target: {fileID: 7127382779609440542, guid: e5287765bea57a140a722bf91576e2f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -839.19
+      value: -750.7
       objectReference: {fileID: 0}
     - target: {fileID: 7127382779609440542, guid: e5287765bea57a140a722bf91576e2f8,
         type: 3}
@@ -3011,6 +3033,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1322212826}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1327743269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2254452555901675871, guid: 8e28c85b82a20014fb906543c276d76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 256129699}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfacc8ebbd0cbc040843d9a21316754e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1343709927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5098056751452050711, guid: 7eecdea7b56ccb74695f3b78be9fd86f,
@@ -3095,6 +3129,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7929269501072141497, guid: 495de82ead9c9b9478a1d4fd38d3b3df,
+        type: 3}
+      propertyPath: currentSpot
+      value: 
+      objectReference: {fileID: 141024853}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4436,6 +4475,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1819279027}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1836640085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 894942603530648374, guid: ff3e31568ddd55e4ca81651198440280,
+    type: 3}
+  m_PrefabInstance: {fileID: 308647028}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfacc8ebbd0cbc040843d9a21316754e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1849584229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5990124961188600362, guid: bbc681046ee57fe4fa549f38c62603a7,
