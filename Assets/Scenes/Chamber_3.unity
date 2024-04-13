@@ -31134,6 +31134,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2db8e2f4e025eb4488156850a9d97f93, type: 3}
+--- !u!1001 &8339487478945544623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 242864502487207002, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_Name
+      value: Mars Rover
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -111
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -416.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.28820446
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.2882045
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6457076
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6457074
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 582375398843422432, guid: 2864ca7d32f39ff438cc29fc74b73f5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 131.894
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2864ca7d32f39ff438cc29fc74b73f5a, type: 3}
 --- !u!4 &8515274389255082424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2649943529592337939, guid: 0fa89e21ab644194e8dffa8b836fb39f,
@@ -31274,3 +31342,4 @@ SceneRoots:
   - {fileID: 271106445}
   - {fileID: 2747632162664847733}
   - {fileID: 4826848104576060588}
+  - {fileID: 8339487478945544623}
