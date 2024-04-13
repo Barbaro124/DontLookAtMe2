@@ -13,7 +13,7 @@ public class Trolley : MonoBehaviour
     float moveSpeed = 12f;
 
     private Rigidbody rb;
-    private bool isMoving = false;
+    public bool isMoving = false;
 
     public CharacterController playerController;
 

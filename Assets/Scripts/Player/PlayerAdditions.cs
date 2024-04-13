@@ -17,6 +17,8 @@ public class PlayerAdditions : MonoBehaviour
     public LayerMask layerMask;
     private GameObject currentTarget;
 
+    Trolley trolley;
+
     public int itemsFound = 0;
 
     public bool canInteract = false;
@@ -43,6 +45,7 @@ public class PlayerAdditions : MonoBehaviour
         aimSpotLock = GameObject.FindGameObjectWithTag("AimSpotLock");
         player = GameObject.FindGameObjectWithTag("Player");
         characterController = player.GetComponent<CharacterController>();
+        trolley = FindObjectOfType<Trolley>();
     }
 
     // Update is called once per frame
@@ -122,14 +125,29 @@ public class PlayerAdditions : MonoBehaviour
     protected virtual void OnRaycast(GameObject target)
     {
         outline = target.GetComponent<Outline>();
+
         outline.EnableOutline();
 
         if (target.CompareTag("Spotlight"))
         {
-            //Debug.Log("Looking At Light");
+            // make outline red if unavailable.
+            if (trolley.isMoving == true)
+            {
+                outline.OutlineColor = Color.red;
+            }
+            else
+            {
+                outline.OutlineColor = Color.white;
+            }
+
+            //Interaction/control Light Mode
             if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
             {
-                ControlLight(true);
+                //disable access to light if trolley is moving.
+                if (trolley.isMoving == false)
+                {
+                    ControlLight(true);
+                }
             }
 
         }
