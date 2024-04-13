@@ -125,11 +125,22 @@ public class PlayerAdditions : MonoBehaviour
     protected virtual void OnRaycast(GameObject target)
     {
         outline = target.GetComponent<Outline>();
+
         outline.EnableOutline();
 
         if (target.CompareTag("Spotlight"))
         {
-            //Debug.Log("Looking At Light");
+            // make outline red if unavailable.
+            if (trolley.isMoving == true)
+            {
+                outline.OutlineColor = Color.red;
+            }
+            else
+            {
+                outline.OutlineColor = Color.white;
+            }
+
+            //Interaction/control Light Mode
             if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
             {
                 //disable access to light if trolley is moving.
