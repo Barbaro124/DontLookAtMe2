@@ -20,29 +20,26 @@ public class RetreatSpotScript : MonoBehaviour
     void Start()
     {
 
-        moveDistance = 20f;
+        moveDistance = 20;
 
         if (hideLeft)
         {
-            transform.Translate(new Vector3(moveDistance, 0f, 0f), Space.Self);
+            transform.Translate(new Vector3(Mathf.RoundToInt(moveDistance), 0f, 0f), Space.Self);
         }
         if (hideRight)
         {
-            transform.Translate(new Vector3(-moveDistance, 0f, 0f), Space.Self);
+            transform.Translate(new Vector3(Mathf.RoundToInt(-moveDistance), 0f, 0f), Space.Self);
         }
         if (hideUp)
         {
-            transform.Translate(new Vector3(0f, moveDistance, 0f), Space.Self);
+            transform.Translate(new Vector3(0f, Mathf.RoundToInt(moveDistance), 0f), Space.Self);
         }
         if (hideDown)
         {
-            transform.Translate(new Vector3(0f, -moveDistance, 0f), Space.Self);
+            transform.Translate(new Vector3(0f, Mathf.RoundToInt(-moveDistance), 0f), Space.Self);
         }
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
