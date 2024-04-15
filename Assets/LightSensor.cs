@@ -27,6 +27,8 @@ public class LightSensor : MonoBehaviour
     ItemFoundEvent itemFoundEvent = new ItemFoundEvent();
     ItemLostEvent itemLostEvent = new ItemLostEvent();
 
+    MyManager manager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +40,18 @@ public class LightSensor : MonoBehaviour
         rend.material.EnableKeyword("_EMISSION");
 
         lighton = false;
+
+        manager = FindObjectOfType<MyManager>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        ModifyGreenLevel();
+        // makes it so that the lights only dim/brighten if all 3 haven't been activated
+        if (manager.itemsFound < 3)
+        {
+            ModifyGreenLevel();
+        }
     }
 
 
@@ -65,7 +73,7 @@ public class LightSensor : MonoBehaviour
         // Set the modified emission color back to the material
         rend.material.SetColor("_EmissionColor", currentEmission);
 
-        Debug.Log(currentEmission.g);
+        //Debug.Log(currentEmission.g);
 
         if (currentEmission.g >= 0.3f)
         {
