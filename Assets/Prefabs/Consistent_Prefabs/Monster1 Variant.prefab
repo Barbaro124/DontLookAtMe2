@@ -2333,7 +2333,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 19.418358, y: 24.005024, z: 0.8202447}
+  m_LocalScale: {x: 55.771202, y: 55.771202, z: 10.043086}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6624498268145949583}
@@ -2394,7 +2394,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
