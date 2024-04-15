@@ -108,10 +108,11 @@ public class MonsterBehavior : MonoBehaviour
                 Debug.Log("Unoccupied spot found");
                 // teleport the "monster" GameObject to the unoccupied position
                 Debug.Log("teleporting the \"monster\" GameObject to the unoccupied position");
+                
                 transform.position = spot.transform.position;
                 transform.localScale = spot.transform.localScale;
                 transform.rotation = spot.transform.rotation;
-
+                
                 hideSpot.claimSpot(); //set spot's occupied to true
                 currentSpot = hideSpot; // set new current spot for monster
                 Debug.Log("currentSpot = " + currentSpot.ToString());
