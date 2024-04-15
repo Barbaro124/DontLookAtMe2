@@ -169,7 +169,7 @@ public class SpotlightControl : MonoBehaviour
         }
         if (target.CompareTag("HiddenObject"))
         {
-            target.GetComponentInChildren<ChangeMaterial>().LightOn();
+            target.GetComponentInChildren<LightSensor>().aimedAt = true;
         }
         if (target.CompareTag("Monster") || target.CompareTag("Monster2") || target.CompareTag("Monster3"))
         {
@@ -200,6 +200,11 @@ public class SpotlightControl : MonoBehaviour
 
     void OnRaycastExit(GameObject target)
     {
+        if (target.CompareTag("HiddenObject"))
+        {
+            target.GetComponentInChildren<LightSensor>().aimedAt = false;
+        }
+
         if (target.GetComponent<Outline>() != null)
         {
             outline = target.GetComponent<Outline>();

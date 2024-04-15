@@ -70,6 +70,12 @@ public class MyManager : MonoBehaviour
         Debug.Log("Items Found: " + itemsFound);
         FindObjectOfType<AudioManager>().Play("itemFound");
     }
+    void LostItem()
+    {
+        itemsFound--;
+        Debug.Log("Items Found: " + itemsFound);
+        //add itemLost sound here?
+    }
 
     public void NextRoom()
     {
@@ -144,20 +150,23 @@ public class MyManager : MonoBehaviour
     {
 
         cursorControlScript.setCursor();
-        //gameplay chambers
-        if (chamber == 1 || chamber == 2)
+        //gameplay chambers, event listeners
+        if (chamber == 1 || chamber == 2 || chamber == 3)
         {
             
             itemsFound = 0;
 
-            ChangeMaterial changeMaterial1 = GameObject.FindWithTag("LightSensorLight").GetComponent<ChangeMaterial>();
-            changeMaterial1.AddItemFoundEventListener(AddItem);
+            LightSensor LightSensor1 = GameObject.FindWithTag("LightSensorLight").GetComponent<LightSensor>();
+            LightSensor1.AddItemFoundEventListener(AddItem);
+            LightSensor1.AddItemLostEventListener(LostItem);
 
-            ChangeMaterial changeMaterial2 = GameObject.FindWithTag("LightSensorLight2").GetComponent<ChangeMaterial>();
-            changeMaterial2.AddItemFoundEventListener(AddItem);
+            LightSensor LightSensor2 = GameObject.FindWithTag("LightSensorLight2").GetComponent<LightSensor>();
+            LightSensor2.AddItemFoundEventListener(AddItem);
+            LightSensor2.AddItemLostEventListener(LostItem);
 
-            ChangeMaterial changeMaterial3 = GameObject.FindWithTag("LightSensorLight3").GetComponent<ChangeMaterial>();
-            changeMaterial3.AddItemFoundEventListener(AddItem);
+            LightSensor LightSensor3 = GameObject.FindWithTag("LightSensorLight3").GetComponent<LightSensor>();
+            LightSensor3.AddItemFoundEventListener(AddItem);
+            LightSensor3.AddItemLostEventListener(LostItem);
 
             //add self as next room event listener
             PlayerAdditions playerScript = GameObject.FindWithTag("MainCamera").GetComponent<PlayerAdditions>();
