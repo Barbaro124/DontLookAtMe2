@@ -126,7 +126,7 @@ public class SpotlightControl : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
-            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
             if (previousTarget != hit.transform.gameObject)
             {
                 // If the current target object is different from the previous one, it means the ray is entering a new object
