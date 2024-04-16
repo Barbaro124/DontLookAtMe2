@@ -15,6 +15,7 @@ public class TrolleyShake : MonoBehaviour
 
     GameObject player;
     PlayerMovement playerMovement;
+    public ScreenFader screenFader;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class TrolleyShake : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
+        screenFader = GameObject.FindGameObjectWithTag("BlackImage").GetComponent<ScreenFader>();
     }
 
     private void Update()
@@ -77,7 +79,7 @@ public class TrolleyShake : MonoBehaviour
         yield return new WaitForSeconds(shakeDuration);
         
         // Calculate the duration of the fall
-        float fallDuration = 5.0f; // Adjust as needed
+        float fallDuration = 1.6f; // Adjust as needed
 
         // Get the initial position of the trolley
         Vector3 initialPosition = transform.position;
@@ -100,6 +102,10 @@ public class TrolleyShake : MonoBehaviour
 
             // Wait for the next frame
             yield return null;
+        }
+        if (elapsedTime > fallDuration -1f)
+        {
+            StartCoroutine(screenFader.FadeOut());
         }
 
         // Ensure the trolley reaches the target position

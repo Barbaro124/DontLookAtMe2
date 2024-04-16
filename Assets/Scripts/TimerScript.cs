@@ -19,9 +19,12 @@ public class TimerScript : MonoBehaviour
 
     public float startingPitch = 1.0f;
     public float maxPitch = 3.0f;
-    
+
+    bool scareTimer;
 
     MyManager myManager;
+
+    Trolley trolley;
     //public TMP_Text minutes;
     //public TMP_Text seconds;
 
@@ -33,6 +36,8 @@ public class TimerScript : MonoBehaviour
         //timerTxt.text  = "00:00";
         //timeLeft = 60;
         audioManager = FindObjectOfType<AudioManager>();
+        myManager = GameObject.FindWithTag("GameManager").GetComponent<MyManager>();
+        trolley = GameObject.FindWithTag("Trolley").GetComponent<Trolley>();
     }
     public void StartTimer()
     {
@@ -43,6 +48,7 @@ public class TimerScript : MonoBehaviour
     public void ScareTimer()
     {
         timerOn = true;
+        scareTimer = true;
     }
     public void StopTimer()
     {
@@ -69,7 +75,17 @@ public class TimerScript : MonoBehaviour
                 audioManager.Stop("ticktock");
                 timeLeft = 0;
                 timerOn = false; 
-                SceneManager.LoadScene("GameOver");
+                if (scareTimer)
+                {
+                    //right now, ReloadScene makes the fadein never occur. Who knows what other bugs. So for now, just go to main menu.
+                    //myManager.ReloadScene();
+                    myManager.MainMenu();
+                }
+                else
+                {
+                    trolley.JumpScare();
+                }
+                //SceneManager.LoadScene("GameOver");
 
             }
         }

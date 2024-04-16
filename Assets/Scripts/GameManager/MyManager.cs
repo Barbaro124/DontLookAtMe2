@@ -124,6 +124,15 @@ public class MyManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void ReloadScene()
+    {
+        // Get the name of the currently active scene
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // Reload the current scene by its name
+        SceneManager.LoadScene(currentSceneName);
+
+    }
 
     /// <summary>
     /// Proceeds through levels in the intended order. Update once more levels are added.

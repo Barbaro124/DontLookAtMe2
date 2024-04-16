@@ -170,7 +170,7 @@ public class Trolley : MonoBehaviour
         FindObjectOfType<TimerScript>().StopTimer();
         trolleyShake.StartShakingDelayed(1.5f);
         //disabled for trolleyshake testing:
-        FindObjectOfType<TimerScript>().timeLeft = 6;
+        FindObjectOfType<TimerScript>().timeLeft = 7;
         FindObjectOfType<TimerScript>().ScareTimer();
 
     }
