@@ -964,7 +964,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 8553332127882582617}
   m_Lens:
-    FieldOfView: 50
+    FieldOfView: 65
     OrthographicSize: 10
     NearClipPlane: 0.2
     FarClipPlane: 500
@@ -1060,7 +1060,7 @@ Camera:
     height: 1
   near clip plane: 0.2
   far clip plane: 500
-  field of view: 50
+  field of view: 65
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1734,8 +1734,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643d41c92ca4e0d4db10d0b3831b8590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeForce: 100
+  shakeAngle: 10
+  shakeSpeed: 10
   shakeDuration: 1
+  fallForce: 100
+  screenFader: {fileID: 0}
 --- !u!1 &8517438325392468413
 GameObject:
   m_ObjectHideFlags: 0

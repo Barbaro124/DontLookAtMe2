@@ -8,10 +8,15 @@ public class ScreenFader : MonoBehaviour
     public float fadeDuration = 1.0f; // Duration of the fade effect in seconds
     private Image image;
 
-    private void Start()
+    bool fadeInRunning = false;
+    bool fadeOutRunning = false;
+
+    private void Awake()
     {
-        // Get the Image component
         image = GetComponent<Image>();
+    }
+    void Start()
+    {
 
         // Start the fade out effect
         StartCoroutine(FadeIn());
@@ -20,6 +25,7 @@ public class ScreenFader : MonoBehaviour
     // Coroutine for fading out (from visible to transparent)
     private IEnumerator FadeIn()
     {
+        fadeInRunning = true;
         // Set initial alpha value to fully opaque
         image.color = new Color(0, 0, 0, 1);
 
@@ -45,6 +51,8 @@ public class ScreenFader : MonoBehaviour
 
         // Ensure the final alpha value is fully transparent
         image.color = new Color(0, 0, 0, 0);
+
+        fadeInRunning = false;
     }
 
     public IEnumerator FadeOut()
@@ -74,5 +82,13 @@ public class ScreenFader : MonoBehaviour
 
         // Ensure the final alpha value is fully opaque
         image.color = new Color(0, 0, 0, 1);
+    }
+
+    private void OnEnable()
+    {
+        if (!fadeInRunning)
+        {
+            StartCoroutine(FadeIn());
+        }
     }
 }
