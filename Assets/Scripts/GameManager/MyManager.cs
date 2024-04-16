@@ -193,7 +193,7 @@ public class MyManager : MonoBehaviour
 
         cursorControlScript.setCursor();
         //gameplay chambers, event listeners
-        if (chamber == 0|| chamber == 1 || chamber == 2 || chamber == 3)
+        if (chamber == 1|| chamber == 2 || chamber == 3 || chamber == 4)
         {
             
             itemsFound = 0;

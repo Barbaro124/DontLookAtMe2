@@ -50,7 +50,11 @@ public class Trolley : MonoBehaviour
         // Exiting
         if (isMoving && exiting)
         {
-            FindObjectOfType<TimerScript>().StopTimer();
+            if (FindObjectOfType<TimerScript>() != null)
+            {
+                FindObjectOfType<TimerScript>().StopTimer();
+            }
+
             Vector3 direction = (trolleyExitPos - transform.position).normalized;
             Vector3 targetVelocity = direction * moveSpeed;
 

@@ -7,7 +7,7 @@ public class CursorControl : MonoBehaviour
 {
     //array to specify the scene names where cursor visibility should be controlled
 
-    string[] scenesToControlCursor = { "Chamber_1", "Chamber_2" };
+    string[] scenesToControlCursor = { "Chamber_1", "Chamber_2", "Chamber_3", "Chamber_0" };
     private static CursorControl instance;
 
     void Awake()
