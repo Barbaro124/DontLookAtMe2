@@ -22,7 +22,7 @@ public class Trolley : MonoBehaviour
     bool exiting = false;
     bool entering = true;
 
-
+    TrolleyShake trolleyShake;
     void Start()
     {
         //add self as trolley exit event listener
@@ -40,6 +40,8 @@ public class Trolley : MonoBehaviour
         manager = GameObject.FindWithTag("GameManager").GetComponent<MyManager>();
 
         trolleyEnter();
+
+        trolleyShake = GetComponent<TrolleyShake>();
     }
 
     void FixedUpdate()
@@ -166,7 +168,9 @@ public class Trolley : MonoBehaviour
         // Move the targetTransform along its local forward direction by hitForce units
         //transform.Translate(Vector3.forward * hitForce, Space.Self);
         FindObjectOfType<TimerScript>().StopTimer();
-        FindObjectOfType<TimerScript>().timeLeft = 3;
+        trolleyShake.StartShakingDelayed(1.5f);
+        //disabled for trolleyshake testing:
+        FindObjectOfType<TimerScript>().timeLeft = 6;
         FindObjectOfType<TimerScript>().ScareTimer();
 
     }

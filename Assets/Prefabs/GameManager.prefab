@@ -205,7 +205,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: monsterScream
-    clip: {fileID: 8300000, guid: 4f337f00a3c5d30419eff7eb2226afd7, type: 3}
+    clip: {fileID: 8300000, guid: 931494b96089bc944a3ef7943e045d2b, type: 3}
     volume: 1
     pitch: 1
     priority: 10
@@ -215,7 +215,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1ec0c86d269a2044ba8bff857e347fa7, type: 3}
     volume: 1
     pitch: 1
-    priority: 78
+    priority: 37
     loop: 0
     source: {fileID: 0}
   - name: ticktock
