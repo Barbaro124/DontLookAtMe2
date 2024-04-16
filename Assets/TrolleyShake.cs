@@ -85,7 +85,7 @@ public class TrolleyShake : MonoBehaviour
         Vector3 initialPosition = transform.position;
 
         // Calculate the target position for the fall (e.g., move downwards by a certain amount)
-        Vector3 targetPosition = initialPosition - Vector3.up * 100f; // Adjust the downward distance as needed
+        Vector3 targetPosition = initialPosition - Vector3.up * 70f; // Adjust the downward distance as needed
 
         // Perform the fall over time
         float elapsedTime = 0.0f;

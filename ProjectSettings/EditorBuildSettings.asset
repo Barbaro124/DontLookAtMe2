@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Chamber_2.unity
     guid: 12c7a18aa01f6114babcf7723f6f1f41
   - enabled: 1
+    path: Assets/Scenes/Chamber_3.unity
+    guid: 0ff1875604be78145a4a9eff5e22ec7e
+  - enabled: 1
     path: Assets/Scenes/Instructions.unity
     guid: 22475c54ec5323945865b2c333e7308f
   - enabled: 1

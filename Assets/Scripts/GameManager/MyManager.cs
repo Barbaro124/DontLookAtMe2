@@ -18,6 +18,7 @@ public class MyManager : MonoBehaviour
         MainMenu,
         Chamber_1,
         Chamber_2,
+        Chamber_3,
         Instructions,
         GameOver
     }
@@ -60,6 +61,19 @@ public class MyManager : MonoBehaviour
                 pauseMenu.PauseGame();
                 cursorControlScript.setCursor();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Chamber_1();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Chamber_2();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Chamber_3();
         }
     }
 
@@ -107,6 +121,10 @@ public class MyManager : MonoBehaviour
         SceneManager.LoadScene("Chamber_1");
         //OnSceneChange();
     }
+    public void Chamber_3()
+    {
+        SceneManager.LoadScene("Chamber_3");
+    }
     public void MainMenu()
     {
         //OnSceneChange();
@@ -142,9 +160,13 @@ public class MyManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Chamber_1")
         {
-            SceneManager.LoadScene("Chamber_2"); 
+            SceneManager.LoadScene("Chamber_2");
         }
         else if (SceneManager.GetActiveScene().name == "Chamber_2")
+        {
+            SceneManager.LoadScene("Chamber_3");
+        }
+        else if (SceneManager.GetActiveScene().name == "Chamber_3")
         {
             SceneManager.LoadScene("MainMenu");
         }
@@ -183,6 +205,11 @@ public class MyManager : MonoBehaviour
 
             FindObjectOfType<AudioManager>().Play("Ambient");
             
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Stop("Ambient");
+            FindObjectOfType<AudioManager>().Stop("Train");
         }
     }
 
