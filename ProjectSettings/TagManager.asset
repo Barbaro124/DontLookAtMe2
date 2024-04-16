@@ -33,6 +33,7 @@ TagManager:
   - LeftLimit
   - RightLimit
   - BlackImage
+  - UniqueMonster
   layers:
   - Default
   - TransparentFX

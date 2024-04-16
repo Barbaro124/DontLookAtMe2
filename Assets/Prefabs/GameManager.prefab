@@ -240,6 +240,13 @@ MonoBehaviour:
     priority: 28
     loop: 0
     source: {fileID: 0}
+  - name: welcomespeech
+    clip: {fileID: 8300000, guid: 41bb5c997f6ebf543af8e8ceff72fa58, type: 3}
+    volume: 0.797
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &5485369820398739141
 MonoBehaviour:
   m_ObjectHideFlags: 0

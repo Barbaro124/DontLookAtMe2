@@ -106,8 +106,16 @@ public class Trolley : MonoBehaviour
                 isMoving = false; // Reset the flag
                 entering = false;
                 FindObjectOfType<AudioManager>().Stop("train");
-
-                FindObjectOfType<TimerScript>().StartTimer();
+                
+                //FindObjectOfType<TimerScript>().StartTimer();
+                if (SceneManager.GetActiveScene().name == "Chamber_0")
+                {
+                    FindObjectOfType<AudioManager>().Play("welcomespeech");
+                }
+                else
+                {
+                    FindObjectOfType<TimerScript>().StartTimer();
+                }
             }
 
             // Synchronize player's movement with trolley's movement

@@ -226,6 +226,11 @@ public class SpotlightControl : MonoBehaviour
             
         }
 
+        if (target.CompareTag("UniqueMonster"))
+        {
+            target.GetComponent<UniqueMonster>().DissapearDelay(2f);
+        }
+
     }
 
     void OnRaycast(GameObject target)

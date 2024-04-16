@@ -16,6 +16,7 @@ public class MyManager : MonoBehaviour
     public enum Scene
     {
         MainMenu,
+        Chamber_0,
         Chamber_1,
         Chamber_2,
         Chamber_3,
@@ -62,7 +63,10 @@ public class MyManager : MonoBehaviour
                 cursorControlScript.setCursor();
             }
         }
-
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            Chamber_0();
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Chamber_1();
@@ -112,6 +116,10 @@ public class MyManager : MonoBehaviour
         SceneManager.LoadScene("Instructions");
 
     }
+    public void Chamber_0()
+    {
+        SceneManager.LoadScene("Chamber_0");
+    }
     public void Chamber_2()
     {
         SceneManager.LoadScene("Chamber_2");
@@ -157,7 +165,10 @@ public class MyManager : MonoBehaviour
     /// </summary>
     public void LevelProceed()
     {
-
+        if (SceneManager.GetActiveScene().name == "Chamber_0")
+        {
+            SceneManager.LoadScene("Chamber_1");
+        }
         if (SceneManager.GetActiveScene().name == "Chamber_1")
         {
             SceneManager.LoadScene("Chamber_2");
@@ -182,7 +193,7 @@ public class MyManager : MonoBehaviour
 
         cursorControlScript.setCursor();
         //gameplay chambers, event listeners
-        if (chamber == 1 || chamber == 2 || chamber == 3)
+        if (chamber == 0|| chamber == 1 || chamber == 2 || chamber == 3)
         {
             
             itemsFound = 0;
