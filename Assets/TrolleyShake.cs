@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TrolleyShake : MonoBehaviour
 {
-    public float shakeAngle = 10f; // The angle the trolley rotates
-    public float shakeSpeed = 10f; // The speed of the shaking motion
-    public float shakeDuration = 1f; // The duration of the shaking
+    public float shakeAngle = 120f; // The angle the trolley rotates
+    public float shakeSpeed = 6f; // The speed of the shaking motion
+    public float shakeDuration = 2f; // The duration of the shaking
     public float fallForce = 100f; // The force applied to the trolley when falling
 
 

@@ -69,8 +69,10 @@ public class SpotlightControl : MonoBehaviour
             }
 
 
-            Raycast();
+           Raycast();
         }
+        //DrawWireSphere(transform.forward, spherecastRadius, Color.red, Mathf.Infinity, 3);
+        //Raycast();
     }
 
     // Function to clamp the rotation quaternion within specified limits
@@ -119,42 +121,38 @@ public class SpotlightControl : MonoBehaviour
 
     private GameObject previousTarget; // Store the previous target object
 
+    public float spherecastRadius = 10f;
+    public float maxDistance = Mathf.Infinity;
+
     private void Raycast()
     {
 
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, spherecastRadius, transform.forward, maxDistance);
+        
+        foreach (RaycastHit hit in hits)
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.red);
+            // Draw a ray from the position of the hit to visualize the spherecast
+            Debug.DrawRay(transform.position, hit.point, Color.red);
+
             if (previousTarget != hit.transform.gameObject)
             {
                 // If the current target object is different from the previous one, it means the ray is entering a new object
                 OnRaycastEnter(hit.transform.gameObject);
                 previousTarget = hit.transform.gameObject;
             }
-            /*
-            else if (currentTarget != hit.transform.gameObject)
+            else
             {
-                OnRaycastExit(currentTarget);
-                currentTarget = hit.transform.gameObject;
-            }*/
-
+                // If the ray doesn't hit anything, reset the previous target
+                if (previousTarget != null)
+                {
+                    OnRaycastExit(previousTarget);
+                    previousTarget = null;
+                }
+            }
 
             OnRaycast(hit.transform.gameObject);
-            //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-
         }
 
-        else
-        {
-            // If the ray doesn't hit anything, reset the previous target
-            if (previousTarget != null)
-            {
-                OnRaycastExit(previousTarget);
-                previousTarget = null;
-            }
-        }
 
     }
     
@@ -235,6 +233,7 @@ public class SpotlightControl : MonoBehaviour
 
     void OnRaycast(GameObject target)
     {
+        
         if (target.GetComponent<Outline>() != null)
         {
             outline = target.GetComponent<Outline>();
@@ -297,7 +296,54 @@ public class SpotlightControl : MonoBehaviour
         isCameraRotating = false;
     }
 
+    /// <summary>
+    ///   Draw a wire sphere
+    /// </summary>
+    /// <param name="center"> </param>
+    /// <param name="radius"> </param>
+    /// <param name="color"> </param>
+    /// <param name="duration"> </param>
+    /// <param name="quality"> Define the quality of the wire sphere, from 1 to 10 </param>
+    public static void DrawWireSphere(Vector3 center, float radius, Color color, float duration, int quality = 3)
+    {
+        quality = Mathf.Clamp(quality, 1, 10);
 
+        int segments = quality << 2;
+        int subdivisions = quality << 3;
+        int halfSegments = segments >> 1;
+        float strideAngle = 360F / subdivisions;
+        float segmentStride = 180F / segments;
+
+        Vector3 first;
+        Vector3 next;
+        for (int i = 0; i < segments; i++)
+        {
+            first = (Vector3.forward * radius);
+            first = Quaternion.AngleAxis(segmentStride * (i - halfSegments), Vector3.right) * first;
+
+            for (int j = 0; j < subdivisions; j++)
+            {
+                next = Quaternion.AngleAxis(strideAngle, Vector3.up) * first;
+                UnityEngine.Debug.DrawLine(first + center, next + center, color, duration);
+                first = next;
+            }
+        }
+
+        Vector3 axis;
+        for (int i = 0; i < segments; i++)
+        {
+            first = (Vector3.forward * radius);
+            first = Quaternion.AngleAxis(segmentStride * (i - halfSegments), Vector3.up) * first;
+            axis = Quaternion.AngleAxis(90F, Vector3.up) * first;
+
+            for (int j = 0; j < subdivisions; j++)
+            {
+                next = Quaternion.AngleAxis(strideAngle, axis) * first;
+                UnityEngine.Debug.DrawLine(first + center, next + center, color, duration);
+                first = next;
+            }
+        }
+    }
 
     /*void PanLeft()
     {
