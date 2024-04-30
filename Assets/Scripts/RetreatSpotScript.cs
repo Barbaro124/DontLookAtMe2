@@ -20,7 +20,7 @@ public class RetreatSpotScript : MonoBehaviour
     void Start()
     {
 
-        moveDistance = 20;
+        moveDistance = 20f;
 
         if (hideLeft)
         {

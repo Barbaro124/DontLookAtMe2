@@ -10,7 +10,7 @@ public class MonsterBehavior : MonoBehaviour
     Vector3 hidePos;
     private Rigidbody rb;
 
-    float moveSpeed = 30f;
+    float moveSpeed = 20f;
 
     bool hiding = false;
     bool scaring = false;
@@ -35,7 +35,7 @@ public class MonsterBehavior : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
 
-        trolleyTransform = GameObject.FindGameObjectWithTag("Trolley").transform;
+        trolleyTransform = GameObject.FindGameObjectWithTag("TrolleyStop").transform;
 
         spotsSortedByDistance = GetSpotsSortedByDistance();
 
@@ -63,7 +63,7 @@ public class MonsterBehavior : MonoBehaviour
             if (Vector3.Distance(transform.position, hidePos) <= 1f)
             {
                 rb.velocity = Vector3.zero; // Stop
-                //transform.position = hidePos;
+                transform.position = hidePos;
                 if(!scaring)
                 {
                     FindNextSpot();// teleport to next spot

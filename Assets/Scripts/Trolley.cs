@@ -180,7 +180,7 @@ public class Trolley : MonoBehaviour
         // Move the targetTransform along its local forward direction by hitForce units
         //transform.Translate(Vector3.forward * hitForce, Space.Self);
         FindObjectOfType<TimerScript>().StopTimer();
-        trolleyShake.StartShakingDelayed(1.5f);
+        trolleyShake.StartShakingDelayed(0.5f);
         //disabled for trolleyshake testing:
         FindObjectOfType<TimerScript>().timeLeft = 7;
         FindObjectOfType<TimerScript>().ScareTimer();
