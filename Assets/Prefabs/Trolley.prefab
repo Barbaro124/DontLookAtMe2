@@ -391,8 +391,6 @@ MonoBehaviour:
   outline: {fileID: 0}
   lightoff: {fileID: 2100000, guid: 645bb4c8a73a63747b423bb8bee5761e, type: 2}
   lighton: {fileID: 2100000, guid: 0a094aacb7471994d9e5030f2cef9463, type: 2}
-  spherecastRadius: 10
-  maxDistance: Infinity
 --- !u!1 &3432612395865871279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,8 +1381,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.23686633, y: 0.7900777, z: 0.27472496}
-  m_Center: {x: -0.00000014901161, y: -0.3910841, z: 0.09519661}
+  m_Size: {x: 0.23686633, y: 1.1848698, z: 0.27472493}
+  m_Center: {x: -0.00000014977319, y: -0.588483, z: 0.09519707}
 --- !u!54 &884185221865547377
 Rigidbody:
   m_ObjectHideFlags: 0

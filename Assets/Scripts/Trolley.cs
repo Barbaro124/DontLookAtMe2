@@ -68,10 +68,11 @@ public class Trolley : MonoBehaviour
 
 
             // Check if the trolley has reached or passed the target position
-            if (Vector3.Distance(transform.position, trolleyExitPos) <= 0.1f)
+            if (Vector3.Distance(transform.position, trolleyExitPos) <= 5f)
             {
-                rb.velocity = Vector3.zero; // Stop the trolley
-                isMoving = false; // Reset the flag
+                manager.FadeOut();
+                //rb.velocity = Vector3.zero; // Stop the trolley
+                //isMoving = false; // Reset the flag
                 FindObjectOfType<AudioManager>().Stop("train");
             }
 
@@ -196,6 +197,7 @@ public class Trolley : MonoBehaviour
             Debug.Log("Trolley collided with " + other.gameObject.name);
             FindObjectOfType<AudioManager>().Stop("train");
             FindObjectOfType<AudioManager>().Stop("Ambient");
+            
             manager.NextRoom();
         }
     }

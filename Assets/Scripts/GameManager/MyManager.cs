@@ -186,6 +186,11 @@ public class MyManager : MonoBehaviour
     }
     #endregion
 
+    public void FadeOut()
+    {
+        screenFader.FadeOutCommand();
+    }
+
     /// <summary>
     /// executes actions such as Event listeners, itemsFound reset, and restricting cursor depending on what level was loaded. Chambers must match level number in build settings.
     /// </summary>
@@ -218,12 +223,18 @@ public class MyManager : MonoBehaviour
             playerScript.AddNextRoomEventListener(NextRoom);
 
             FindObjectOfType<AudioManager>().Play("Ambient");
+
+            if (chamber != 1)
+            {
+                FindObjectOfType<AudioManager>().Stop("welcomespeech");
+            }
             
         }
         else
         {
             FindObjectOfType<AudioManager>().Stop("Ambient");
             FindObjectOfType<AudioManager>().Stop("Train");
+            FindObjectOfType<AudioManager>().Stop("welcomespeech");
         }
     }
 

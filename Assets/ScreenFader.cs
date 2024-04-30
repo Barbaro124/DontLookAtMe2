@@ -29,6 +29,11 @@ public class ScreenFader : MonoBehaviour
             StartCoroutine(FadeIn());
         }
     }
+
+    public void FadeOutCommand()
+    {
+        StartCoroutine(FadeOut());
+    }
     // Coroutine for fading out (from visible to transparent)
     private IEnumerator FadeIn()
     {
