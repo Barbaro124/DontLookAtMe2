@@ -140,15 +140,15 @@ public class SpotlightControl : MonoBehaviour
                 OnRaycastEnter(hit.transform.gameObject);
                 previousTarget = hit.transform.gameObject;
             }
-            else
-            {
+            //else
+           //{
                 // If the ray doesn't hit anything, reset the previous target
-                if (previousTarget != null)
-                {
-                    OnRaycastExit(previousTarget);
-                    previousTarget = null;
-                }
+            if (previousTarget != null)
+            {
+                OnRaycastExit(previousTarget);
+                previousTarget = null;
             }
+            //}
 
             OnRaycast(hit.transform.gameObject);
         }
