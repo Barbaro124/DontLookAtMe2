@@ -15,18 +15,12 @@ public class HideSpot : MonoBehaviour
     public bool scareSpot; //set one spot in inspector to be the scare spot
 
     RetreatSpotScript retreatSpotScript;
+
+    public float distanceToTrolley;
     
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        transform.position = gameObject.transform.position;
-        transform.localScale = gameObject.transform.localScale;
-        transform.rotation = gameObject.transform.rotation;*/
-
-        //retreatSpot = FindChildWithTag(transform, "RetreatSpot"); //assign child object via tag
-
-        //get this hidespot's child retreatSpot's script
         retreatSpotScript = retreatSpot.GetComponent<RetreatSpotScript>();
     }
 

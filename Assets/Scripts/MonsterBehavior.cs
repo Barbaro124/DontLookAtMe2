@@ -63,7 +63,7 @@ public class MonsterBehavior : MonoBehaviour
             if (Vector3.Distance(transform.position, hidePos) <= 1f)
             {
                 rb.velocity = Vector3.zero; // Stop
-                transform.position = hidePos;
+                //transform.position = hidePos;
                 if(!scaring)
                 {
                     FindNextSpot();// teleport to next spot
@@ -100,25 +100,28 @@ public class MonsterBehavior : MonoBehaviour
         foreach (GameObject spot in spotsSortedByDistance)
         {
             Debug.Log("Checking a spot...");
-            HideSpot hideSpot = spot.GetComponent<HideSpot>();
+            HideSpot targetSpot = spot.GetComponent<HideSpot>();
 
             // Check if the position is unoccupied
-            if (!IsPositionOccupied(hideSpot))
+            if (!IsPositionOccupied(targetSpot) && targetSpot.distanceToTrolley < currentSpot.distanceToTrolley)
             {
+                
                 Debug.Log("Unoccupied spot found");
                 // teleport the "monster" GameObject to the unoccupied position
                 Debug.Log("teleporting the \"monster\" GameObject to the unoccupied position");
-                
+                //make current hidespot Free again
+                currentSpot.makeFree();
+
                 transform.position = spot.transform.position;
                 transform.localScale = spot.transform.localScale;
                 transform.rotation = spot.transform.rotation;
                 
-                hideSpot.claimSpot(); //set spot's occupied to true
-                currentSpot = hideSpot; // set new current spot for monster
+                targetSpot.claimSpot(); //set spot's occupied to true
+                currentSpot = targetSpot; // set new current spot for monster
                 Debug.Log("currentSpot = " + currentSpot.ToString());
                 hidePos = currentSpot.retreatSpot.transform.position; // set new retreatSpot for monster
-                Debug.Log("Corresponding Retreat Spot = " + currentSpot.retreatSpot.ToString());
-                if (hideSpot.scareSpot == true)
+                //Debug.Log("Corresponding Retreat Spot = " + currentSpot.retreatSpot.ToString());
+                if (currentSpot.scareSpot == true)
                 {
                     JumpScare();
                 }
@@ -175,6 +178,12 @@ public class MonsterBehavior : MonoBehaviour
         foreach (GameObject obj in objects)
         {
             float distanceToTrolley = Vector3.Distance(obj.transform.position, trolleyTransform.position);
+            HideSpot hideSpot = obj.GetComponent<HideSpot>();
+            if (hideSpot != null)
+            {
+                hideSpot.distanceToTrolley = distanceToTrolley;
+            }
+
             spotsSortedByDistance.Add(obj);
         }
 
@@ -182,6 +191,14 @@ public class MonsterBehavior : MonoBehaviour
         spotsSortedByDistance.Sort((a, b) =>
             Vector3.Distance(b.transform.position, trolleyTransform.position)
                 .CompareTo(Vector3.Distance(a.transform.position, trolleyTransform.position)));
+
+        // Print the sorted list to the console
+        foreach (GameObject obj in spotsSortedByDistance)
+        {
+
+            Debug.Log("Object Name: " + obj.name + ", Distance to Trolley: " + Vector3.Distance(obj.transform.position, trolleyTransform.position));
+        }
+
         return spotsSortedByDistance;
     }
 }
