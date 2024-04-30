@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class ScreenFader : MonoBehaviour
 {
-    public float fadeDuration = 1.0f; // Duration of the fade effect in seconds
+    public float fadeDuration = 0.5f; // Duration of the fade effect in seconds
     private Image image;
 
     bool fadeInRunning = false;
@@ -18,10 +18,17 @@ public class ScreenFader : MonoBehaviour
     void Start()
     {
 
-        // Start the fade out effect
-        StartCoroutine(FadeIn());
+        // Start the fade in effect
+        //StartCoroutine(FadeIn());
     }
 
+    public void FadeInCommand()
+    {
+        if (!fadeInRunning)
+        {
+            StartCoroutine(FadeIn());
+        }
+    }
     // Coroutine for fading out (from visible to transparent)
     private IEnumerator FadeIn()
     {

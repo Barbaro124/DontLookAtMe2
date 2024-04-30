@@ -79,7 +79,7 @@ public class TrolleyShake : MonoBehaviour
         yield return new WaitForSeconds(shakeDuration);
         
         // Calculate the duration of the fall
-        float fallDuration = 1.6f; // Adjust as needed
+        float fallDuration = 1f; // Adjust as needed
 
         // Get the initial position of the trolley
         Vector3 initialPosition = transform.position;
@@ -100,13 +100,15 @@ public class TrolleyShake : MonoBehaviour
             // Increment the elapsed time
             elapsedTime += Time.deltaTime;
 
+            if (elapsedTime > 0f)
+            {
+                StartCoroutine(screenFader.FadeOut());
+            }
+
             // Wait for the next frame
             yield return null;
         }
-        if (elapsedTime > fallDuration -1f)
-        {
-            StartCoroutine(screenFader.FadeOut());
-        }
+
 
         // Ensure the trolley reaches the target position
         transform.position = targetPosition;

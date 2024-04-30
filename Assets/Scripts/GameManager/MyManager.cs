@@ -12,6 +12,7 @@ public class MyManager : MonoBehaviour
     public int itemsFound;
     CursorControl cursorControlScript;
     PauseMenu pauseMenu;
+    ScreenFader screenFader;
 
     public enum Scene
     {
@@ -39,6 +40,7 @@ public class MyManager : MonoBehaviour
         cursorControlScript = GetComponent<CursorControl>();
 
         pauseMenu = GetComponent<PauseMenu>();
+        screenFader = GetComponentInChildren<ScreenFader>();
     }
 
     // Start is called before the first frame update
@@ -192,6 +194,7 @@ public class MyManager : MonoBehaviour
     {
 
         cursorControlScript.setCursor();
+        screenFader.FadeInCommand();
         //gameplay chambers, event listeners
         if (chamber == 1|| chamber == 2 || chamber == 3 || chamber == 4)
         {
