@@ -45,7 +45,7 @@ public class TrolleyShake : MonoBehaviour
             float shakeAngleOffset = Mathf.Sin(Time.time * shakeSpeed) * shakeAngle * easingFactor;
 
             // Create a rotation quaternion with the shaking angle
-            Quaternion shakeRotation = Quaternion.Euler(0f, 0f, shakeAngleOffset);
+            Quaternion shakeRotation = Quaternion.Euler(0f, shakeAngleOffset, 0f);
 
             // Apply the rotation to the trolley's rotation
             transform.rotation = initialRotation * shakeRotation;
