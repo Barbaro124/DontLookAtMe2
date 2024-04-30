@@ -11760,6 +11760,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trolley
       objectReference: {fileID: 0}
+    - target: {fileID: 8373933032863044372, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.1848698
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373933032863044372, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.27472493
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373933032863044372, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.00000014977319
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373933032863044372, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.588483
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373933032863044372, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.09519707
+      objectReference: {fileID: 0}
     - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_LocalPosition.x
