@@ -55,7 +55,7 @@ public class LightSensor : MonoBehaviour
     }
 
 
-    // Function to modify the green level of the emission color
+    // Function to modify the color of the emission
     void ModifyGreenLevel()
     {
         // Get the current emission color of the material
@@ -70,20 +70,32 @@ public class LightSensor : MonoBehaviour
         // Interpolate the current green level towards the target green level
         currentEmission.g = Mathf.Lerp(currentEmission.g, targetGreen, rateOfChange * Time.deltaTime);
 
-        // Set the modified emission color back to the material
-        rend.material.SetColor("_EmissionColor", currentEmission);
+        
+
+
 
         //Debug.Log(currentEmission.g);
 
         if (currentEmission.g >= 0.3f)
         {
             LightOn(true);
+            currentEmission.r = 0f;
         }
         else
         {
             LightOn(false);
+            if (currentEmission.g > 0.01f)
+            {
+                currentEmission.r = 1f;
+            }
+            else
+            {
+                currentEmission.r = 0f;
+            }
+            
         }
-
+        // Set the modified emission color back to the material
+        rend.material.SetColor("_EmissionColor", currentEmission);
     }
 
     /// <summary>

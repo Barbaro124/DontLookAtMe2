@@ -122,8 +122,8 @@ public class SpotlightControl : MonoBehaviour
 
     private GameObject previousTarget; // Store the previous target object
 
-    public float spherecastRadius = 10f;
-    public float maxDistance = Mathf.Infinity;
+    float spherecastRadius = 5f;
+    float maxDistance = Mathf.Infinity;
 
     private List<GameObject> currentTargets = new List<GameObject>(); // List to store current raycast targets
 

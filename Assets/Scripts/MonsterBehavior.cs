@@ -89,11 +89,7 @@ public class MonsterBehavior : MonoBehaviour
 
     }
 
-    public void Appear()
-    {
-        Debug.Log("Appear Method Called");
-        hiding = false;
-    }
+
 
     void FindNextSpot()
     {
