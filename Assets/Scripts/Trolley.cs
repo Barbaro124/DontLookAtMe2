@@ -116,6 +116,7 @@ public class Trolley : MonoBehaviour
                 if (SceneManager.GetActiveScene().name == "Chamber_0")
                 {
                     FindObjectOfType<AudioManager>().Play("welcomespeech");
+                    manager.StartSubtitles();
                 }
                 else
                 {

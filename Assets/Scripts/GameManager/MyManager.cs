@@ -4,7 +4,15 @@ using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using TMPro;
 
+
+[System.Serializable]
+public struct SubtitleText
+{
+    public float time;
+    public string text;
+}
 
 public class MyManager : MonoBehaviour
 {
@@ -13,6 +21,12 @@ public class MyManager : MonoBehaviour
     CursorControl cursorControlScript;
     PauseMenu pauseMenu;
     ScreenFader screenFader;
+    [SerializeField]
+    public GameObject subtitleGO;
+    
+    public TextMeshProUGUI subtitles;
+
+    public SubtitleText[] subtitleText;
 
     public enum Scene
     {
@@ -48,7 +62,7 @@ public class MyManager : MonoBehaviour
     {
         itemsFound = 0;
 
-
+        subtitles = GetComponentInChildren<TextMeshProUGUI>();
     }
     void Update()
     {
@@ -106,7 +120,24 @@ public class MyManager : MonoBehaviour
     }
     #endregion
 
+    public void StartSubtitles()
+    {
+        Debug.Log("Starting Subtitles...");
+        StartCoroutine(SubtitleCoroutine());
+    }
 
+    IEnumerator SubtitleCoroutine()
+    {
+        subtitleGO.SetActive(true);
+        foreach (var voiceLine in subtitleText)
+        {
+            subtitles.text = voiceLine.text;
+
+            yield return new WaitForSecondsRealtime(voiceLine.time);
+        }
+        subtitleGO.SetActive(false);
+
+    }
     public int getFoundCount()
     {
         return itemsFound;
