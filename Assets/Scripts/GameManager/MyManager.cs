@@ -79,22 +79,22 @@ public class MyManager : MonoBehaviour
                 cursorControlScript.setCursor();
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            Chamber_0();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Chamber_1();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Chamber_2();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Chamber_3();
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha0))
+        //{
+        //    Chamber_0();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    Chamber_1();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    Chamber_2();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    Chamber_3();
+        //}
     }
 
     #region Events
@@ -230,11 +230,12 @@ public class MyManager : MonoBehaviour
     {
 
         cursorControlScript.setCursor();
-        screenFader.FadeInCommand();
+        
         //gameplay chambers, event listeners
         if (chamber == 1|| chamber == 2 || chamber == 3 || chamber == 4)
         {
-            
+          //  screenFader.Enable();
+            screenFader.FadeInCommand();
             itemsFound = 0;
 
             LightSensor LightSensor1 = GameObject.FindWithTag("LightSensorLight").GetComponent<LightSensor>();
@@ -263,6 +264,7 @@ public class MyManager : MonoBehaviour
         }
         else
         {
+            
             FindObjectOfType<AudioManager>().Stop("Ambient");
             FindObjectOfType<AudioManager>().Stop("Train");
             FindObjectOfType<AudioManager>().Stop("welcomespeech");

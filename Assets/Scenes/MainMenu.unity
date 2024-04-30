@@ -204,7 +204,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_TargetDisplay: 0
 --- !u!224 &405048313
 RectTransform:
@@ -508,6 +508,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2871788015225345364, guid: 72301b03c2ceb994ab37dac0d9443ca5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2903791654809297960, guid: 72301b03c2ceb994ab37dac0d9443ca5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -572,6 +577,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591698619008397878, guid: 72301b03c2ceb994ab37dac0d9443ca5,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470277831862137378, guid: 72301b03c2ceb994ab37dac0d9443ca5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503118622963977312, guid: 72301b03c2ceb994ab37dac0d9443ca5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503118622963977312, guid: 72301b03c2ceb994ab37dac0d9443ca5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -833,6 +858,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &1013033265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1207102838237083413, guid: 72301b03c2ceb994ab37dac0d9443ca5,
+    type: 3}
+  m_PrefabInstance: {fileID: 548698339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf34a955f1a4f8145a2585b1fe5ec16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1282434346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,8 +1164,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1207102838237083413, guid: 72301b03c2ceb994ab37dac0d9443ca5,
-          type: 3}
+      - m_Target: {fileID: 1013033265}
         m_TargetAssemblyTypeName: MyManager, Assembly-CSharp
         m_MethodName: Chamber_0
         m_Mode: 1
@@ -1484,8 +1520,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1207102838237083413, guid: 72301b03c2ceb994ab37dac0d9443ca5,
-          type: 3}
+      - m_Target: {fileID: 1013033265}
         m_TargetAssemblyTypeName: MyManager, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -1618,8 +1653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1207102838237083413, guid: 72301b03c2ceb994ab37dac0d9443ca5,
-          type: 3}
+      - m_Target: {fileID: 1013033265}
         m_TargetAssemblyTypeName: MyManager, Assembly-CSharp
         m_MethodName: Instructions
         m_Mode: 1

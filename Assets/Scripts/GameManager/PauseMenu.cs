@@ -27,7 +27,7 @@ public class PauseMenu : MonoBehaviour
         void Start()
     {
 
-        Debug.Log("Pause Menu set to: " + pauseMenu);
+        //Debug.Log("Pause Menu set to: " + pauseMenu);
         pauseMenu.SetActive(false);
         isPaused = false;
         

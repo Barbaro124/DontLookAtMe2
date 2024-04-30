@@ -37,6 +37,7 @@ public class ScreenFader : MonoBehaviour
     // Coroutine for fading out (from visible to transparent)
     private IEnumerator FadeIn()
     {
+        
         fadeInRunning = true;
         // Set initial alpha value to fully opaque
         image.color = new Color(0, 0, 0, 1);
@@ -65,10 +66,12 @@ public class ScreenFader : MonoBehaviour
         image.color = new Color(0, 0, 0, 0);
 
         fadeInRunning = false;
+        
     }
 
     public IEnumerator FadeOut()
     {
+        
         // Set initial alpha value to fully transparent
         image.color = new Color(0, 0, 0, 0);
 
@@ -102,5 +105,14 @@ public class ScreenFader : MonoBehaviour
         {
             StartCoroutine(FadeIn());
         }
+    }
+
+    public void Disable()
+    {
+       gameObject.SetActive(false);
+    }
+    public void Enable()
+    {
+        gameObject.SetActive(true);
     }
 }
