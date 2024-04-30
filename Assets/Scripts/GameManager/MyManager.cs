@@ -131,9 +131,18 @@ public class MyManager : MonoBehaviour
         subtitleGO.SetActive(true);
         foreach (var voiceLine in subtitleText)
         {
-            subtitles.text = voiceLine.text;
+            if(SceneManager.GetActiveScene().name != "Chamber_0")
+            {
+                subtitleGO.SetActive(false);
+                yield return null;
+            }
+            else
+            {
+                subtitles.text = voiceLine.text;
 
-            yield return new WaitForSecondsRealtime(voiceLine.time);
+                yield return new WaitForSecondsRealtime(voiceLine.time);
+            }
+
         }
         subtitleGO.SetActive(false);
 
