@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using JetBrains.Annotations;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpotlightControl : MonoBehaviour
 {
@@ -124,38 +125,51 @@ public class SpotlightControl : MonoBehaviour
     public float spherecastRadius = 10f;
     public float maxDistance = Mathf.Infinity;
 
+    private List<GameObject> currentTargets = new List<GameObject>(); // List to store current raycast targets
+
     private void Raycast()
     {
-
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, spherecastRadius, transform.forward, maxDistance);
-        
+
+        // Track newly hit targets
         foreach (RaycastHit hit in hits)
         {
-            // Draw a ray from the position of the hit to visualize the spherecast
-            Debug.DrawRay(transform.position, hit.point, Color.red);
+            GameObject target = hit.transform.gameObject;
 
-            if (previousTarget != hit.transform.gameObject)
+            if (!currentTargets.Contains(target))
             {
-                // If the current target object is different from the previous one, it means the ray is entering a new object
-                OnRaycastEnter(hit.transform.gameObject);
-                previousTarget = hit.transform.gameObject;
+                OnRaycastEnter(target);
+                currentTargets.Add(target);
             }
-            //else
-           //{
-                // If the ray doesn't hit anything, reset the previous target
-            if (previousTarget != null)
-            {
-                OnRaycastExit(previousTarget);
-                previousTarget = null;
-            }
-            //}
-
-            OnRaycast(hit.transform.gameObject);
         }
 
+        // Track exited targets
+        List<GameObject> targetsToRemove = new List<GameObject>();
+        foreach (GameObject target in currentTargets)
+        {
+            bool isHit = false;
+            foreach (RaycastHit hit in hits)
+            {
+                if (hit.transform.gameObject == target)
+                {
+                    isHit = true;
+                    break;
+                }
+            }
+            if (!isHit)
+            {
+                OnRaycastExit(target);
+                targetsToRemove.Add(target);
+            }
+        }
 
+        // Remove exited targets from the currentTargets list
+        foreach (GameObject targetToRemove in targetsToRemove)
+        {
+            currentTargets.Remove(targetToRemove);
+        }
     }
-    
+
     private bool rotatedLeft = false; // Flag to track if the camera has rotated left
     private bool rotatedRight = false;
     void OnRaycastEnter(GameObject target)
