@@ -358,7 +358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2903791654809297960
 Transform:
   m_ObjectHideFlags: 0
@@ -505,7 +505,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: welcomespeech
     clip: {fileID: 8300000, guid: 41bb5c997f6ebf543af8e8ceff72fa58, type: 3}
-    volume: 1
+    volume: 0.879
     pitch: 1
     priority: 28
     loop: 0
