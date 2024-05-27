@@ -29,8 +29,12 @@ public class LightSensor : MonoBehaviour
 
     MyManager manager;
 
+    public float chargeLevel = 0f;
+    public Color currentColor;
 
-    // Start is called before the first frame update
+    public ChargeBar chargeBar;
+
+   
     void Start()
     {
         // Get the renderer component attached to the GameObject
@@ -52,6 +56,7 @@ public class LightSensor : MonoBehaviour
         {
             ModifyGreenLevel();
         }
+       
     }
 
 
@@ -78,11 +83,13 @@ public class LightSensor : MonoBehaviour
 
         if (currentEmission.g >= 0.3f)
         {
+            //add to found item count, and remove red from emission to make more green.
             LightOn(true);
             currentEmission.r = 0f;
         }
         else
         {
+            //detract from found item count, and make it yellow when charge is below 30%
             LightOn(false);
             if (currentEmission.g > 0.01f)
             {
@@ -96,6 +103,11 @@ public class LightSensor : MonoBehaviour
         }
         // Set the modified emission color back to the material
         rend.material.SetColor("_EmissionColor", currentEmission);
+
+        chargeLevel = currentEmission.g;
+        chargeBar.SetCharge(chargeLevel);
+        currentColor = currentEmission;
+        chargeBar.SetColor(currentColor);
     }
 
     /// <summary>
