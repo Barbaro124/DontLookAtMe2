@@ -353,16 +353,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6375356783245960339, guid: 72301b03c2ceb994ab37dac0d9443ca5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8261809173791419904, guid: 72301b03c2ceb994ab37dac0d9443ca5,
-        type: 3}
-      propertyPath: sounds.Array.data[9].volume
-      value: 0.879
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2403,6 +2393,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &545388064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4315123113613462074, guid: 3225d628cc360fb45acdeace671c6c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1088734779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48ef1abd865f1e449ac91484e005ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &698141067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,6 +3026,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 329262478444797727, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 964184760456831138, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2108613839814088897, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3318955162229280595, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3074,40 +3091,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0000004857761
-      objectReference: {fileID: 0}
-    - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.9579996
-      objectReference: {fileID: 0}
-    - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0000011916676
-      objectReference: {fileID: 0}
     - target: {fileID: 7475105683732974720, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_Name
       value: Trolley
-      objectReference: {fileID: 0}
-    - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0000004857761
-      objectReference: {fileID: 0}
-    - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.9579996
-      objectReference: {fileID: 0}
-    - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0000011916676
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4007,6 +3994,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1909077393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4793024328258964913, guid: 3225d628cc360fb45acdeace671c6c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1088734779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48ef1abd865f1e449ac91484e005ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1979484101
 Mesh:
   m_ObjectHideFlags: 0
@@ -4240,6 +4239,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10d473ad85515c144a353a1b79a470b9, type: 3}
+--- !u!114 &2051929432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3559244969802603635, guid: 3225d628cc360fb45acdeace671c6c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1088734779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48ef1abd865f1e449ac91484e005ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2554916783039092089 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 894942603530648374, guid: ff3e31568ddd55e4ca81651198440280,
@@ -4635,6 +4646,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4738277774404264663, guid: e5287765bea57a140a722bf91576e2f8,
+        type: 3}
+      propertyPath: chargeBar
+      value: 
+      objectReference: {fileID: 1909077393}
     - target: {fileID: 6021066758412228662, guid: e5287765bea57a140a722bf91576e2f8,
         type: 3}
       propertyPath: m_Name
@@ -4703,6 +4719,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 997623394361063257, guid: a014d8986f5d2d84fa3a452eff3620dd,
+        type: 3}
+      propertyPath: chargeBar
+      value: 
+      objectReference: {fileID: 545388064}
     - target: {fileID: 4677054329162704921, guid: a014d8986f5d2d84fa3a452eff3620dd,
         type: 3}
       propertyPath: m_Name
@@ -5068,6 +5089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightSensorParent (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6361650220681792811, guid: 2db8e2f4e025eb4488156850a9d97f93,
+        type: 3}
+      propertyPath: chargeBar
+      value: 
+      objectReference: {fileID: 2051929432}
     - target: {fileID: 7370796338543593307, guid: 2db8e2f4e025eb4488156850a9d97f93,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1264,17 +1264,17 @@ PrefabInstance:
     - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000004857761
+      value: -0.0000005127556
       objectReference: {fileID: 0}
     - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9579996
+      value: 1.9580044
       objectReference: {fileID: 0}
     - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0000011916676
+      value: 0.0000010514715
       objectReference: {fileID: 0}
     - target: {fileID: 7475105683732974720, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
@@ -1284,23 +1284,59 @@ PrefabInstance:
     - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000004857761
+      value: -0.0000005127556
       objectReference: {fileID: 0}
     - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9579996
+      value: 1.9580044
       objectReference: {fileID: 0}
     - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0000011916676
+      value: 0.0000010514715
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3225d628cc360fb45acdeace671c6c0f, type: 3}
+--- !u!114 &349144527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4315123113613462074, guid: 3225d628cc360fb45acdeace671c6c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 349144526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48ef1abd865f1e449ac91484e005ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &349144528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4793024328258964913, guid: 3225d628cc360fb45acdeace671c6c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 349144526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48ef1abd865f1e449ac91484e005ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &349144529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3559244969802603635, guid: 3225d628cc360fb45acdeace671c6c0f,
+    type: 3}
+  m_PrefabInstance: {fileID: 349144526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48ef1abd865f1e449ac91484e005ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &361036411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8970073899006468308, guid: d937739f6b140e24b993f3415ce3afa7,
@@ -3807,6 +3843,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4738277774404264663, guid: e5287765bea57a140a722bf91576e2f8,
+        type: 3}
+      propertyPath: chargeBar
+      value: 
+      objectReference: {fileID: 349144529}
     - target: {fileID: 6021066758412228662, guid: e5287765bea57a140a722bf91576e2f8,
         type: 3}
       propertyPath: m_Name
@@ -5955,6 +5996,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 997623394361063257, guid: a014d8986f5d2d84fa3a452eff3620dd,
+        type: 3}
+      propertyPath: chargeBar
+      value: 
+      objectReference: {fileID: 349144527}
     - target: {fileID: 4677054329162704921, guid: a014d8986f5d2d84fa3a452eff3620dd,
         type: 3}
       propertyPath: m_Name
@@ -9610,6 +9656,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightSensorParent (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6361650220681792811, guid: 2db8e2f4e025eb4488156850a9d97f93,
+        type: 3}
+      propertyPath: chargeBar
+      value: 
+      objectReference: {fileID: 349144528}
     - target: {fileID: 7370796338543593307, guid: 2db8e2f4e025eb4488156850a9d97f93,
         type: 3}
       propertyPath: m_LocalPosition.x

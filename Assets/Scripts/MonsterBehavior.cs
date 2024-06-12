@@ -23,7 +23,13 @@ public class MonsterBehavior : MonoBehaviour
 
     bool lightChange = false;
 
-    //JumpScareEvent jumpScareEvent = new JumpScareEvent();
+    bool isMovingRandomly = false;
+    
+    //how often the monster should move randomly
+    float randomMoveInterval = 10f;
+
+    // the time of the last random movement
+    float lastRandomMoveTime = 0f; 
 
 
     // Start is called before the first frame update
@@ -39,6 +45,7 @@ public class MonsterBehavior : MonoBehaviour
 
         spotsSortedByDistance = GetSpotsSortedByDistance();
 
+        lastRandomMoveTime = Time.time; 
     }
 
 
@@ -57,7 +64,7 @@ public class MonsterBehavior : MonoBehaviour
             Vector3 movementVector = transform.position + velocityChange * Time.deltaTime * 3;
             // Move the rigidbody using MovePosition
             rb.MovePosition(movementVector);
-            Debug.Log("code to move the monster called");
+            //Debug.Log("code to move the monster called");
 
             // Check if the monster has reached or passed the target position
             if (Vector3.Distance(transform.position, hidePos) <= 1f)
@@ -79,58 +86,90 @@ public class MonsterBehavior : MonoBehaviour
             }
         }
 
+        if (!isMovingRandomly && Time.time - lastRandomMoveTime >= randomMoveInterval)
+        {
+            StartCoroutine(MoveRandomly());
+            lastRandomMoveTime = Time.time;
+        }
+
         
+    }
+
+    IEnumerator MoveRandomly()
+    {
+        Debug.Log("MoveRandomly called");
+        isMovingRandomly = true;
+
+        // Determine the target spot randomly
+        int randomIndex = Random.Range(0, spotsSortedByDistance.Count);
+        HideSpot targetSpot = spotsSortedByDistance[randomIndex].GetComponent<HideSpot>();
+
+        // Check if the target spot is unoccupied and further away from the player
+        if (!IsPositionOccupied(targetSpot) && targetSpot.distanceToTrolley > currentSpot.distanceToTrolley)
+        {
+            // Move to the target spot
+            Debug.Log("Monster Moved Randomly");
+            MoveToSpot(targetSpot);
+        }
+        else
+        {
+            Debug.Log("Monster Not Moved Randomly");
+        }
+
+        // Wait for a short duration before allowing another random move
+        yield return new WaitForSeconds(Random.Range(5f, 10f));
+
+        isMovingRandomly = false;
     }
 
     public void Hide()
     {
-        Debug.Log("Hide Method Called");
+        //Debug.Log("Hide Method Called");
         hiding = true; // causes hiding in FixedUpdate()
 
     }
 
+    void MoveToSpot(HideSpot targetSpot)
+    {
+        currentSpot.makeFree();
+        transform.position = targetSpot.transform.position;
+        transform.localScale = targetSpot.transform.localScale;
+        transform.rotation = targetSpot.transform.rotation;
+        targetSpot.claimSpot(); //set spot's occupied to true
+        currentSpot = targetSpot; // set new current spot for monster
+        hidePos = currentSpot.retreatSpot.transform.position; // set new retreatSpot for monster
+        
+    }
 
 
     void FindNextSpot()
     {
         foreach (GameObject spot in spotsSortedByDistance)
         {
-            Debug.Log("Checking a spot...");
+            
             HideSpot targetSpot = spot.GetComponent<HideSpot>();
 
             // Check if the position is unoccupied
             if (!IsPositionOccupied(targetSpot) && targetSpot.distanceToTrolley < currentSpot.distanceToTrolley)
             {
-                
-                Debug.Log("Unoccupied spot found");
-                // teleport the "monster" GameObject to the unoccupied position
-                Debug.Log("teleporting the \"monster\" GameObject to the unoccupied position");
-                //make current hidespot Free again
-                currentSpot.makeFree();
 
-                transform.position = spot.transform.position;
-                transform.localScale = spot.transform.localScale;
-                transform.rotation = spot.transform.rotation;
-                
-                targetSpot.claimSpot(); //set spot's occupied to true
-                currentSpot = targetSpot; // set new current spot for monster
-                Debug.Log("currentSpot = " + currentSpot.ToString());
-                hidePos = currentSpot.retreatSpot.transform.position; // set new retreatSpot for monster
-                //Debug.Log("Corresponding Retreat Spot = " + currentSpot.retreatSpot.ToString());
+                MoveToSpot(targetSpot);
+                Debug.Log("Monster Moved closer");
                 if (currentSpot.scareSpot == true)
                 {
                     JumpScare();
                 }
                 break; // Exit the loop after finding an unoccupied position
             }
-
            
         }
     }
 
+
+
     public void JumpScare()
     {
-        // on jumpscare, I need: The monster to come up from below, The light to get wider and less intense, the trolley to shake and make noise, the trolley to fall to the ground and crash
+        
         scaring = true; //affects fixedupdate movement
         hiding = true;
 
@@ -192,7 +231,7 @@ public class MonsterBehavior : MonoBehaviour
         foreach (GameObject obj in spotsSortedByDistance)
         {
 
-            Debug.Log("Object Name: " + obj.name + ", Distance to Trolley: " + Vector3.Distance(obj.transform.position, trolleyTransform.position));
+            //Debug.Log("Object Name: " + obj.name + ", Distance to Trolley: " + Vector3.Distance(obj.transform.position, trolleyTransform.position));
         }
 
         return spotsSortedByDistance;
