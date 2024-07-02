@@ -33,6 +33,47 @@ public class InputDetection : MonoBehaviour
                 playerMovement.ToggleSpotlightControl(true);
             }
         }
+
+        // sound testing inputs
+        if (Input.GetKeyDown(KeyCode.Alpha1)) 
+        {
+            FindObjectOfType<AudioManager>().Play("distantHiss");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            FindObjectOfType<AudioManager>().Play("ambientBreath");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            FindObjectOfType<AudioManager>().Play("breathing");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            FindObjectOfType<AudioManager>().Play("Jumpscare");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            FindObjectOfType<AudioManager>().Play("laugh");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            FindObjectOfType<AudioManager>().Play("pitterpatter");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            FindObjectOfType<AudioManager>().Play("pitterpatter2");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            FindObjectOfType<AudioManager>().Play("puhpuhpuh");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            FindObjectOfType<AudioManager>().Play("static");
+        }
     }
 
 

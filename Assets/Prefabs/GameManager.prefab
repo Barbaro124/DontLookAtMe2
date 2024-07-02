@@ -510,6 +510,69 @@ MonoBehaviour:
     priority: 28
     loop: 0
     source: {fileID: 0}
+  - name: distantHiss
+    clip: {fileID: 8300000, guid: 621d847a6e3ed7742b308e1ed79cebd7, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
+  - name: ambientBreath
+    clip: {fileID: 8300000, guid: f2d194da2efd54747ade8a96c74559b3, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
+  - name: breathing
+    clip: {fileID: 8300000, guid: 393119d1d01ce074caca0f556cc4a5ab, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
+  - name: Jumpscare
+    clip: {fileID: 8300000, guid: 7f62983865c1bc74ba6a7c8560e8fb03, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
+  - name: laugh
+    clip: {fileID: 8300000, guid: 0842701cbc056d247a7e39f8977e84f8, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
+  - name: pitterpatter
+    clip: {fileID: 8300000, guid: 964d10a446029244cad3af34b656c7fa, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
+  - name: pitterpatter2
+    clip: {fileID: 8300000, guid: aed91fa34b0c3d34cb6744035e6d3606, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
+  - name: puhpuhpuh
+    clip: {fileID: 8300000, guid: b531cba373f080d4582a7b8b1701c853, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
+  - name: static
+    clip: {fileID: 8300000, guid: 45c5cfb15683bfb49a98f5e366f5aa5a, type: 3}
+    volume: 0.879
+    pitch: 1
+    priority: 28
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &5485369820398739141
 MonoBehaviour:
   m_ObjectHideFlags: 0
