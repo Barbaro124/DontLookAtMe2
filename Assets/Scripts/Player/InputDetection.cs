@@ -18,26 +18,27 @@ public class InputDetection : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (spotlight.GetComponent<Light>().enabled)
-            {
-                spotlight.GetComponent<Light>().enabled = false;
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    if (spotlight.GetComponent<Light>().enabled)
+        //    {
+        //        spotlight.GetComponent<Light>().enabled = false;
 
-                playerMovement.ToggleSpotlightControl(false);
-            }
-            else
-            {
-                spotlight.GetComponent<Light>().enabled = true;
+        //        playerMovement.ToggleSpotlightControl(false);
+        //    }
+        //    else
+        //    {
+        //        spotlight.GetComponent<Light>().enabled = true;
                
-                playerMovement.ToggleSpotlightControl(true);
-            }
-        }
+        //        playerMovement.ToggleSpotlightControl(true);
+        //    }
+        //}
 
         // sound testing inputs
         if (Input.GetKeyDown(KeyCode.Alpha1)) 
         {
             FindObjectOfType<AudioManager>().Play("distantHiss");
+            Debug.Log("Playing distantHiss");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))

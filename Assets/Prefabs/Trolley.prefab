@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 2867050406031508958}
   - component: {fileID: 6606684888961717637}
   - component: {fileID: 8383540751255069061}
+  - component: {fileID: 649750175172791122}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -723,7 +724,7 @@ CharacterController:
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2437254374223681225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,6 +900,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &649750175172791122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477493984015654329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bff232243b07e354da3cc0c6923d3abc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  spotlight: {fileID: 0}
+  button: {fileID: 0}
+  playerAdditions: {fileID: 0}
 --- !u!1 &3649132656652979397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,7 +2821,7 @@ Transform:
   m_GameObject: {fileID: 8058169335152946114}
   serializedVersion: 2
   m_LocalRotation: {x: 0.4999985, y: 0.5000015, z: 0.49999988, w: 0.5000001}
-  m_LocalPosition: {x: 47.915237, y: 18.11534, z: -294.61154}
+  m_LocalPosition: {x: 47.915237, y: 18.1, z: -250}
   m_LocalScale: {x: 46.438156, y: 63.744495, z: 108.83882}
   m_ConstrainProportionsScale: 0
   m_Children: []
