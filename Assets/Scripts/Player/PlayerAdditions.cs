@@ -34,6 +34,12 @@ public class PlayerAdditions : MonoBehaviour
     NextRoomEvent nextRoomEvent = new NextRoomEvent();
     TrolleyExitEvent trolleyExitEvent = new TrolleyExitEvent();
 
+    //"random noises"
+    float timeSinceLastSound = 0f;
+    bool isPlayingSound = false;
+    string[] randomSounds = new string[] { "distantHiss", "ambientBreath", "breathing", "laugh", "pitterpatter", "pitterpatter2", "puhpuhpuh", "static" };
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +52,8 @@ public class PlayerAdditions : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         characterController = player.GetComponent<CharacterController>();
         trolley = FindObjectOfType<Trolley>();
+
+        StartCoroutine(playRandomSounds());
     }
 
     // Update is called once per frame
@@ -224,5 +232,99 @@ public class PlayerAdditions : MonoBehaviour
             //re-enable character movement
             //characterController.enabled = true;
         }
+    }
+
+    IEnumerator playRandomSounds()
+    {
+        //Every minimum of 10 seconds to a maximum of 20 seconds, a sound should be played.
+
+        while (true)
+        {
+            // Wait for 1 second intervals to check the time since the last sound
+            yield return new WaitForSeconds(1f);
+            timeSinceLastSound++;
+
+            // Check if it's time to play a sound based on the intervals
+            if (timeSinceLastSound >= 20)
+            {
+                PlaySound();
+            }
+            else if (timeSinceLastSound >= 19)
+            {
+                if (Random.Range(0f, 1f) <= 0.9f)
+                {
+                    PlaySound();
+                }
+            }
+            else if (timeSinceLastSound >= 18)
+            {
+                if (Random.Range(0f, 1f) <= 0.8f)
+                {
+                    PlaySound();
+                }
+            }
+            else if (timeSinceLastSound >= 17)
+            {
+                if (Random.Range(0f, 1f) <= 0.7f)
+                {
+                    PlaySound();
+                }
+            }
+            else if (timeSinceLastSound >= 16)
+            {
+                if (Random.Range(0f, 1f) <= 0.6f)
+                {
+                    PlaySound();
+                }
+            }
+            else if (timeSinceLastSound >= 15)
+            {
+                if (Random.Range(0f, 1f) <= 0.5f)
+                {
+                    PlaySound();
+                }
+            }
+            else if (timeSinceLastSound >= 14)
+            {
+                if (Random.Range(0f, 1f) <= 0.4f)
+                {
+                    PlaySound();
+                }
+            }
+            else if (timeSinceLastSound >= 13)
+            {
+                if (Random.Range(0f, 1f) <= 0.3f)
+                {
+                    PlaySound();
+                }
+            }
+            else if (timeSinceLastSound >= 12)
+            {
+                if (Random.Range(0f, 1f) <= 0.2f)
+                {
+                    PlaySound();
+                }
+            }
+            else if (timeSinceLastSound >= 11)
+            {
+                if (Random.Range(0f, 1f) <= 0.1f)
+                {
+                    PlaySound();
+                }
+            }
+        }
+
+        //The sound played should be a random choice between "distantHiss, ambientBreath, breathing, laugh, pitterpatter, pitterpatter2, puhpuhpuh, and static"
+    }
+
+    void PlaySound()
+    {
+        //if (randomSounds.Length >0)
+        //{
+        Debug.Log("Random Sound Played");
+        int randomIndex = Random.Range(0, randomSounds.Length);
+        FindObjectOfType<AudioManager>().Play(randomSounds[randomIndex]);
+        timeSinceLastSound = 0f;
+        //}
     }
 }

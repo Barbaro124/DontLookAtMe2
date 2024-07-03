@@ -29,7 +29,7 @@ public class MonsterBehavior : MonoBehaviour
     float randomMoveInterval = 10f;
 
     // the time of the last random movement
-    float lastRandomMoveTime = 0f; 
+    float lastRandomMoveTime = 0f;
 
 
     // Start is called before the first frame update
@@ -45,7 +45,10 @@ public class MonsterBehavior : MonoBehaviour
 
         spotsSortedByDistance = GetSpotsSortedByDistance();
 
-        lastRandomMoveTime = Time.time; 
+        lastRandomMoveTime = Time.time;
+
+
+
     }
 
 
@@ -91,8 +94,6 @@ public class MonsterBehavior : MonoBehaviour
             StartCoroutine(MoveRandomly());
             lastRandomMoveTime = Time.time;
         }
-
-        
     }
 
     IEnumerator MoveRandomly()
@@ -236,4 +237,6 @@ public class MonsterBehavior : MonoBehaviour
 
         return spotsSortedByDistance;
     }
+
+   
 }
