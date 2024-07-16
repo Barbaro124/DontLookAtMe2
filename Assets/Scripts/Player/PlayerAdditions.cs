@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerAdditions : MonoBehaviour
@@ -53,7 +54,11 @@ public class PlayerAdditions : MonoBehaviour
         characterController = player.GetComponent<CharacterController>();
         trolley = FindObjectOfType<Trolley>();
 
-        StartCoroutine(playRandomSounds());
+        if (SceneManager.GetActiveScene().name != "Chamber_0")
+        {
+            StartCoroutine(playRandomSounds());
+        }
+        
     }
 
     // Update is called once per frame
@@ -319,12 +324,9 @@ public class PlayerAdditions : MonoBehaviour
 
     void PlaySound()
     {
-        //if (randomSounds.Length >0)
-        //{
         Debug.Log("Random Sound Played");
         int randomIndex = Random.Range(0, randomSounds.Length);
         FindObjectOfType<AudioManager>().Play(randomSounds[randomIndex]);
         timeSinceLastSound = 0f;
-        //}
     }
 }

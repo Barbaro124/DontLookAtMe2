@@ -35,6 +35,7 @@ public class MyManager : MonoBehaviour
         Chamber_1,
         Chamber_2,
         Chamber_3,
+        Chamber_4,
         Instructions,
         GameOver
     }
@@ -175,6 +176,11 @@ public class MyManager : MonoBehaviour
     {
         SceneManager.LoadScene("Chamber_3");
     }
+
+    public void Chamber_4()
+    {
+        SceneManager.LoadScene("Chamber_4");
+    }
     public void MainMenu()
     {
         //OnSceneChange();
@@ -209,6 +215,10 @@ public class MyManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Chamber_0")
         {
+            SceneManager.LoadScene("Chamber_4");
+        }
+        if (SceneManager.GetActiveScene().name == "Chamber_4")
+        {
             SceneManager.LoadScene("Chamber_1");
         }
         if (SceneManager.GetActiveScene().name == "Chamber_1")
@@ -241,7 +251,7 @@ public class MyManager : MonoBehaviour
         cursorControlScript.setCursor();
         
         //gameplay chambers, event listeners
-        if (chamber == 1|| chamber == 2 || chamber == 3 || chamber == 4)
+        if (chamber == 1|| chamber == 2 || chamber == 3 || chamber == 4 || chamber == 5)
         {
           //  screenFader.Enable();
             screenFader.FadeInCommand();

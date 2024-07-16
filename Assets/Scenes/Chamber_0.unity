@@ -353,6 +353,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6375356783245960339, guid: 72301b03c2ceb994ab37dac0d9443ca5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3091,10 +3096,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000003398478
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499007924890902437, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00000056078477
+      objectReference: {fileID: 0}
     - target: {fileID: 7475105683732974720, guid: 3225d628cc360fb45acdeace671c6c0f,
         type: 3}
       propertyPath: m_Name
       value: Trolley
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0000003398478
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489624252844937572, guid: 3225d628cc360fb45acdeace671c6c0f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00000056078477
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
