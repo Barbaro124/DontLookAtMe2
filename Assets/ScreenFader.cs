@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class ScreenFader : MonoBehaviour
 {
-    public float fadeDuration = 0.5f; // Duration of the fade effect in seconds
+    public float fadeDuration = 0.7f; // Duration of the fade effect in seconds
     private Image image;
 
     bool fadeInRunning = false;
