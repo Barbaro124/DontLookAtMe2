@@ -249,6 +249,14 @@ public class MyManager : MonoBehaviour
     {
 
         cursorControlScript.setCursor();
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            if (FindObjectOfType<AudioManager>().isPlaying("TitleTheme") != true)
+            {
+                FindObjectOfType<AudioManager>().Play("TitleTheme");
+            }
+        }
         
         //gameplay chambers, event listeners
         if (chamber == 1|| chamber == 2 || chamber == 3 || chamber == 4 || chamber == 5)
@@ -274,6 +282,7 @@ public class MyManager : MonoBehaviour
             playerScript.AddNextRoomEventListener(NextRoom);
 
             FindObjectOfType<AudioManager>().Play("Ambient");
+            FindObjectOfType<AudioManager>().Stop("TitleMusic");
 
             if (chamber != 1)
             {

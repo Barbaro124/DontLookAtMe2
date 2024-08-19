@@ -573,6 +573,13 @@ MonoBehaviour:
     priority: 28
     loop: 0
     source: {fileID: 0}
+  - name: TitleMusic
+    clip: {fileID: 8300000, guid: 5986b50932782ab4698d90d816e306b5, type: 3}
+    volume: 0.691
+    pitch: 1
+    priority: 28
+    loop: 1
+    source: {fileID: 0}
 --- !u!114 &5485369820398739141
 MonoBehaviour:
   m_ObjectHideFlags: 0
