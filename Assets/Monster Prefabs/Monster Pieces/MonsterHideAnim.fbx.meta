@@ -38,7 +38,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Monster|rigAction
+      name: Hide
       takeName: Monster|rigAction
       internalID: -1827986192828694418
       firstFrame: 0
