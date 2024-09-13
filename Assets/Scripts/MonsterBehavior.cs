@@ -66,8 +66,8 @@ public class MonsterBehavior : MonoBehaviour
             animator.SetBool("isSeen", false); // Stop hide animation
         }
 
-        if (hiding || scaring)
-        {
+        //if (hiding || scaring)
+        //{
             
             //Vector3 direction = (hidePos - transform.position).normalized;
             //Vector3 targetVelocity = direction * moveSpeed;
@@ -83,24 +83,24 @@ public class MonsterBehavior : MonoBehaviour
             
 
             // Check if the monster has reached or passed the target position
-            if (Vector3.Distance(transform.position, hidePos) <= 1f)
-            {
-                rb.velocity = Vector3.zero; // Stop
-                transform.position = hidePos;
-                if(!scaring)
-                {
-                    FindNextSpot();// teleport to next spot
-                }
+            //if (Vector3.Distance(transform.position, hidePos) <= 1f)
+            //{
+            //    rb.velocity = Vector3.zero; // Stop
+            //    transform.position = hidePos;
+            //    if(!scaring)
+            //    {
+            //        FindNextSpot();// teleport to next spot
+            //    }
 
-                hiding = false;
-                //scaring = false; enabling this makes the monster not move for some reason
-                if (scaring)
-                {
-                    ChangeLight();
-                }
+            //    hiding = false;
+            //    //scaring = false; enabling this makes the monster not move for some reason
+            //    if (scaring)
+            //    {
+            //        ChangeLight();
+            //    }
 
-            }
-        }
+            //}
+        //}
 
         if (!isMovingRandomly && Time.time - lastRandomMoveTime >= randomMoveInterval)
         {
@@ -134,6 +134,21 @@ public class MonsterBehavior : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(5f, 10f));
 
         isMovingRandomly = false;
+    }
+
+    public void OnHidingAnimationEnd()
+    {
+        if (!scaring)
+        {
+            FindNextSpot();// teleport to next spot
+        }
+
+        hiding = false;
+
+        if (scaring)
+        {
+            ChangeLight();
+        }
     }
 
     public void Hide()
