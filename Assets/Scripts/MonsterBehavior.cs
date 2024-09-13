@@ -31,6 +31,7 @@ public class MonsterBehavior : MonoBehaviour
     // the time of the last random movement
     float lastRandomMoveTime = 0f;
 
+    private Animator animator; // Reference to the Animator
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class MonsterBehavior : MonoBehaviour
 
         lastRandomMoveTime = Time.time;
 
-
+        animator = GetComponentInChildren<Animator>();
 
     }
 
@@ -55,19 +56,31 @@ public class MonsterBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (hiding)
+        {
+            animator.SetBool("isSeen", true);  // Play hide animation
+        }
+        else
+        {
+            animator.SetBool("isSeen", false); // Stop hide animation
+        }
+
         if (hiding || scaring)
         {
             
-            Vector3 direction = (hidePos - transform.position).normalized;
-            Vector3 targetVelocity = direction * moveSpeed;
+            //Vector3 direction = (hidePos - transform.position).normalized;
+            //Vector3 targetVelocity = direction * moveSpeed;
 
-            // Calculate the velocity change needed
-            Vector3 velocityChange = targetVelocity - rb.velocity;
+            //// Calculate the velocity change needed
+            //Vector3 velocityChange = targetVelocity - rb.velocity;
 
-            Vector3 movementVector = transform.position + velocityChange * Time.deltaTime * 3;
-            // Move the rigidbody using MovePosition
-            rb.MovePosition(movementVector);
+            //Vector3 movementVector = transform.position + velocityChange * Time.deltaTime * 3;
+            //// Move the rigidbody using MovePosition
+            //rb.MovePosition(movementVector);
             //Debug.Log("code to move the monster called");
+
+            
 
             // Check if the monster has reached or passed the target position
             if (Vector3.Distance(transform.position, hidePos) <= 1f)
@@ -125,6 +138,9 @@ public class MonsterBehavior : MonoBehaviour
 
     public void Hide()
     {
+        // Set the 'isSeen' parameter to true to play the hide animation
+        //animator.SetBool("isSeen", true);
+
         //Debug.Log("Hide Method Called");
         hiding = true; // causes hiding in FixedUpdate()
 
