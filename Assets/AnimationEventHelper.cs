@@ -7,6 +7,6 @@ public class AnimationEventHelper : MonoBehaviour
     public void OnHidingAnimationEnd()
     {
         // Send a message up to the parent object
-        SendMessageUpwards("OnHidingAnimationEnd");
+        SendMessageUpwards("OnHidingAnimationEnd", SendMessageOptions.DontRequireReceiver);
     }
 }
