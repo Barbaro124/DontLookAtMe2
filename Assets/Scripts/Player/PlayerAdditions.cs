@@ -37,7 +37,7 @@ public class PlayerAdditions : MonoBehaviour
 
     //"random noises"
     float timeSinceLastSound = 0f;
-    bool isPlayingSound = false;
+    //bool isPlayingSound = false;
     string[] randomSounds = new string[] { "distantHiss", "ambientBreath", "breathing", "laugh", "pitterpatter", "pitterpatter2", "puhpuhpuh", "static" };
 
 

@@ -136,7 +136,7 @@ public class MonsterBehavior : MonoBehaviour
         isMovingRandomly = false;
     }
 
-    public void OnHidingAnimationEnd()
+    public void HandleHidingAnimationEnd()
     {
         if (!scaring)
         {
