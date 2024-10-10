@@ -34,6 +34,8 @@ TagManager:
   - RightLimit
   - BlackImage
   - UniqueMonster
+  - ScareMonster
+  - ScareLight
   layers:
   - Default
   - TransparentFX

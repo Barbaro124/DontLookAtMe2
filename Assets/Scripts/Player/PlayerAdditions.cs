@@ -40,6 +40,8 @@ public class PlayerAdditions : MonoBehaviour
     //bool isPlayingSound = false;
     string[] randomSounds = new string[] { "distantHiss", "ambientBreath", "breathing", "laugh", "pitterpatter", "pitterpatter2", "puhpuhpuh", "static" };
 
+    
+
 
     // Start is called before the first frame update
     void Start()

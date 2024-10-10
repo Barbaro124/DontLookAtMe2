@@ -33,6 +33,8 @@ public class MonsterBehavior : MonoBehaviour
 
     private Animator animator; // Reference to the Animator
 
+    public string scarePrefabTag = "ScareMonster";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,8 @@ public class MonsterBehavior : MonoBehaviour
         lastRandomMoveTime = Time.time;
 
         animator = GetComponentInChildren<Animator>();
+
+        
 
     }
 
@@ -94,10 +98,10 @@ public class MonsterBehavior : MonoBehaviour
 
             //    hiding = false;
             //    //scaring = false; enabling this makes the monster not move for some reason
-            //    if (scaring)
-            //    {
-            //        ChangeLight();
-            //    }
+                //if (scaring)
+                //{
+                //    ChangeLight();
+                //}
 
             //}
         //}
@@ -201,16 +205,48 @@ public class MonsterBehavior : MonoBehaviour
 
     public void JumpScare()
     {
-        
+        Debug.Log("Jumpscaring");
         scaring = true; //affects fixedupdate movement
         hiding = true;
 
-        //done instead of an event:
-        Trolley trolley = GameObject.FindGameObjectWithTag("Trolley").GetComponent<Trolley>();
-        trolley.JumpScare();
-        FindObjectOfType<AudioManager>().Stop("Ambient");
-        FindObjectOfType<AudioManager>().Stop("ticktock");
-        FindObjectOfType<AudioManager>().Play("monsterScream");
+
+        // Instantiate the scare prefab at the monster's current position and rotation
+        GameObject scarePrefab = GameObject.FindWithTag(scarePrefabTag);
+
+        if ( scarePrefab != null )
+        {
+            // Get the current position and rotation of the monster
+            Vector3 monsterPosition = transform.position;
+            Quaternion monsterRotation = transform.rotation;
+
+            // Deactivate the current monster (instead of destroying it)
+            gameObject.SetActive(false);
+
+            // Instantiate the scare prefab at the monster's current position and rotation
+            Instantiate(scarePrefab, monsterPosition, monsterRotation);
+
+            // Call additional functions to trigger other scare effects or events
+            Trolley trolley = GameObject.FindGameObjectWithTag("Trolley").GetComponent<Trolley>();
+            if (trolley != null)
+            {
+                //done instead of an event:
+                trolley.JumpScare();
+                FindObjectOfType<AudioManager>().Stop("Ambient");
+                FindObjectOfType<AudioManager>().Stop("ticktock");
+                FindObjectOfType<AudioManager>().Play("monsterScream");
+            }
+        }
+        else
+        {
+            Debug.LogError("Scare prefab with tag '" + scarePrefabTag + "' not found in the scene!");
+        }
+    
+
+
+
+        // Destroy or deactivate the current monster (or disable components if necessary)
+        gameObject.SetActive(false);
+
 
     }
 
