@@ -13,11 +13,6 @@ public class UniqueMonster : MonoBehaviour
         monsterTransform = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void DissapearDelay(float delayTime)
     {

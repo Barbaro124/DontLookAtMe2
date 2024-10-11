@@ -64,6 +64,14 @@ public class MyManager : MonoBehaviour
         itemsFound = 0;
 
         subtitles = GetComponentInChildren<TextMeshProUGUI>();
+
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            if (FindObjectOfType<AudioManager>().isPlaying("TitleMusic") != true)
+            {
+                FindObjectOfType<AudioManager>().Play("TitleMusic");
+            }
+        }
     }
     void Update()
     {
@@ -252,16 +260,21 @@ public class MyManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            if (FindObjectOfType<AudioManager>().isPlaying("TitleTheme") != true)
+            if (FindObjectOfType<AudioManager>().isPlaying("TitleMusic") != true)
             {
-                FindObjectOfType<AudioManager>().Play("TitleTheme");
+                FindObjectOfType<AudioManager>().Play("TitleMusic");
             }
         }
         
         //gameplay chambers, event listeners
         if (chamber == 1|| chamber == 2 || chamber == 3 || chamber == 4 || chamber == 5)
         {
-          //  screenFader.Enable();
+
+            if (FindObjectOfType<AudioManager>().isPlaying("TitleMusic") == true)
+            {
+                FindObjectOfType<AudioManager>().Stop("TitleMusic");
+            }
+            //  screenFader.Enable();
             screenFader.FadeInCommand();
             itemsFound = 0;
 
@@ -292,10 +305,19 @@ public class MyManager : MonoBehaviour
         }
         else
         {
+            if (FindObjectOfType<AudioManager>().isPlaying("Ambient") == true)
+            {
+                FindObjectOfType<AudioManager>().Stop("Ambient");
+            }
+            if (FindObjectOfType<AudioManager>().isPlaying("Train") == true)
+            {
+                FindObjectOfType<AudioManager>().Stop("Train");
+            }
+            if (FindObjectOfType<AudioManager>().isPlaying("welcomespeech") == true)
+            {
+                FindObjectOfType<AudioManager>().Stop("welcomespeech");
+            }
             
-            FindObjectOfType<AudioManager>().Stop("Ambient");
-            FindObjectOfType<AudioManager>().Stop("Train");
-            FindObjectOfType<AudioManager>().Stop("welcomespeech");
         }
     }
 

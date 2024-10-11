@@ -208,6 +208,10 @@ public class SpotlightControl : MonoBehaviour
             }
         }
 
+        if (target.CompareTag("UniqueMonster"))
+        {
+            target.GetComponent<UniqueMonster>().DissapearDelay(2f);
+        }
     }
 
     void OnRaycastExit(GameObject target)
@@ -238,10 +242,7 @@ public class SpotlightControl : MonoBehaviour
             
         }
 
-        if (target.CompareTag("UniqueMonster"))
-        {
-            target.GetComponent<UniqueMonster>().DissapearDelay(2f);
-        }
+
 
     }
 

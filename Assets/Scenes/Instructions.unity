@@ -675,27 +675,20 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    Use WASD to move.
-
-    Press E to interact.
 
 
 
-    Use the Spotlight
-    to find and charge the three switches in each chamber.
+
+    Dark Lamb Studios
 
 
-    Once you''ve found
-    all three, Press the button at the front of the tram car to move onwards.
+    Design and Programming by Christian
+    Ruiz
 
+    Models, Environments, and Animations by Noah Bello
 
-    Created
-    by Christian Ruiz
-
-    Models and Environments by Noah Bello
-
-    Concept Art
-    by Jonathan Zalewski'
+    Art by Kai
+    Garcia-Curran'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
