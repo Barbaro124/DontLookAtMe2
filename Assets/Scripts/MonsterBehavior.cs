@@ -115,7 +115,7 @@ public class MonsterBehavior : MonoBehaviour
 
     IEnumerator MoveRandomly()
     {
-        Debug.Log("MoveRandomly called");
+        //Debug.Log("MoveRandomly called");
         isMovingRandomly = true;
 
         // Determine the target spot randomly
@@ -126,12 +126,12 @@ public class MonsterBehavior : MonoBehaviour
         if (!IsPositionOccupied(targetSpot) && targetSpot.distanceToTrolley > currentSpot.distanceToTrolley)
         {
             // Move to the target spot
-            Debug.Log("Monster Moved Randomly");
+            //Debug.Log("Monster Moved Randomly");
             MoveToSpot(targetSpot);
         }
         else
         {
-            Debug.Log("Monster Not Moved Randomly");
+            //Debug.Log("Monster Not Moved Randomly");
         }
 
         // Wait for a short duration before allowing another random move
@@ -185,14 +185,19 @@ public class MonsterBehavior : MonoBehaviour
             
             HideSpot targetSpot = spot.GetComponent<HideSpot>();
 
-            // Check if the position is unoccupied
+            Debug.Log("Checking Spot: " + targetSpot.name + ", ScareSpot: " + targetSpot.scareSpot);
+
+            // Check if the position is unoccupied and closer to the trolley
             if (!IsPositionOccupied(targetSpot) && targetSpot.distanceToTrolley < currentSpot.distanceToTrolley)
             {
 
                 MoveToSpot(targetSpot);
                 Debug.Log("Monster Moved closer");
-                if (currentSpot.scareSpot == true)
+
+
+                if (targetSpot.scareSpot == true)
                 {
+                    Debug.Log("Monster Moved to ScareSpot");
                     JumpScare();
                 }
                 break; // Exit the loop after finding an unoccupied position
@@ -219,8 +224,6 @@ public class MonsterBehavior : MonoBehaviour
             Vector3 monsterPosition = transform.position;
             Quaternion monsterRotation = transform.rotation;
 
-            // Deactivate the current monster (instead of destroying it)
-            gameObject.SetActive(false);
 
             // Instantiate the scare prefab at the monster's current position and rotation
             Instantiate(scarePrefab, monsterPosition, monsterRotation);
@@ -240,14 +243,16 @@ public class MonsterBehavior : MonoBehaviour
         {
             Debug.LogError("Scare prefab with tag '" + scarePrefabTag + "' not found in the scene!");
         }
-    
+
+        StartCoroutine(DelayedDeactivate(2f));
 
 
+    }
 
-        // Destroy or deactivate the current monster (or disable components if necessary)
+    IEnumerator DelayedDeactivate(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         gameObject.SetActive(false);
-
-
     }
 
     void ChangeLight()

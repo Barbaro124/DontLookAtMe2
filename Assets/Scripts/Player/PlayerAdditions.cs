@@ -212,7 +212,7 @@ public class PlayerAdditions : MonoBehaviour
 
     void PressButton()
     { 
-        Debug.Log("Button Pressed");
+        //Debug.Log("Button Pressed");
         trolleyExitEvent.Invoke();
     }
 
@@ -326,7 +326,7 @@ public class PlayerAdditions : MonoBehaviour
 
     void PlaySound()
     {
-        Debug.Log("Random Sound Played");
+        //Debug.Log("Random Sound Played");
         int randomIndex = Random.Range(0, randomSounds.Length);
         FindObjectOfType<AudioManager>().Play(randomSounds[randomIndex]);
         timeSinceLastSound = 0f;

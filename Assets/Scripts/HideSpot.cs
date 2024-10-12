@@ -35,7 +35,7 @@ public class HideSpot : MonoBehaviour
         if (!occupied)
         {
             occupied = true;
-            Debug.Log("A spot was claimed as occupied");
+            //Debug.Log("A spot was claimed as occupied");
         }
     }
 

@@ -40,21 +40,21 @@ public class CursorControl : MonoBehaviour
 
     public void setCursor()
     {
-        Debug.Log("setCursor method called");
+        //Debug.Log("setCursor method called");
         // Check if the current scene is in the scenesToControlCursor array
         if (IsSceneInArray(SceneManager.GetActiveScene().name))
         {
             // Hide and lock the cursor by default
             if (PauseMenu.isPaused == false)
             {
-                Debug.Log("Cursor Locked, not paused");
+                //Debug.Log("Cursor Locked, not paused");
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
             }
             else
             {
                 // Show and unlock the cursor
-                Debug.Log("Cursor Unlocked, paused");
+                //Debug.Log("Cursor Unlocked, paused");
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
