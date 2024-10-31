@@ -223,10 +223,11 @@ public class MonsterBehavior : MonoBehaviour
             // Get the current position and rotation of the monster
             Vector3 monsterPosition = transform.position;
             Quaternion monsterRotation = transform.rotation;
-            
+
 
 
             // Instantiate the scare prefab at the monster's current position and rotation
+            //Debug.Log("Clone Created");
             Instantiate(scarePrefab, monsterPosition, monsterRotation, ScareSpot.transform);
 
             // Call additional functions to trigger other scare effects or events
