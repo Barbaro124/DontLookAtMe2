@@ -33,7 +33,7 @@ public class MonsterBehavior : MonoBehaviour
 
     private Animator animator; // Reference to the Animator
 
-    public string scarePrefabTag = "ScareMonster";
+    private string scarePrefabTag = "ScareMonster";
 
     // Start is called before the first frame update
     void Start()
@@ -185,7 +185,7 @@ public class MonsterBehavior : MonoBehaviour
             
             HideSpot targetSpot = spot.GetComponent<HideSpot>();
 
-            Debug.Log("Checking Spot: " + targetSpot.name + ", ScareSpot: " + targetSpot.scareSpot);
+            //Debug.Log("Checking Spot: " + targetSpot.name + ", ScareSpot: " + targetSpot.scareSpot);
 
             // Check if the position is unoccupied and closer to the trolley
             if (!IsPositionOccupied(targetSpot) && targetSpot.distanceToTrolley < currentSpot.distanceToTrolley)
@@ -198,7 +198,7 @@ public class MonsterBehavior : MonoBehaviour
                 if (targetSpot.scareSpot == true)
                 {
                     Debug.Log("Monster Moved to ScareSpot");
-                    JumpScare();
+                    JumpScare(targetSpot);
                 }
                 break; // Exit the loop after finding an unoccupied position
             }
@@ -208,7 +208,7 @@ public class MonsterBehavior : MonoBehaviour
 
 
 
-    public void JumpScare()
+    public void JumpScare(HideSpot ScareSpot)
     {
         Debug.Log("Jumpscaring");
         scaring = true; //affects fixedupdate movement
@@ -223,10 +223,11 @@ public class MonsterBehavior : MonoBehaviour
             // Get the current position and rotation of the monster
             Vector3 monsterPosition = transform.position;
             Quaternion monsterRotation = transform.rotation;
+            
 
 
             // Instantiate the scare prefab at the monster's current position and rotation
-            Instantiate(scarePrefab, monsterPosition, monsterRotation);
+            Instantiate(scarePrefab, monsterPosition, monsterRotation, ScareSpot.transform);
 
             // Call additional functions to trigger other scare effects or events
             Trolley trolley = GameObject.FindGameObjectWithTag("Trolley").GetComponent<Trolley>();
@@ -236,7 +237,7 @@ public class MonsterBehavior : MonoBehaviour
                 trolley.JumpScare();
                 FindObjectOfType<AudioManager>().Stop("Ambient");
                 FindObjectOfType<AudioManager>().Stop("ticktock");
-                FindObjectOfType<AudioManager>().Play("monsterScream");
+                FindObjectOfType<AudioManager>().Play("Jumpscare");
             }
         }
         else
@@ -245,14 +246,14 @@ public class MonsterBehavior : MonoBehaviour
         }
 
         StartCoroutine(DelayedDeactivate(2f));
-
+        gameObject.SetActive(false);
 
     }
 
     IEnumerator DelayedDeactivate(float delay)
     {
         yield return new WaitForSeconds(delay);
-        gameObject.SetActive(false);
+        
     }
 
     void ChangeLight()
