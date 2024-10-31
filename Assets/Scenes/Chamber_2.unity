@@ -2507,32 +2507,32 @@ PrefabInstance:
     - target: {fileID: 2985961017466938457, guid: f77abe763d4dc264e833f067e120fb15,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 17.879
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2985961017466938457, guid: f77abe763d4dc264e833f067e120fb15,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 17.879
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2985961017466938457, guid: f77abe763d4dc264e833f067e120fb15,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 17.879
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2985961017466938457, guid: f77abe763d4dc264e833f067e120fb15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 963
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2985961017466938457, guid: f77abe763d4dc264e833f067e120fb15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1405
+      value: -36.3
       objectReference: {fileID: 0}
     - target: {fileID: 2985961017466938457, guid: f77abe763d4dc264e833f067e120fb15,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42
+      value: -12.1
       objectReference: {fileID: 0}
     - target: {fileID: 2985961017466938457, guid: f77abe763d4dc264e833f067e120fb15,
         type: 3}
@@ -2568,6 +2568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985961017466938457, guid: f77abe763d4dc264e833f067e120fb15,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6093521915331213477, guid: f77abe763d4dc264e833f067e120fb15,
         type: 3}
@@ -5417,32 +5422,32 @@ PrefabInstance:
     - target: {fileID: 3724110188405367933, guid: ca7fff1894c93ba4e8435de37d6efa40,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 17.879
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 3724110188405367933, guid: ca7fff1894c93ba4e8435de37d6efa40,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 17.879
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 3724110188405367933, guid: ca7fff1894c93ba4e8435de37d6efa40,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 17.879
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 3724110188405367933, guid: ca7fff1894c93ba4e8435de37d6efa40,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 963
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3724110188405367933, guid: ca7fff1894c93ba4e8435de37d6efa40,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1440
+      value: 32.4
       objectReference: {fileID: 0}
     - target: {fileID: 3724110188405367933, guid: ca7fff1894c93ba4e8435de37d6efa40,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42
+      value: -12.1
       objectReference: {fileID: 0}
     - target: {fileID: 3724110188405367933, guid: ca7fff1894c93ba4e8435de37d6efa40,
         type: 3}
@@ -5478,11 +5483,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3724110188405367933, guid: ca7fff1894c93ba4e8435de37d6efa40,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6303,7 +6303,7 @@ PrefabInstance:
     - target: {fileID: 6375356783245960339, guid: 72301b03c2ceb994ab37dac0d9443ca5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10329,7 +10329,6 @@ SceneRoots:
   - {fileID: 601099614}
   - {fileID: 1480137789}
   - {fileID: 1643386650}
-  - {fileID: 854129395}
   - {fileID: 501322637}
   - {fileID: 104370156}
   - {fileID: 1801235860}
@@ -10340,3 +10339,4 @@ SceneRoots:
   - {fileID: 93863378}
   - {fileID: 706287086}
   - {fileID: 13223711}
+  - {fileID: 854129395}
